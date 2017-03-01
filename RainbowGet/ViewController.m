@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "WordBoardViewController.h"
 
 @interface ViewController ()
 
@@ -17,12 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self enter:nil];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)enter:(id)sender {
+    WordBoardViewController* vc = [[WordBoardViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

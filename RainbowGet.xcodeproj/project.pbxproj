@@ -15,6 +15,11 @@
 		8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */; };
 		8CF8CD5F1E66560B00A50AE3 /* RainbowGetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */; };
 		8CF8CD6A1E66560B00A50AE3 /* RainbowGetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */; };
+		8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */; };
+		8CF8CD7B1E66575100A50AE3 /* WordBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */; };
+		8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD821E665B7F00A50AE3 /* BoardCell.m */; };
+		8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */; };
+		8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD871E66645800A50AE3 /* WordModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,14 @@
 		8CF8CD651E66560B00A50AE3 /* RainbowGetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowGetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainbowGetUITests.m; sourceTree = "<group>"; };
 		8CF8CD6B1E66560B00A50AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordBoardViewController.h; sourceTree = "<group>"; };
+		8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordBoardViewController.m; sourceTree = "<group>"; };
+		8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordBoardViewController.xib; sourceTree = "<group>"; };
+		8CF8CD811E665B7F00A50AE3 /* BoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardCell.h; sourceTree = "<group>"; };
+		8CF8CD821E665B7F00A50AE3 /* BoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardCell.m; sourceTree = "<group>"; };
+		8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardCell.xib; sourceTree = "<group>"; };
+		8CF8CD861E66645800A50AE3 /* WordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordModel.h; sourceTree = "<group>"; };
+		8CF8CD871E66645800A50AE3 /* WordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +119,14 @@
 				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
 				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
 				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
+				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
+				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
+				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
+				8CF8CD811E665B7F00A50AE3 /* BoardCell.h */,
+				8CF8CD821E665B7F00A50AE3 /* BoardCell.m */,
+				8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */,
+				8CF8CD861E66645800A50AE3 /* WordModel.h */,
+				8CF8CD871E66645800A50AE3 /* WordModel.m */,
 				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
 				8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */,
 				8CF8CD551E66560B00A50AE3 /* Info.plist */,
@@ -252,6 +273,8 @@
 				8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */,
 				8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */,
 				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
+				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
+				8CF8CD7B1E66575100A50AE3 /* WordBoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,8 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */,
+				8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */,
 				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,
 				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,
+				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
+				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -415,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
