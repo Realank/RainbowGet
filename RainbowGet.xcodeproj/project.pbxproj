@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8CF8CD461E66560B00A50AE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD451E66560B00A50AE3 /* main.m */; };
+		8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD481E66560B00A50AE3 /* AppDelegate.m */; };
+		8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD4B1E66560B00A50AE3 /* ViewController.m */; };
+		8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */; };
+		8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD501E66560B00A50AE3 /* Assets.xcassets */; };
+		8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */; };
+		8CF8CD5F1E66560B00A50AE3 /* RainbowGetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */; };
+		8CF8CD6A1E66560B00A50AE3 /* RainbowGetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8CF8CD5B1E66560B00A50AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CF8CD391E66560B00A50AE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CF8CD401E66560B00A50AE3;
+			remoteInfo = RainbowGet;
+		};
+		8CF8CD661E66560B00A50AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CF8CD391E66560B00A50AE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CF8CD401E66560B00A50AE3;
+			remoteInfo = RainbowGet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8CF8CD411E66560B00A50AE3 /* RainbowGet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF8CD451E66560B00A50AE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8CF8CD471E66560B00A50AE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8CF8CD481E66560B00A50AE3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8CF8CD4A1E66560B00A50AE3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8CF8CD4B1E66560B00A50AE3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8CF8CD4E1E66560B00A50AE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8CF8CD501E66560B00A50AE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CF8CD531E66560B00A50AE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8CF8CD551E66560B00A50AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CF8CD5A1E66560B00A50AE3 /* RainbowGetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowGetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainbowGetTests.m; sourceTree = "<group>"; };
+		8CF8CD601E66560B00A50AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CF8CD651E66560B00A50AE3 /* RainbowGetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowGetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainbowGetUITests.m; sourceTree = "<group>"; };
+		8CF8CD6B1E66560B00A50AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8CF8CD3E1E66560B00A50AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CF8CD571E66560B00A50AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CF8CD621E66560B00A50AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8CF8CD381E66560B00A50AE3 = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD431E66560B00A50AE3 /* RainbowGet */,
+				8CF8CD5D1E66560B00A50AE3 /* RainbowGetTests */,
+				8CF8CD681E66560B00A50AE3 /* RainbowGetUITests */,
+				8CF8CD421E66560B00A50AE3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8CF8CD421E66560B00A50AE3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD411E66560B00A50AE3 /* RainbowGet.app */,
+				8CF8CD5A1E66560B00A50AE3 /* RainbowGetTests.xctest */,
+				8CF8CD651E66560B00A50AE3 /* RainbowGetUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CF8CD431E66560B00A50AE3 /* RainbowGet */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD471E66560B00A50AE3 /* AppDelegate.h */,
+				8CF8CD481E66560B00A50AE3 /* AppDelegate.m */,
+				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
+				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
+				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
+				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
+				8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */,
+				8CF8CD551E66560B00A50AE3 /* Info.plist */,
+				8CF8CD441E66560B00A50AE3 /* Supporting Files */,
+			);
+			path = RainbowGet;
+			sourceTree = "<group>";
+		};
+		8CF8CD441E66560B00A50AE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD451E66560B00A50AE3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CF8CD5D1E66560B00A50AE3 /* RainbowGetTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */,
+				8CF8CD601E66560B00A50AE3 /* Info.plist */,
+			);
+			path = RainbowGetTests;
+			sourceTree = "<group>";
+		};
+		8CF8CD681E66560B00A50AE3 /* RainbowGetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */,
+				8CF8CD6B1E66560B00A50AE3 /* Info.plist */,
+			);
+			path = RainbowGetUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CF8CD401E66560B00A50AE3 /* RainbowGet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CF8CD6E1E66560B00A50AE3 /* Build configuration list for PBXNativeTarget "RainbowGet" */;
+			buildPhases = (
+				8CF8CD3D1E66560B00A50AE3 /* Sources */,
+				8CF8CD3E1E66560B00A50AE3 /* Frameworks */,
+				8CF8CD3F1E66560B00A50AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RainbowGet;
+			productName = RainbowGet;
+			productReference = 8CF8CD411E66560B00A50AE3 /* RainbowGet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8CF8CD591E66560B00A50AE3 /* RainbowGetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CF8CD711E66560B00A50AE3 /* Build configuration list for PBXNativeTarget "RainbowGetTests" */;
+			buildPhases = (
+				8CF8CD561E66560B00A50AE3 /* Sources */,
+				8CF8CD571E66560B00A50AE3 /* Frameworks */,
+				8CF8CD581E66560B00A50AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CF8CD5C1E66560B00A50AE3 /* PBXTargetDependency */,
+			);
+			name = RainbowGetTests;
+			productName = RainbowGetTests;
+			productReference = 8CF8CD5A1E66560B00A50AE3 /* RainbowGetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8CF8CD641E66560B00A50AE3 /* RainbowGetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CF8CD741E66560B00A50AE3 /* Build configuration list for PBXNativeTarget "RainbowGetUITests" */;
+			buildPhases = (
+				8CF8CD611E66560B00A50AE3 /* Sources */,
+				8CF8CD621E66560B00A50AE3 /* Frameworks */,
+				8CF8CD631E66560B00A50AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CF8CD671E66560B00A50AE3 /* PBXTargetDependency */,
+			);
+			name = RainbowGetUITests;
+			productName = RainbowGetUITests;
+			productReference = 8CF8CD651E66560B00A50AE3 /* RainbowGetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8CF8CD391E66560B00A50AE3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Realank;
+				TargetAttributes = {
+					8CF8CD401E66560B00A50AE3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 275X96KVEB;
+						ProvisioningStyle = Automatic;
+					};
+					8CF8CD591E66560B00A50AE3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 275X96KVEB;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8CF8CD401E66560B00A50AE3;
+					};
+					8CF8CD641E66560B00A50AE3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 275X96KVEB;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8CF8CD401E66560B00A50AE3;
+					};
+				};
+			};
+			buildConfigurationList = 8CF8CD3C1E66560B00A50AE3 /* Build configuration list for PBXProject "RainbowGet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8CF8CD381E66560B00A50AE3;
+			productRefGroup = 8CF8CD421E66560B00A50AE3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CF8CD401E66560B00A50AE3 /* RainbowGet */,
+				8CF8CD591E66560B00A50AE3 /* RainbowGetTests */,
+				8CF8CD641E66560B00A50AE3 /* RainbowGetUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8CF8CD3F1E66560B00A50AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */,
+				8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */,
+				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CF8CD581E66560B00A50AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CF8CD631E66560B00A50AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8CF8CD3D1E66560B00A50AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */,
+				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,
+				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CF8CD561E66560B00A50AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CF8CD5F1E66560B00A50AE3 /* RainbowGetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CF8CD611E66560B00A50AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CF8CD6A1E66560B00A50AE3 /* RainbowGetUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8CF8CD5C1E66560B00A50AE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CF8CD401E66560B00A50AE3 /* RainbowGet */;
+			targetProxy = 8CF8CD5B1E66560B00A50AE3 /* PBXContainerItemProxy */;
+		};
+		8CF8CD671E66560B00A50AE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CF8CD401E66560B00A50AE3 /* RainbowGet */;
+			targetProxy = 8CF8CD661E66560B00A50AE3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CF8CD4E1E66560B00A50AE3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CF8CD531E66560B00A50AE3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8CF8CD6C1E66560B00A50AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8CF8CD6D1E66560B00A50AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8CF8CD6F1E66560B00A50AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 275X96KVEB;
+				INFOPLIST_FILE = RainbowGet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8CF8CD701E66560B00A50AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 275X96KVEB;
+				INFOPLIST_FILE = RainbowGet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8CF8CD721E66560B00A50AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 275X96KVEB;
+				INFOPLIST_FILE = RainbowGetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RainbowGet.app/RainbowGet";
+			};
+			name = Debug;
+		};
+		8CF8CD731E66560B00A50AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 275X96KVEB;
+				INFOPLIST_FILE = RainbowGetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RainbowGet.app/RainbowGet";
+			};
+			name = Release;
+		};
+		8CF8CD751E66560B00A50AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 275X96KVEB;
+				INFOPLIST_FILE = RainbowGetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RainbowGet;
+			};
+			name = Debug;
+		};
+		8CF8CD761E66560B00A50AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 275X96KVEB;
+				INFOPLIST_FILE = RainbowGetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RainbowGet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8CF8CD3C1E66560B00A50AE3 /* Build configuration list for PBXProject "RainbowGet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CF8CD6C1E66560B00A50AE3 /* Debug */,
+				8CF8CD6D1E66560B00A50AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CF8CD6E1E66560B00A50AE3 /* Build configuration list for PBXNativeTarget "RainbowGet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CF8CD6F1E66560B00A50AE3 /* Debug */,
+				8CF8CD701E66560B00A50AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8CF8CD711E66560B00A50AE3 /* Build configuration list for PBXNativeTarget "RainbowGetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CF8CD721E66560B00A50AE3 /* Debug */,
+				8CF8CD731E66560B00A50AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8CF8CD741E66560B00A50AE3 /* Build configuration list for PBXNativeTarget "RainbowGetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CF8CD751E66560B00A50AE3 /* Debug */,
+				8CF8CD761E66560B00A50AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8CF8CD391E66560B00A50AE3 /* Project object */;
+}
