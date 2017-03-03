@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">   
+<head>   
+<title>Rainbow Get</title>   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<meta http-equiv="Content-Language" content="zh-CN" />   
+<meta name="author" content="Realank" />   
+<meta name="Copyright" content="Realank" />   
+<meta name="description" content="Realank" />  
+<!-- <meta http-equiv="refresh" content="10;url=http://realank.com" />   -->
+<meta name="keywords" content="rainbow get"/>  
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />  
+<meta name="viewport" content="width=device-width" />   
+<link rel="stylesheet" href="#" type="text/css" media="handheld, all" />   
+<style type="text/css" media="print, screen">  
+/*<![CDATA[*/ 
+    /* @import url("#"); */ 
+/*]]>*/  
+</style>   
+<link rel="stylesheet" href="/2008/site/css/print" type="text/css" media="print" />   
+<link rel="shortcut icon" href="#.ico" type="image/x-icon" />   
+<script src="./bower_components/vue/dist/vue.js"></script> 
+<script src="./bower_components/vue-resource/dist/vue-resource.js "></script> 
+
+
+</head>  
+<body> 
+
+<div id="showWords">
+	<h1>{{ title }}</h1> 
+	<h3>{{ words }}</h1> 
+	<p>こんにちは</p>
+	<table>
+		<tr v-for="word in words">
+			<th>{{word.japanese}}</th>
+			<th>|</th>
+			<th>{{word.kana}} </th>
+			<th>|</th>
+			<th>{{word.type}} </th>
+			<th>|</th>
+			<th>{{word.chinese}} </th>
+		</tr>
+	</table>
+</div>
+
+<div id="postWords">
+	<h1>{{ title }}</h1> 
+	<table>
+		<tr>
+			<th><input v-model="japanese"></th>
+			<th>|</th>
+			<th><input v-model="kana" v-on:change="kanaChanged()"></th>
+			<th>|</th>
+			<th><input v-model="chinese"></th>
+			<th>|</th>
+			<th>
+			<select v-model="type">
+				<option name="形">形</option>
+				<option name="形动">形动</option>
+			</select>
+			</th>
+			<th>|</th>
+			<th><input v-model="ishiragana"  type="radio" checked="checked"></th>
+			<th>|</th>
+			<th>
+			<select v-model="tone1">
+				<option v-for="num in toneToSelect">{{num}}</option>
+			</select>
+			</th>
+			<th>|</th>
+			<th>
+			<select v-model="tone2">
+				<option v-for="num in toneToSelect">{{num}}</option>
+			</select>
+			</th>
+		</tr>
+		<tr>
+			<th>{{japanese}}</th>
+			<th>|</th>
+			<th>{{kana}} </th>
+			<th>|</th>
+			<th>{{chinese}} </th>
+			<th>|</th>
+			<th>{{type}} </th>
+			
+		</tr>
+	</table>
+
+</div>
+
+<script type="text/javascript">  
+
+var showWords = new Vue({
+	el: '#showWords',
+	data: {
+		title: 'Rainbow Get',
+		words: [],
+		getUrl: 'https://leancloud.cn:443/1.1/classes/Class1?limit=10000&&order=wordid&&'
+	},
+	methods: {
+		getWords: function() {
+			this.$http.get(this.getUrl
+				,{headers: {"X-LC-Id": "kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz","X-LC-Key": "aGRwOxwVWSaBmrPT0xrsek1O"}}
+				).then((response) => {
+				// this.$set('gridData',response);
+				this.words = response.body.results;
+			}).catch(function(response) {
+                console.log(response)
+                // this.gridData = response
+            })
+		}
+	},
+
+})
+
+showWords.getWords()
+
+var postWords = new Vue({
+	el: '#postWords',
+	data: {
+		title: 'New words',
+		japanese: 'dddf',
+		kana: '',
+		chinese: '',
+		type: '',
+		ishiragana: true,
+		tone1: -1,
+		tone2: -1,
+		toneToSelect:[-1,0,1,2,3,4,5,6,7,8,9],
+		postUrl: 'https://leancloud.cn:443/1.1/classes/Class1?limit=10000&&order=wordid&&'
+	},
+	methods: {
+		postWords: function() {
+			this.$http.get(this.getUrl
+				,{headers: {"X-LC-Id": "kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz","X-LC-Key": "aGRwOxwVWSaBmrPT0xrsek1O"}}
+				).then((response) => {
+				
+			}).catch(function(response) {
+                console.log(response)
+            })
+		},
+		kanaChanged: function(){
+		}
+	},
+
+})
+
+Array.prototype.range = function ( start,end ){
+    var _self = this;
+    var length = end - start +1;
+    var step = start - 1;
+    return Array.apply(null,{length:length}).map(function (v,i){step++;return step;});
+}
+
+
+
+</script>  
+</body>  
+</html> 
