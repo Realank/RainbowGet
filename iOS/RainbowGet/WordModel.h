@@ -14,11 +14,14 @@
 @property (nonatomic, strong) NSString* japanese;
 @property (nonatomic, strong) NSString* kana;
 @property (nonatomic, strong) NSString* chinese;
-@property (nonatomic, strong) NSString* type;
-@property (nonatomic, assign) NSInteger tone;
+@property (nonatomic, strong) NSString* type1;
+@property (nonatomic, strong) NSString* type2;
+@property (nonatomic, assign) NSInteger tone1;
+@property (nonatomic, assign) NSInteger tone2;
 @property (nonatomic, assign) BOOL isHiragana;
 
 - (NSString*)toneString;
+- (NSString*)typeString;
 
 + (instancetype)wordWithAVObj:(AVObject*)obj;
 

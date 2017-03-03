@@ -16,6 +16,49 @@
 /*<![CDATA[*/ 
     /* @import url("#"); */ 
 /*]]>*/  
+	body {
+		background-color: #333333;
+		color: #ffffff
+	}
+	h1 {
+	  font-weight: bold;
+	  color: #42b983;
+	  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	}
+
+	h2 {
+	  font-weight: normal;
+	}
+
+	table {
+		width: 80%;
+	}
+
+	th {
+	  font-size: 1.33333333em;
+	  font-weight: normal;
+	  font-family: 'Verdana';
+	  
+	}
+	input, select, button {
+        line-height: 30px;
+	    color: #444444;
+	    font-size: 0.8em;
+	    background-color: #ddeeff;
+	    border-radius: 5px;
+	    margin-left: 20px;
+	}
+
+	button {
+	width: 7em;
+	border-radius: 16px;
+	/*padding: .48em .8em;*/
+/*	text-shadow: rgba(0,0,0,.5) 0px -1px 0px;*/
+	color: #333333;
+	font-size: 0.8em;
+	background-color: #42b983;
+}
+
 </style>   
 <link rel="stylesheet" href="/2008/site/css/print" type="text/css" media="print" />   
 <link rel="shortcut icon" href="#.ico" type="image/x-icon" />   
@@ -28,17 +71,40 @@
 
 <div id="showWords">
 	<h1>{{ title }}</h1> 
-	<h3>{{ words }}</h1> 
-	<p>こんにちは</p>
+	<h2>こんにちは</h2>
 	<table>
+		<tr style="color:#aaaaaa;">
+			<th>日语</th>
+
+			<th>假名</th>
+
+			<th>汉语</th>
+
+			<th>类型1</th>
+
+			<th></th>
+
+			<th>是否平假名</th>
+
+			<th>音调</th>
+			
+		</tr>
 		<tr v-for="word in words">
 			<th>{{word.japanese}}</th>
-			<th>|</th>
+			
 			<th>{{word.kana}} </th>
-			<th>|</th>
-			<th>{{word.type}} </th>
-			<th>|</th>
+			
 			<th>{{word.chinese}} </th>
+			
+			<th>{{word.type1}} </th>
+
+			<th><div v-if="word.tone1>=0">{{word.type2}} </div></th>
+			
+			<th>{{word.ishiragana}} </th>
+			
+			<th><div v-if="word.tone1>=0">{{word.tone1}} </div></th>
+			
+			<th><div v-if="word.tone2>=0">{{word.tone2}} </div></th>
 		</tr>
 	</table>
 </div>
@@ -47,46 +113,85 @@
 	<h1>{{ title }}</h1> 
 	<table>
 		<tr>
+			<th>日语</th>
+			
+			<th>假名</th>
+			
+			<th>汉语</th>
+			
+			<th>类型1</th>
+
+			<th>类型2</th>
+			
+			<th style="min-width: 130px">是否平假名</th>
+			
+			<th>音调1</th>
+			
+			<th>音调2</th>
+			
+		</tr>
+		<tr>
 			<th><input v-model="japanese"></th>
-			<th>|</th>
+			
 			<th><input v-model="kana" v-on:change="kanaChanged()"></th>
-			<th>|</th>
+			
 			<th><input v-model="chinese"></th>
-			<th>|</th>
+			
 			<th>
-			<select v-model="type">
-				<option name="形">形</option>
-				<option name="形动">形动</option>
+			<select v-model="type1">
+				<option></option>
+				<option>名词</option>
+				<option>数词</option>
+				<option>代词</option>
+				<option>副词</option>
+				<option>形容刺</option>
+				<option>动词</option>
+				<option>形容动词</option>
+				<option>自五</option>
+				<option>他五</option>
 			</select>
 			</th>
-			<th>|</th>
-			<th><input v-model="ishiragana"  type="radio" checked="checked"></th>
-			<th>|</th>
+
+			<th>
+			<select v-model="type2">
+				<option></option>
+				<option>名词</option>
+				<option>数词</option>
+				<option>代词</option>
+				<option>副词</option>
+				<option>形容刺</option>
+				<option>动词</option>
+				<option>形容动词</option>
+				<option>自五</option>
+				<option>他五</option>
+			</select>
+			</th>
+			
+			<th><input v-model="ishiragana"  type="checkbox"></th>
+			
 			<th>
 			<select v-model="tone1">
 				<option v-for="num in toneToSelect">{{num}}</option>
 			</select>
 			</th>
-			<th>|</th>
+			
 			<th>
 			<select v-model="tone2">
 				<option v-for="num in toneToSelect">{{num}}</option>
 			</select>
 			</th>
-		</tr>
-		<tr>
-			<th>{{japanese}}</th>
-			<th>|</th>
-			<th>{{kana}} </th>
-			<th>|</th>
-			<th>{{chinese}} </th>
-			<th>|</th>
-			<th>{{type}} </th>
-			
+			<th>
+			<button value="upload" v-on:click="postWords()">upload</button>
+			</th>
 		</tr>
 	</table>
 
 </div>
+<br>
+<br>
+<br>
+<br>
+<h2 align="center">Powered by Realank</h2>
 
 <script type="text/javascript">  
 
@@ -118,25 +223,52 @@ showWords.getWords()
 var postWords = new Vue({
 	el: '#postWords',
 	data: {
-		title: 'New words',
-		japanese: 'dddf',
-		kana: '',
-		chinese: '',
-		type: '',
+		title: "New words",
+		japanese: "",
+		kana: "",
+		chinese: "",
+		type1: "",
+		type2: "",
 		ishiragana: true,
 		tone1: -1,
 		tone2: -1,
 		toneToSelect:[-1,0,1,2,3,4,5,6,7,8,9],
-		postUrl: 'https://leancloud.cn:443/1.1/classes/Class1?limit=10000&&order=wordid&&'
+		postUrl: 'https://leancloud.cn:443/1.1/classes/Class1'
 	},
 	methods: {
 		postWords: function() {
-			this.$http.get(this.getUrl
-				,{headers: {"X-LC-Id": "kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz","X-LC-Key": "aGRwOxwVWSaBmrPT0xrsek1O"}}
+
+			if (this.kana.length <= 0 || this.chinese.length <= 0 || this.type1.length <= 0 || this.tone1 < 0) {
+				alert('Invalid word')
+				return
+			}
+
+			this.$http.post(this.postUrl,
+				{
+					japanese: this.japanese,
+					kana: this.kana,
+					chinese: this.chinese,
+					type1: this.type1,
+					type2:this.type2,
+					ishiragana: this.ishiragana,
+					tone1: parseInt(this.tone1),
+					tone2: parseInt(this.tone2),
+				},
+				{headers: {"X-LC-Id": "kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz","X-LC-Key": "aGRwOxwVWSaBmrPT0xrsek1O"},
+				}
 				).then((response) => {
-				
+					this.japanese = ""
+					this.kana = ""
+					this.chinese = ""
+					this.type1 = ""
+					this.type2 = ""
+					this.ishiragana = true
+					this.tone1 = -1
+					this.tone2 = -1
+					showWords.getWords()
 			}).catch(function(response) {
                 console.log(response)
+                alert("upload error")
             })
 		},
 		kanaChanged: function(){
@@ -151,7 +283,6 @@ Array.prototype.range = function ( start,end ){
     var step = start - 1;
     return Array.apply(null,{length:length}).map(function (v,i){step++;return step;});
 }
-
 
 
 </script>  

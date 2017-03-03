@@ -109,7 +109,7 @@
             cell.content = [NSString stringWithFormat:@"%@  %@",word.kana,[word toneString]];
             break;
         case 2:
-            cell.content = [NSString stringWithFormat:@"(%@)%@",word.type,word.chinese];
+            cell.content = [NSString stringWithFormat:@"(%@)\n%@",[word typeString],word.chinese];
             break;
         default:
             break;

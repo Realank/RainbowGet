@@ -11,8 +11,8 @@
 
 @implementation WordModel
 
-- (NSString*)toneString{
-    switch (self.tone) {
+- (NSString*)toneStringWithIndex:(NSInteger)index{
+    switch (index) {
         case 0:
             return @"⓪";
         case 1:
@@ -38,6 +38,21 @@
     }
 }
 
+- (NSString *)toneString{
+    if (self.tone2 < 0) {
+        return [self toneStringWithIndex:self.tone1];
+    }
+    return [NSString stringWithFormat:@"%@%@",[self toneStringWithIndex:self.tone1],[self toneStringWithIndex:self.tone2]];
+}
+
+- (NSString *)typeString{
+    if (self.type2.length <= 0) {
+        return self.type1;
+    }
+    
+    return [NSString stringWithFormat:@"%@·%@",self.type1,self.type2];
+}
+
 + (instancetype)wordWithAVObj:(AVObject*)obj{
     
     if (obj.allKeys.count > 0) {
@@ -45,8 +60,10 @@
         word.japanese = obj[@"japanese"];
         word.kana = obj[@"kana"];
         word.chinese = obj[@"chinese"];
-        word.tone = [obj[@"tone1"] integerValue];
-        word.type = obj[@"type"];
+        word.tone1 = [obj[@"tone1"] integerValue];
+        word.type1 = obj[@"type1"];
+        word.tone2 = [obj[@"tone2"] integerValue];
+        word.type2 = obj[@"type2"];
         word.isHiragana = [obj[@"ishiragana"] boolValue];
         return word;
     }
