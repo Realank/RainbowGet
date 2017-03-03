@@ -68,10 +68,21 @@
 
 </head>  
 <body> 
+	
+<h1>Rainbow Get</h1> 
+
+
+<div id="showClasses">
+	<h2>こんにちは
+	<select v-model="selectedClassName" v-on:change="selectClass()">
+		<option v-for="{ClassID,ClassName} in classes">{{ClassName}}</option>
+	</select>
+	</h2>
+
+</div>
 
 <div id="showWords">
-	<h1>{{ title }}</h1> 
-	<h2>こんにちは</h2>
+
 	<table>
 		<tr style="color:#aaaaaa;">
 			<th>日语</th>
@@ -80,7 +91,7 @@
 
 			<th>汉语</th>
 
-			<th>类型1</th>
+			<th>类型</th>
 
 			<th></th>
 
@@ -144,11 +155,12 @@
 				<option>数词</option>
 				<option>代词</option>
 				<option>副词</option>
-				<option>形容刺</option>
-				<option>动词</option>
+				<option>形容词</option>
 				<option>形容动词</option>
+				<option>动词</option>
 				<option>自五</option>
 				<option>他五</option>
+				<option>他サ</option>
 			</select>
 			</th>
 
@@ -159,11 +171,12 @@
 				<option>数词</option>
 				<option>代词</option>
 				<option>副词</option>
-				<option>形容刺</option>
-				<option>动词</option>
+				<option>形容词</option>
 				<option>形容动词</option>
+				<option>动词</option>
 				<option>自五</option>
 				<option>他五</option>
+				<option>他サ</option>
 			</select>
 			</th>
 			
@@ -181,7 +194,7 @@
 			</select>
 			</th>
 			<th>
-			<button value="upload" v-on:click="postWords()">upload</button>
+			<button value="upload" v-on:click="postWords()">上传</button>
 			</th>
 		</tr>
 	</table>
@@ -200,11 +213,11 @@ var showWords = new Vue({
 	data: {
 		title: 'Rainbow Get',
 		words: [],
-		getUrl: 'https://leancloud.cn:443/1.1/classes/Class1?limit=10000&&order=wordid&&'
+		getUrl: 'https://leancloud.cn:443/1.1/classes/'
 	},
 	methods: {
-		getWords: function() {
-			this.$http.get(this.getUrl
+		getWords: function(classID) {
+			this.$http.get(this.getUrl +  classID + "?limit=10000&&order=createAt&&"
 				,{headers: {"X-LC-Id": "kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz","X-LC-Key": "aGRwOxwVWSaBmrPT0xrsek1O"}}
 				).then((response) => {
 				// this.$set('gridData',response);
@@ -212,13 +225,57 @@ var showWords = new Vue({
 			}).catch(function(response) {
                 console.log(response)
                 // this.gridData = response
+                this.words = response.body.results;
             })
 		}
 	},
 
 })
 
-showWords.getWords()
+var showClasses = new Vue({
+	el: '#showClasses',
+	data: {
+		title: 'Classes',
+		classes: [],
+		selectedClassID: '',
+		selectedClassName: '',
+		getUrl: 'https://leancloud.cn:443/1.1/classes/ClassList?limit=10000'
+	},
+	methods: {
+		getClasses: function() {
+			this.$http.get(this.getUrl
+				,{headers: {"X-LC-Id": "kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz","X-LC-Key": "aGRwOxwVWSaBmrPT0xrsek1O"}}
+				).then((response) => {
+				// this.$set('gridData',response);
+				this.classes = response.body.results;
+				this.selectedClassName = response.body.results[0].ClassName
+				this.selectedClassID = response.body.results[0].ClassID
+				this.selectClass()
+			}).catch(function(response) {
+                console.log(response)
+                // this.gridData = response
+            })
+		},
+		selectClass: function () {
+			for (var i = 0; i < this.classes.length; i++) {
+				if(this.classes[i].ClassName == this.selectedClassName){
+					var selectedClassID = this.classes[i].ClassID
+					this.selectedClassID = selectedClassID
+					showWords.getWords(selectedClassID)
+					return
+				}
+			}
+		},
+	},
+
+})
+
+showClasses.getClasses()
+
+
+
+
+
 
 var postWords = new Vue({
 	el: '#postWords',
@@ -233,7 +290,7 @@ var postWords = new Vue({
 		tone1: -1,
 		tone2: -1,
 		toneToSelect:[-1,0,1,2,3,4,5,6,7,8,9],
-		postUrl: 'https://leancloud.cn:443/1.1/classes/Class1'
+		postUrl: 'https://leancloud.cn:443/1.1/classes/'
 	},
 	methods: {
 		postWords: function() {
@@ -242,8 +299,7 @@ var postWords = new Vue({
 				alert('Invalid word')
 				return
 			}
-
-			this.$http.post(this.postUrl,
+			this.$http.post(this.postUrl + showClasses.selectedClassID,
 				{
 					japanese: this.japanese,
 					kana: this.kana,
@@ -262,10 +318,10 @@ var postWords = new Vue({
 					this.chinese = ""
 					this.type1 = ""
 					this.type2 = ""
-					this.ishiragana = true
+					// this.ishiragana = true
 					this.tone1 = -1
 					this.tone2 = -1
-					showWords.getWords()
+					showWords.getWords(showClasses.selectedClassID)
 			}).catch(function(response) {
                 console.log(response)
                 alert("upload error")
@@ -276,13 +332,6 @@ var postWords = new Vue({
 	},
 
 })
-
-Array.prototype.range = function ( start,end ){
-    var _self = this;
-    var length = end - start +1;
-    var step = start - 1;
-    return Array.apply(null,{length:length}).map(function (v,i){step++;return step;});
-}
 
 
 </script>  

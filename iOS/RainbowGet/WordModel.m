@@ -7,7 +7,37 @@
 //
 
 #import "WordModel.h"
+#import <AVOSCloud.h>
 
+@implementation ClassModel
+
++ (void)loadClassesWithResult:(void (^)(NSArray<ClassModel*>* classes))resultBlock{
+    AVQuery *query = [AVQuery queryWithClassName:@"ClassList"];
+    [query orderByAscending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count) {
+                NSMutableArray* classList = [NSMutableArray array];
+                for (AVObject* obj in objects) {
+                    
+                    if (obj.allKeys > 0) {
+                        ClassModel* class = [[ClassModel alloc] init];
+                        class.classID = obj[@"ClassID"];
+                        class.className = obj[@"ClassName"];
+                        [classList addObject:class];
+                    }
+                }
+                if (classList.count > 0) {
+                    resultBlock([classList copy]);
+                    return;
+                }
+            }
+        }
+        resultBlock(nil);
+    }];
+}
+
+@end
 
 @implementation WordModel
 
@@ -70,4 +100,27 @@
     return nil;
 }
 
++ (void)loadWordsFromClass:(NSString *)classID result:(void (^)(NSArray<WordModel*>* words))resultBlock{
+    AVQuery *query = [AVQuery queryWithClassName:classID];
+    [query orderByAscending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count) {
+                NSMutableArray* wordsList = [NSMutableArray array];
+                for (AVObject* obj in objects) {
+                    
+                    WordModel* word = [WordModel wordWithAVObj:obj];
+                    if (obj) {
+                        [wordsList addObject:word];
+                    }
+                }
+                if (wordsList.count > 0) {
+                    resultBlock([wordsList copy]);
+                    return;
+                }
+            }
+        }
+        resultBlock(nil);
+    }];
+}
 @end

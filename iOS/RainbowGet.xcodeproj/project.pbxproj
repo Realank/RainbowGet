@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4BD80DDAE655035B9FC517F8 /* libPods-RainbowGet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B353427C0C86AFD0A69E54 /* libPods-RainbowGet.a */; };
+		8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */; };
+		8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */; };
 		8CF8CD461E66560B00A50AE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD451E66560B00A50AE3 /* main.m */; };
 		8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD481E66560B00A50AE3 /* AppDelegate.m */; };
 		8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD4B1E66560B00A50AE3 /* ViewController.m */; };
@@ -43,6 +45,9 @@
 /* Begin PBXFileReference section */
 		479006B2C3C1B0AFB2C9A3E8 /* Pods-RainbowGet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainbowGet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainbowGet/Pods-RainbowGet.debug.xcconfig"; sourceTree = "<group>"; };
 		78B353427C0C86AFD0A69E54 /* libPods-RainbowGet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RainbowGet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0B1ACC1E69D125003DBE7F /* ClassesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassesListViewController.h; sourceTree = "<group>"; };
+		8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassesListViewController.m; sourceTree = "<group>"; };
+		8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassesListViewController.xib; sourceTree = "<group>"; };
 		8CF8CD411E66560B00A50AE3 /* RainbowGet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8CD451E66560B00A50AE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CF8CD471E66560B00A50AE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
 				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
 				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
+				8C0B1ACC1E69D125003DBE7F /* ClassesListViewController.h */,
+				8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */,
+				8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */,
 				8CF8CD811E665B7F00A50AE3 /* BoardCell.h */,
 				8CF8CD821E665B7F00A50AE3 /* BoardCell.m */,
 				8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */,
@@ -302,6 +310,7 @@
 				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
 				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
 				8CF8CD7B1E66575100A50AE3 /* WordBoardViewController.xib in Resources */,
+				8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +389,7 @@
 				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
 				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,
+				8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

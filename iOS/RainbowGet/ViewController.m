@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "WordBoardViewController.h"
-#import <AVOSCloud.h>
+#import "ClassesListViewController.h"
 #import "WordModel.h"
 @interface ViewController ()
 
@@ -23,25 +23,23 @@
 }
 
 - (IBAction)enter:(id)sender {
-    AVQuery *query = [AVQuery queryWithClassName:@"Class1"];
-    [query orderByDescending:@"createdAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (objects.count) {
-                NSMutableArray* wordsList = [NSMutableArray array];
-                for (AVObject* obj in objects) {
-
-                    WordModel* word = [WordModel wordWithAVObj:obj];
-                    if (obj) {
-                        [wordsList addObject:word];
-                    }
-                }
-                WordBoardViewController* vc = [[WordBoardViewController alloc] init];
-                vc.wordsList = [wordsList copy];
-                [self.navigationController pushViewController:vc animated:YES];
-            }
+    
+    [ClassModel loadClassesWithResult:^(NSArray<ClassModel *> *classes) {
+        if (classes.count <= 0) {
+            return;
         }
+        ClassesListViewController* vc = [[ClassesListViewController alloc] init];
+        vc.classes = [classes copy];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
+
+//    [WordModel loadWordsFromClass:@"Class2" result:^(NSArray<WordModel *>* words) {
+//        if (words.count > 0) {
+//            WordBoardViewController* vc = [[WordBoardViewController alloc] init];
+//            vc.wordsList = [words copy];
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }
+//    }];
 }
 
 

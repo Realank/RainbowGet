@@ -23,6 +23,7 @@
     _backView.layer.cornerRadius = 10;
     _backView.layer.borderWidth = 2;
     _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _backView.backgroundColor = [UIColor colorWithRed:171/255.0 green:239/255.0 blue:1 alpha:1];
 }
 
 + (NSString*)identifier{
@@ -41,5 +42,10 @@
 - (void)setContent:(NSString *)content{
     _content = content;
     _contentLabel.text = content;
+    if (content.length > 0) {
+        _backView.backgroundColor = [UIColor colorWithRed:171/255.0 green:239/255.0 blue:1 alpha:1];
+    }else{
+        _backView.backgroundColor = [UIColor colorWithRed:230/255.0 green:231/255.0 blue:239/255.0 alpha:1];
+    }
 }
 @end

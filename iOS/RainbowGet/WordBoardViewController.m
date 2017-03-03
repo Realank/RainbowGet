@@ -13,16 +13,32 @@
 
 @interface WordBoardViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *contentCollectionView;
-
 @property (assign, nonatomic) NSInteger wordIndex;
+@property (weak, nonatomic) IBOutlet UIButton *japaneseButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *kanaButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *chineseButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *modeButton;
 
 @end
 
 @implementation WordBoardViewController
 
+#pragma mark - setup
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.kanaButton.selected = YES;
+    self.wordIndex = 0;
     [self setupCollectionView];
+    
+    
+}
+
+- (void)setWordIndex:(NSInteger)wordIndex{
+    _wordIndex = wordIndex;
+    self.title = [NSString stringWithFormat:@"%d/%d",wordIndex+1,_wordsList.count];
 }
 
 - (void)setupCollectionView{
@@ -58,6 +74,26 @@
     [_contentCollectionView addGestureRecognizer:rightSwipeGes];
 }
 
+#pragma mark - actions
+
+- (IBAction)japaneseAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self reloadData];
+}
+- (IBAction)kanaAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self reloadData];
+}
+- (IBAction)chineseAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self reloadData];
+}
+- (IBAction)modeAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self reloadData];
+}
+
+
 - (void)swipeAction:(UISwipeGestureRecognizer*)ges{
     if (ges.direction == UISwipeGestureRecognizerDirectionLeft) {
         NSLog(@"forward");
@@ -69,17 +105,17 @@
 }
 
 - (void)forward{
-    _wordIndex++;
-    if (_wordIndex >= _wordsList.count) {
-        _wordIndex = 0;
+    self.wordIndex++;
+    if (self.wordIndex >= _wordsList.count) {
+        self.wordIndex = 0;
     }
     [self reloadData];
 }
 
 - (void)backward{
-    _wordIndex--;
-    if (_wordIndex < 0) {
-        _wordIndex = _wordsList.count - 1;
+    self.wordIndex--;
+    if (self.wordIndex < 0) {
+        self.wordIndex = _wordsList.count - 1;
     }
     [self reloadData];
 }
@@ -87,6 +123,8 @@
 - (void)reloadData{
     [_contentCollectionView reloadData];
 }
+
+#pragma mark - collectionview delegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
@@ -103,13 +141,22 @@
     BoardCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:[BoardCell identifier] forIndexPath:indexPath];
     switch (row) {
         case 0:
-            cell.content = word.japanese;
+        {
+            NSString* content =  word.japanese;
+            cell.content = _japaneseButton.selected ? content : @"";
+        }
             break;
         case 1:
-            cell.content = [NSString stringWithFormat:@"%@  %@",word.kana,[word toneString]];
+        {
+            NSString* content = [NSString stringWithFormat:@"%@  %@",word.kana,[word toneString]];
+            cell.content = _kanaButton.selected ? content : @"";
+        }
             break;
         case 2:
-            cell.content = [NSString stringWithFormat:@"(%@)\n%@",[word typeString],word.chinese];
+        {
+            NSString* content = [NSString stringWithFormat:@"(%@)\n%@",[word typeString],word.chinese];
+            cell.content = _chineseButton.selected ? content : @"";
+        }
             break;
         default:
             break;

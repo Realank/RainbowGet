@@ -10,7 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WordBoardViewController">
             <connections>
+                <outlet property="chineseButton" destination="dEQ-1h-BDP" id="qLL-J2-Xlj"/>
                 <outlet property="contentCollectionView" destination="aKz-V0-l2J" id="q7V-92-sNC"/>
+                <outlet property="japaneseButton" destination="D3E-wO-sfG" id="mSe-Nj-Bhs"/>
+                <outlet property="kanaButton" destination="j48-aU-b8J" id="LFV-iz-Wcb"/>
+                <outlet property="modeButton" destination="z0s-58-AQz" id="r7e-OT-jXm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,21 +33,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="236" height="60"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="日文"/>
+                                    <connections>
+                                        <action selector="japaneseAction:" destination="-1" eventType="touchUpInside" id="gb5-7w-fD4"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j48-aU-b8J">
                                     <rect key="frame" x="256" y="0.0" width="236" height="60"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="假名"/>
+                                    <connections>
+                                        <action selector="kanaAction:" destination="-1" eventType="touchUpInside" id="TEF-dG-bP9"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEQ-1h-BDP">
                                     <rect key="frame" x="512" y="0.0" width="236" height="60"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="翻译"/>
+                                    <connections>
+                                        <action selector="chineseAction:" destination="-1" eventType="touchUpInside" id="Plr-1U-MbK"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0s-58-AQz">
                                     <rect key="frame" x="768" y="0.0" width="236" height="60"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="Mode"/>
+                                    <connections>
+                                        <action selector="modeAction:" destination="-1" eventType="touchUpInside" id="fEN-pK-DPe"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

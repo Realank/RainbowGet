@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <AVOSCloud.h>
 
+@interface ClassModel : NSObject
+
+@property (nonatomic, strong) NSString* classID;
+@property (nonatomic, strong) NSString* className;
+
++ (void)loadClassesWithResult:(void (^)(NSArray<ClassModel*>* classes))resultBlock;
+@end
+
 @interface WordModel : NSObject
 
 @property (nonatomic, strong) NSString* japanese;
@@ -24,5 +32,6 @@
 - (NSString*)typeString;
 
 + (instancetype)wordWithAVObj:(AVObject*)obj;
++ (void)loadWordsFromClass:(NSString *)classID result:(void (^)(NSArray<WordModel*>* words))resultBlock;
 
 @end
