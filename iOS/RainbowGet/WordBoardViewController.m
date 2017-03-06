@@ -10,7 +10,7 @@
 #import "BoardCell.h"
 #import "WordModel.h"
 #import <AVOSCloud/AVOSCloud.h>
-
+#import "DrawView.h"
 @interface WordBoardViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *contentCollectionView;
 @property (assign, nonatomic) NSInteger wordIndex;
@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *chineseButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *modeButton;
+@property (weak, nonatomic) IBOutlet DrawView *drawView;
 
 @end
 
@@ -31,14 +32,20 @@
     [super viewDidLoad];
     self.kanaButton.selected = YES;
     self.wordIndex = 0;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
-    
+    [self setupDrawView];
     
 }
 
 - (void)setWordIndex:(NSInteger)wordIndex{
     _wordIndex = wordIndex;
     self.title = [NSString stringWithFormat:@"%d/%d",wordIndex+1,_wordsList.count];
+}
+
+- (void)setupDrawView{
+    _drawView.strokeColor = [UIColor lightGrayColor];
+    _drawView.strokeWidth = 10.0f;
 }
 
 - (void)setupCollectionView{
@@ -110,6 +117,7 @@
         self.wordIndex = 0;
     }
     [self reloadData];
+    [_drawView clearDrawing];
 }
 
 - (void)backward{
@@ -118,6 +126,13 @@
         self.wordIndex = _wordsList.count - 1;
     }
     [self reloadData];
+    [_drawView clearDrawing];
+}
+- (IBAction)undoDraw:(id)sender {
+    [_drawView undoDrawing];
+}
+- (IBAction)clearDraw:(id)sender {
+    [_drawView clearDrawing];
 }
 
 - (void)reloadData{
