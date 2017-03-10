@@ -19,9 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *kanaButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *chineseButton;
+@property (weak, nonatomic) IBOutlet UIButton *jTCModeButton;
+@property (weak, nonatomic) IBOutlet UIButton *cTJModeButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *modeButton;
 @property (weak, nonatomic) IBOutlet DrawView *drawView;
+
+
 
 @end
 
@@ -30,12 +34,17 @@
 #pragma mark - setup
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.kanaButton.selected = YES;
     self.wordIndex = 0;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setupButtons];
     [self setupCollectionView];
     [self setupDrawView];
     
+}
+
+- (void)setupButtons{
+    [self japaneseToChineseModeAction:_jTCModeButton];
+
 }
 
 - (void)setWordIndex:(NSInteger)wordIndex{
@@ -44,8 +53,8 @@
 }
 
 - (void)setupDrawView{
-    _drawView.strokeColor = [UIColor lightGrayColor];
-    _drawView.strokeWidth = 10.0f;
+    _drawView.strokeColor = [UIColor darkGrayColor];
+    _drawView.strokeWidth = 8.0f;
 }
 
 - (void)setupCollectionView{
@@ -83,6 +92,7 @@
 
 #pragma mark - actions
 
+
 - (IBAction)japaneseAction:(UIButton *)sender {
     sender.selected = !sender.selected;
     [self reloadData];
@@ -99,7 +109,31 @@
     sender.selected = !sender.selected;
     [self reloadData];
 }
+- (IBAction)japaneseToChineseModeAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        _cTJModeButton.selected = NO;
+        [self refreshTestMode];
+        [self reloadData];
+    }
+    
+}
 
+- (IBAction)chineseToJapaneseModeAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        _jTCModeButton.selected = NO;
+        [self refreshTestMode];
+        [self reloadData];
+    }
+    
+}
+- (IBAction)showAllAction:(id)sender {
+    _japaneseButton.selected = YES;
+    _kanaButton.selected = YES;
+    _chineseButton.selected = YES;
+    [self reloadData];
+}
 
 - (void)swipeAction:(UISwipeGestureRecognizer*)ges{
     if (ges.direction == UISwipeGestureRecognizerDirectionLeft) {
@@ -112,22 +146,47 @@
 }
 
 - (void)forward{
-    self.wordIndex++;
-    if (self.wordIndex >= _wordsList.count) {
-        self.wordIndex = 0;
+    if (_modeButton.selected) {
+        self.wordIndex = arc4random() % _wordsList.count;
+    }else{
+        self.wordIndex++;
+        if (self.wordIndex >= _wordsList.count) {
+            self.wordIndex = 0;
+        }
     }
+    [self refreshTestMode];
     [self reloadData];
     [_drawView clearDrawing];
 }
 
 - (void)backward{
-    self.wordIndex--;
-    if (self.wordIndex < 0) {
-        self.wordIndex = _wordsList.count - 1;
+    if (_modeButton.selected) {
+        self.wordIndex = arc4random() % _wordsList.count;
+    }else{
+        self.wordIndex--;
+        if (self.wordIndex < 0) {
+            self.wordIndex = _wordsList.count - 1;
+        }
     }
+    [self refreshTestMode];
     [self reloadData];
     [_drawView clearDrawing];
 }
+
+- (void)refreshTestMode{
+    if (_jTCModeButton.selected) {
+        _japaneseButton.selected = YES;
+        _kanaButton.selected = NO;
+        _chineseButton.selected = NO;
+        
+    }else if (_cTJModeButton.selected){
+        _japaneseButton.selected = NO;
+        _kanaButton.selected = NO;
+        _chineseButton.selected = YES;
+
+    }
+}
+
 - (IBAction)undoDraw:(id)sender {
     [_drawView undoDrawing];
 }
@@ -158,18 +217,21 @@
         case 0:
         {
             NSString* content =  word.japanese;
+            if (content.length == 0) {
+                content = word.kana;
+            }
             cell.content = _japaneseButton.selected ? content : @"";
         }
             break;
         case 1:
         {
-            NSString* content = [NSString stringWithFormat:@"%@  %@",word.kana,[word toneString]];
+            NSString* content = [NSString stringWithFormat:@"%@\n%@",word.kana,[word toneString]];
             cell.content = _kanaButton.selected ? content : @"";
         }
             break;
         case 2:
         {
-            NSString* content = [NSString stringWithFormat:@"(%@)\n%@",[word typeString],word.chinese];
+            NSString* content = [NSString stringWithFormat:@"%@\n(%@)",word.chinese,[word typeString]];
             cell.content = _chineseButton.selected ? content : @"";
         }
             break;

@@ -17,6 +17,10 @@
 
 @implementation BoardCell
 
++ (BOOL)isIPAD{
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -24,6 +28,9 @@
     _backView.layer.borderWidth = 2;
     _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _backView.backgroundColor = [UIColor colorWithRed:171/255.0 green:239/255.0 blue:1 alpha:1];
+    if (![BoardCell isIPAD]) {
+        _contentLabel.font = [UIFont systemFontOfSize:21];
+    }
 }
 
 + (NSString*)identifier{
@@ -31,19 +38,28 @@
 }
 
 + (CGFloat)width{
-    return 330;
-}
+    if ([self isIPAD]) {
+        return 330;
+    }else{
+        return 210;
+    }
+    
+} 
 
 
 + (CGFloat)height{
-    return 220;
+    if ([self isIPAD]) {
+        return 220;
+    }else{
+        return 120;
+    }
 }
 
 - (void)setContent:(NSString *)content{
     _content = content;
     _contentLabel.text = content;
     if (content.length > 0) {
-        _backView.backgroundColor = [UIColor colorWithRed:171/255.0 green:239/255.0 blue:1 alpha:1];
+        _backView.backgroundColor = [UIColor colorWithRed:251/255.0 green:231/255.0 blue:195/255.0 alpha:1];
     }else{
         _backView.backgroundColor = [UIColor colorWithRed:230/255.0 green:231/255.0 blue:239/255.0 alpha:1];
     }
