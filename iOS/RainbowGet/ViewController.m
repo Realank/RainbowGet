@@ -12,6 +12,7 @@
 #import "WordModel.h"
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *enterButton;
 @property (weak, nonatomic) IBOutlet UILabel *signLabel;
 @end
 
@@ -21,6 +22,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _signLabel.layer.affineTransform = CGAffineTransformMakeRotation(-M_PI/4);
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    _enterButton.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0);
+    _enterButton.alpha = 1;
 }
 
 - (IBAction)enter:(UIButton*)sender {
@@ -33,10 +40,6 @@
             sender.alpha = 0;
         } completion:^(BOOL finished) {
             [self goNext];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                sender.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0);
-                sender.alpha = 1;
-            });
         }];
     }];
 }

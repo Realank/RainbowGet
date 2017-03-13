@@ -362,8 +362,9 @@ static AVLogLevel avlogLevel = AVLogLevelDefault;
     NSParameterAssert(code);
     NSParameterAssert(phoneNumber);
     
-    NSString *path=[NSString stringWithFormat:@"verifySmsCode/%@?mobilePhoneNumber=%@",code, phoneNumber];
-    [[AVPaasClient sharedInstance] postObject:path withParameters:nil block:^(id object, NSError *error) {
+    NSString *path=[NSString stringWithFormat:@"verifySmsCode/%@",code];
+    NSDictionary *params = @{ @"mobilePhoneNumber": phoneNumber };
+    [[AVPaasClient sharedInstance] postObject:path withParameters:params block:^(id object, NSError *error) {
         [AVUtils callBooleanResultBlock:callback error:error];
     }];
 }
@@ -386,6 +387,10 @@ static AVLogLevel avlogLevel = AVLogLevelDefault;
     }
 
     return date;
+}
+
++ (NSDate *)getServerDateAndThrowsWithError:(NSError * _Nullable __autoreleasing *)error {
+    return [self getServerDate:error];
 }
 
 + (void)getServerDateWithBlock:(void (^)(NSDate *, NSError *))block {

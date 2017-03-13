@@ -28,6 +28,12 @@ static NSMutableDictionary *downloadingMap = nil;
 
 @end
 
+@interface AVFile ()
+
+@property (nonatomic, copy) NSString *token;
+
+@end
+
 @implementation AVFile
 
 - (NSMutableDictionary *)metadata {
@@ -45,6 +51,25 @@ static NSMutableDictionary *downloadingMap = nil;
     _isDirty = YES;
     _onceCallGetFileSize = NO;
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+
+    if (self) {
+        NSDictionary *dictionary = [aDecoder decodeObjectForKey:@"dictionary"];
+
+        if (dictionary) {
+            [self updatePropertiesForDictionary:dictionary];
+        }
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    NSDictionary *dictionary = [self dictionary];
+    [aCoder encodeObject:dictionary forKey:@"dictionary"];
 }
 
 #pragma mark - Public Methods
@@ -139,6 +164,10 @@ static NSMutableDictionary *downloadingMap = nil;
     return theResult;
 }
 
+- (BOOL)saveAndThrowsWithError:(NSError * _Nullable __autoreleasing *)error {
+    return [self save:error];
+}
+
 - (void)saveInBackground
 {
     [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -190,13 +219,23 @@ static NSMutableDictionary *downloadingMap = nil;
 - (void)uploadFileWithResultBlock:(AVBooleanResultBlock)resultBlock progressBlock:(AVProgressBlock)progressBlock {
     __weak typeof(self) ws=self;
     [[AVUploaderManager sharedInstance] uploadWithAVFile:self progressBlock:progressBlock resultBlock:^(BOOL succeeded, NSError *error) {
-        if (!succeeded) {
-            [ws deleteInBackground];
-        } else {
+        if (succeeded)
             ws.isDirty = NO;
-        }
-        resultBlock(succeeded,error);
+
+        [AVUtils callBooleanResultBlock:resultBlock error:error];
+        [ws feedbackUploadResult:succeeded];
     }];
+}
+
+- (void)feedbackUploadResult:(BOOL)succeeded {
+    NSString *token = self.token;
+
+    if (!token)
+        return;
+
+    NSDictionary *parameters = @{@"token":token, @"result":@(succeeded)};
+
+    [[AVPaasClient sharedInstance] postObject:@"fileCallback" withParameters:parameters block:nil];
 }
 
 - (void)updateURLWithResultBlock:(AVBooleanResultBlock)resultBlock progressBlock:(AVProgressBlock)progressBlock {
@@ -670,29 +709,32 @@ typedef void (^AVFileSizeBlock)(long long fileSize);
 {
     AVFile * file = [[AVFile alloc] init];
 
-    [AVUtils copyPropertiesFromDictionary:dict toNSObject:file];
-
-    if (!file.objectId) {
-        if (dict[@"id"]) {
-            file.objectId = dict[@"id"];
-        } else if (dict[@"objId"]) {
-            file.objectId = dict[@"objId"];
-        }
-    }
-
-    if ([dict objectForKey:@"metaData"]) {
-        file.metaData = [dict objectForKey:@"metaData"];
-    } else if ([dict objectForKey:@"metadata"]) {
-        file.metaData = [dict objectForKey:@"metadata"];
-    }
-    
-    if ([dict objectForKey:ACLTag]) {
-        file.ACL = [AVObjectUtils aclFromDictionary:[dict objectForKey:ACLTag]];
-    }
-
+    [file updatePropertiesForDictionary:dict];
     file.isDirty = NO;
 
     return file;
+}
+
+- (void)updatePropertiesForDictionary:(NSDictionary *)dictionary {
+    [AVUtils copyPropertiesFromDictionary:dictionary toNSObject:self];
+
+    if (!self.objectId) {
+        if (dictionary[@"id"]) {
+            self.objectId = dictionary[@"id"];
+        } else if (dictionary[@"objId"]) {
+            self.objectId = dictionary[@"objId"];
+        }
+    }
+
+    if ([dictionary objectForKey:@"metaData"]) {
+        self.metaData = [dictionary objectForKey:@"metaData"];
+    } else if ([dictionary objectForKey:@"metadata"]) {
+        self.metaData = [dictionary objectForKey:@"metadata"];
+    }
+
+    if ([dictionary objectForKey:ACLTag]) {
+        self.ACL = [AVObjectUtils aclFromDictionary:[dictionary objectForKey:ACLTag]];
+    }
 }
 
 - (NSDictionary *)dictionary {
