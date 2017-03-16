@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
-
+#import "PersistWords.h"
+#import "WordModel.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [AVOSCloud setApplicationId:@"kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz" clientKey:@"aGRwOxwVWSaBmrPT0xrsek1O"];
+//    WordModel* word = [[WordModel alloc] init];
+//    word.japanese = @"";
+//    word.kana = @"合う";
+//    word.chinese = @"不知道";
+//    word.type1 = @"动词";
+//    word.type2 = @"xingrongci";
+//    word.tone1 = 1;
+//    word.tone2 = -1;
+//    word.isHiragana = YES;
+//    [PersistWords addWord:word];
+//    [PersistWords delWord:word];
+//    NSArray* words = [PersistWords allWords];
+//    NSLog(@"%@",words);
+//    NSLog(@"%d",[PersistWords worldExist:word]);
     return YES;
 }
 

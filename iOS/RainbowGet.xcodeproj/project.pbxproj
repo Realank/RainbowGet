@@ -11,6 +11,8 @@
 		8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */; };
 		8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */; };
 		8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D403C1E6AF26B0024D5FD /* DrawView.m */; };
+		8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C84E4BC1E7A849C000466F8 /* PersistWords.m */; };
+		8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */; };
 		8CF8CD461E66560B00A50AE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD451E66560B00A50AE3 /* main.m */; };
 		8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD481E66560B00A50AE3 /* AppDelegate.m */; };
 		8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD4B1E66560B00A50AE3 /* ViewController.m */; };
@@ -52,6 +54,9 @@
 		8C7D403B1E6AF26B0024D5FD /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		8C7D403C1E6AF26B0024D5FD /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		8C84E4B71E7A5E8A000466F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8C84E4BB1E7A849C000466F8 /* PersistWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistWords.h; sourceTree = "<group>"; };
+		8C84E4BC1E7A849C000466F8 /* PersistWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistWords.m; sourceTree = "<group>"; };
+		8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8CF8CD411E66560B00A50AE3 /* RainbowGet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8CD451E66560B00A50AE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CF8CD471E66560B00A50AE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */,
 				4BD80DDAE655035B9FC517F8 /* libPods-RainbowGet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +161,8 @@
 				8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */,
 				8CF8CD861E66645800A50AE3 /* WordModel.h */,
 				8CF8CD871E66645800A50AE3 /* WordModel.m */,
+				8C84E4BB1E7A849C000466F8 /* PersistWords.h */,
+				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
 				8C7D403B1E6AF26B0024D5FD /* DrawView.h */,
 				8C7D403C1E6AF26B0024D5FD /* DrawView.m */,
 				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
@@ -195,6 +203,7 @@
 		A85BAE0C3E84B1D8D1864512 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */,
 				78B353427C0C86AFD0A69E54 /* libPods-RainbowGet.a */,
 			);
 			name = Frameworks;
@@ -390,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */,
 				8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */,
 				8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */,
 				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,

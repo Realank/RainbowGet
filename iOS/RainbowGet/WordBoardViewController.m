@@ -9,6 +9,7 @@
 #import "WordBoardViewController.h"
 #import "BoardCell.h"
 #import "WordModel.h"
+#import "PersistWords.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "DrawView.h"
 @interface WordBoardViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -24,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *modeButton;
 @property (weak, nonatomic) IBOutlet DrawView *drawView;
+@property (weak, nonatomic) IBOutlet UIButton *aNewWordButton;
 
 
 
@@ -37,6 +39,7 @@
     self.view.tintColor = TINT_COLOR;
     self.wordIndex = 0;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self refreshNewWord];
     [self setupButtons];
     [self setupCollectionView];
     [self setupDrawView];
@@ -136,6 +139,18 @@
     _chineseButton.selected = YES;
     [self reloadData];
 }
+- (IBAction)aNewWordAction:(UIButton*)sender {
+    BOOL isAdd = !sender.selected;
+    WordModel* word = _wordsList[_wordIndex];
+    if (isAdd) {
+        if (![PersistWords worldExist:word]) {
+            [PersistWords addWord:word];
+        }
+    }else{
+        [PersistWords delWord:word];
+    }
+    sender.selected = isAdd;
+}
 
 - (void)swipeAction:(UISwipeGestureRecognizer*)ges{
     if (ges.direction == UISwipeGestureRecognizerDirectionLeft) {
@@ -157,6 +172,7 @@
         }
     }
     [self refreshTestMode];
+    [self refreshNewWord];
     [self reloadData];
     [_drawView clearDrawing];
 }
@@ -171,8 +187,14 @@
         }
     }
     [self refreshTestMode];
+    [self refreshNewWord];
     [self reloadData];
     [_drawView clearDrawing];
+}
+
+- (void)refreshNewWord{
+    WordModel* word = _wordsList[_wordIndex];
+    _aNewWordButton.selected = [PersistWords worldExist:word];
 }
 
 - (void)refreshTestMode{

@@ -9,6 +9,7 @@
 #import "ClassesListViewController.h"
 #import "WordModel.h"
 #import "WordBoardViewController.h"
+#import "PersistWords.h"
 @interface ClassesListViewController ()
 
 @end
@@ -29,7 +30,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _classes.count;
+    return _classes.count + 1;
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -45,20 +46,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuse"];
-    ClassModel* class = _classes[indexPath.row];
-    cell.textLabel.text = class.className;
     cell.textLabel.textColor = TINT_COLOR;
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
-    cell.detailTextLabel.text = @"新编日语第一册";
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
     cell.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    
+    if (indexPath.row < _classes.count) {
+        ClassModel* class = _classes[indexPath.row];
+        cell.textLabel.text = class.className;
+        cell.detailTextLabel.text = @"新编日语第一册";
+    }else{
+        cell.textLabel.text = @"生词";
+        cell.detailTextLabel.text = @"";
+    }
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    if ([self isIPAD]) {
+        return 65;
+    }else{
+        return 45;
+    }
 }
 
-
+- (BOOL)isIPAD{
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+}
 
 #pragma mark - Table view delegate
 
@@ -67,22 +81,32 @@
     // Navigation logic may go here, for example:
     // Create the next view controller.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ClassModel* class = _classes[indexPath.row];
-    [self pushToClass:class];
+    
+    if (indexPath.row < _classes.count) {
+        ClassModel* class = _classes[indexPath.row];
+        self.view.userInteractionEnabled = NO;
+        __weak typeof(self) weakSelf = self;
+        [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
+            [weakSelf pushToWithWords:words];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.view.userInteractionEnabled = YES;
+            });
+        }];
+    }else{
+        NSArray* words = [PersistWords allWords];
+        [self pushToWithWords:words];
+    }
+    
+
 }
 
-- (void)pushToClass:(ClassModel*)class{
-    self.view.userInteractionEnabled = NO;
-    [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
-        if (words.count > 0) {
-            WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
-            detailViewController.wordsList = [words copy];
-            [self.navigationController pushViewController:detailViewController animated:YES];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.view.userInteractionEnabled = YES;
-        });
-    }];
+- (void)pushToWithWords:(NSArray*)words{
+    if (words.count == 0) {
+        return;
+    }
+    WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
+    detailViewController.wordsList = [words copy];
+    [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
 
