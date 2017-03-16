@@ -42,7 +42,7 @@
     // Array of all the paths the user will draw.
     paths = [NSMutableArray new];
     // Default colors for drawing.
-    self.backgroundColor = [UIColor whiteColor];
+//    self.backgroundColor = [UIColor whiteColor];
     _strokeColor = _strokeColor ? _strokeColor :[UIColor blackColor];
     _canEdit = YES;
 }

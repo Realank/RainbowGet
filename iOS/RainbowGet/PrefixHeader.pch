@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  RainbowGet
+//
+//  Created by Realank on 2017/3/16.
+//  Copyright © 2017年 Realank. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define TINT_COLOR RGBColor(31,102,86,1)
+#define FORE_COLOR RGBColor(240,219,157,1)
+#define GRAY_COLOR RGBColor(216,216,216,1)
+#define RGBColor(r,g,b,a) ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a])
+#endif /* PrefixHeader_pch */

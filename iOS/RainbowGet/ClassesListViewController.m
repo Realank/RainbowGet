@@ -17,8 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.tintColor = TINT_COLOR;
     self.title = @"课程列表";
+//    self.tableView.backgroundColor = TINT_COLOR;
 }
 
 #pragma mark - Table view data source
@@ -31,12 +32,25 @@
     return _classes.count;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 10;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    UIView* header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 10)];
+//    header.backgroundColor = [UIColor clearColor];
+//    return header;
+//}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuse"];
     ClassModel* class = _classes[indexPath.row];
     cell.textLabel.text = class.className;
+    cell.textLabel.textColor = TINT_COLOR;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
     cell.detailTextLabel.text = @"新编日语第一册";
+    cell.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
     return cell;
 }
 

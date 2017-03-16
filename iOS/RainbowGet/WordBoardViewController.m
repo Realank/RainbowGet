@@ -34,6 +34,7 @@
 #pragma mark - setup
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.tintColor = TINT_COLOR;
     self.wordIndex = 0;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupButtons];
@@ -53,12 +54,13 @@
 }
 
 - (void)setupDrawView{
-    _drawView.strokeColor = [UIColor darkGrayColor];
+    _drawView.backgroundColor = TINT_COLOR;
+    _drawView.strokeColor = FORE_COLOR;
     _drawView.strokeWidth = 8.0f;
 }
 
 - (void)setupCollectionView{
-
+    _contentCollectionView.backgroundColor = TINT_COLOR;
     [_contentCollectionView registerNib:[UINib nibWithNibName:[BoardCell identifier] bundle:nil] forCellWithReuseIdentifier:[BoardCell identifier]];
 
     //setup the cell space

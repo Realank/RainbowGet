@@ -24,13 +24,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    _backView.layer.cornerRadius = 10;
-    _backView.layer.borderWidth = 2;
-    _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _backView.backgroundColor = [UIColor colorWithRed:171/255.0 green:239/255.0 blue:1 alpha:1];
+    _backView.layer.cornerRadius = 8;
+//    _backView.layer.borderWidth = 2;
+//    _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _backView.backgroundColor = FORE_COLOR;
     if (![BoardCell isIPAD]) {
         _contentLabel.font = [UIFont systemFontOfSize:21];
     }
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowRadius = 4;
+    self.layer.shadowOffset = CGSizeMake(1, 1);
+    self.layer.shadowOpacity = 0.5;
+    self.layer.masksToBounds = NO;
 }
 
 + (NSString*)identifier{
@@ -59,9 +64,9 @@
     _content = content;
     _contentLabel.text = content;
     if (content.length > 0) {
-        _backView.backgroundColor = [UIColor colorWithRed:251/255.0 green:231/255.0 blue:195/255.0 alpha:1];
+        _backView.backgroundColor = FORE_COLOR;
     }else{
-        _backView.backgroundColor = [UIColor colorWithRed:230/255.0 green:231/255.0 blue:239/255.0 alpha:1];
+        _backView.backgroundColor = GRAY_COLOR;
     }
 }
 @end
