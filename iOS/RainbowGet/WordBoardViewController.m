@@ -12,22 +12,40 @@
 #import "PersistWords.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "DrawView.h"
+
+@implementation UIImage (ChangeColor)
+
+//改变图片颜色
+- (UIImage *)imageWithColor:(UIColor *)color{
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, self.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    CGContextClipToMask(context, rect, self.CGImage);
+    [color setFill];
+    CGContextFillRect(context, rect);
+    UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+@end
+
 @interface WordBoardViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *contentCollectionView;
 @property (assign, nonatomic) NSInteger wordIndex;
-@property (weak, nonatomic) IBOutlet UIButton *japaneseButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *kanaButton;
-
-@property (weak, nonatomic) IBOutlet UIButton *chineseButton;
 @property (weak, nonatomic) IBOutlet UIButton *jTCModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *cTJModeButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *modeButton;
 @property (weak, nonatomic) IBOutlet DrawView *drawView;
 @property (weak, nonatomic) IBOutlet UIButton *aNewWordButton;
+@property (weak, nonatomic) IBOutlet UIButton *showAllButton;
 
-
+@property (assign, nonatomic) NSInteger showAllState;//0 don't show all, 1 show all once, 2 show all always
 
 @end
 
@@ -47,6 +65,8 @@
 }
 
 - (void)setupButtons{
+    [_modeButton setImage:[[UIImage imageNamed:@"loop"] imageWithColor:TINT_COLOR] forState:UIControlStateNormal];
+    [_modeButton setImage:[[UIImage imageNamed:@"shuffle"] imageWithColor:TINT_COLOR] forState:UIControlStateSelected];
     [self japaneseToChineseModeAction:_jTCModeButton];
 
 }
@@ -98,47 +118,49 @@
 #pragma mark - actions
 
 
-- (IBAction)japaneseAction:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    [self reloadData];
-}
-- (IBAction)kanaAction:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    [self reloadData];
-}
-- (IBAction)chineseAction:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    [self reloadData];
-}
 - (IBAction)modeAction:(UIButton *)sender {
     sender.selected = !sender.selected;
     [self reloadData];
 }
 - (IBAction)japaneseToChineseModeAction:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    if (sender.selected) {
-        _cTJModeButton.selected = NO;
-        [self refreshTestMode];
-        [self reloadData];
-    }
+    
+    _cTJModeButton.selected = NO;
+    _jTCModeButton.selected = YES;
+    self.showAllState = 0;
+    [self reloadData];
+
     
 }
 
 - (IBAction)chineseToJapaneseModeAction:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    if (sender.selected) {
-        _jTCModeButton.selected = NO;
-        [self refreshTestMode];
-        [self reloadData];
-    }
+    
+    _cTJModeButton.selected = YES;
+    _jTCModeButton.selected = NO;
+    self.showAllState = 0;
+    [self reloadData];
     
 }
-- (IBAction)showAllAction:(id)sender {
-    _japaneseButton.selected = YES;
-    _kanaButton.selected = YES;
-    _chineseButton.selected = YES;
+- (IBAction)showAllAction:(UIButton*)sender {
+    _showAllState ++;
+    if (_showAllState > 2) {
+        _showAllState = 0;
+    }
+    self.showAllState = _showAllState;
     [self reloadData];
 }
+
+- (void)setShowAllState:(NSInteger)showAllState{
+    _showAllState = showAllState;
+    if (showAllState == 0) {
+        _showAllButton.selected = NO;
+    }else if (showAllState == 1){
+        _showAllButton.selected = NO;
+    }else{
+        _showAllButton.selected = YES;
+    }
+}
+
+
 - (IBAction)aNewWordAction:(UIButton*)sender {
     BOOL isAdd = !sender.selected;
     WordModel* word = _wordsList[_wordIndex];
@@ -162,6 +184,12 @@
     }
 }
 
+- (void)resetShowAllState{
+    if (_showAllState == 1) {
+        self.showAllState = 0;
+    }
+}
+
 - (void)forward{
     if (_modeButton.selected) {
         self.wordIndex = arc4random() % _wordsList.count;
@@ -171,7 +199,7 @@
             self.wordIndex = 0;
         }
     }
-    [self refreshTestMode];
+    [self resetShowAllState];
     [self refreshNewWord];
     [self reloadData];
     [_drawView clearDrawing];
@@ -186,7 +214,7 @@
             self.wordIndex = _wordsList.count - 1;
         }
     }
-    [self refreshTestMode];
+    [self resetShowAllState];
     [self refreshNewWord];
     [self reloadData];
     [_drawView clearDrawing];
@@ -195,20 +223,6 @@
 - (void)refreshNewWord{
     WordModel* word = _wordsList[_wordIndex];
     _aNewWordButton.selected = [PersistWords worldExist:word];
-}
-
-- (void)refreshTestMode{
-    if (_jTCModeButton.selected) {
-        _japaneseButton.selected = YES;
-        _kanaButton.selected = NO;
-        _chineseButton.selected = NO;
-        
-    }else if (_cTJModeButton.selected){
-        _japaneseButton.selected = NO;
-        _kanaButton.selected = NO;
-        _chineseButton.selected = YES;
-
-    }
 }
 
 - (IBAction)undoDraw:(id)sender {
@@ -237,6 +251,7 @@
     NSInteger row = indexPath.row;
     WordModel* word = _wordsList[_wordIndex];
     BoardCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:[BoardCell identifier] forIndexPath:indexPath];
+    BOOL show = _showAllState > 0;
     switch (row) {
         case 0:
         {
@@ -244,19 +259,26 @@
             if (content.length == 0) {
                 content = word.kana;
             }
-            cell.content = _japaneseButton.selected ? content : @"";
+            if (_jTCModeButton.selected) {
+                show = YES;
+            }
+            cell.content = show ? content : @"";
+            cell.property = @"";
         }
             break;
         case 1:
         {
-            NSString* content = [NSString stringWithFormat:@"%@\n%@",word.kana,[word toneString]];
-            cell.content = _kanaButton.selected ? content : @"";
+            cell.content = show ? word.kana : @"";
+            cell.property = show ? [word toneString] : @"";
         }
             break;
         case 2:
         {
-            NSString* content = [NSString stringWithFormat:@"%@\n(%@)",word.chinese,[word typeString]];
-            cell.content = _chineseButton.selected ? content : @"";
+            if (_cTJModeButton.selected) {
+                show = YES;
+            }
+            cell.content = show ? word.chinese : @"";
+            cell.property = show ? [word typeString] : @"";
         }
             break;
         default:

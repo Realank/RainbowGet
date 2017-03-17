@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *propertyLabel;
 
 @end
 
@@ -30,6 +31,7 @@
     _backView.backgroundColor = FORE_COLOR;
     if (![BoardCell isIPAD]) {
         _contentLabel.font = [UIFont systemFontOfSize:21];
+        _propertyLabel.font = [UIFont systemFontOfSize:17];
     }
     self.layer.shadowColor = [UIColor blackColor].CGColor;
     self.layer.shadowRadius = 4;
@@ -68,5 +70,10 @@
     }else{
         _backView.backgroundColor = GRAY_COLOR;
     }
+}
+
+- (void)setProperty:(NSString *)property{
+    _property = property;
+    _propertyLabel.text = property;
 }
 @end

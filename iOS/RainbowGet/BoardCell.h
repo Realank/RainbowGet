@@ -15,4 +15,5 @@
 + (CGFloat)height;
 
 @property (nonatomic, copy) NSString* content;
+@property (nonatomic, copy) NSString* property;
 @end

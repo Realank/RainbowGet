@@ -13,13 +13,11 @@
             <connections>
                 <outlet property="aNewWordButton" destination="G2X-eW-ekh" id="dBO-Yj-USY"/>
                 <outlet property="cTJModeButton" destination="ZFs-5w-UNV" id="aKl-Jy-UbY"/>
-                <outlet property="chineseButton" destination="seO-kJ-zH1" id="6pR-0h-JEU"/>
                 <outlet property="contentCollectionView" destination="aKz-V0-l2J" id="q7V-92-sNC"/>
                 <outlet property="drawView" destination="b30-77-cXF" id="yuY-Hp-HFC"/>
                 <outlet property="jTCModeButton" destination="754-4o-Dsf" id="Tnc-Gs-PPU"/>
-                <outlet property="japaneseButton" destination="3gW-XH-Ezu" id="4KC-Cl-eDn"/>
-                <outlet property="kanaButton" destination="US1-yK-b2b" id="g2C-DT-vmf"/>
                 <outlet property="modeButton" destination="rPe-CF-ac5" id="Hrn-VN-ytv"/>
+                <outlet property="showAllButton" destination="hCE-64-u9Z" id="0d4-8v-d0v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -76,29 +74,20 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" id="Qgi-f8-pES">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rPe-CF-ac5">
-                                <rect key="frame" x="76" y="7" width="46" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rPe-CF-ac5">
+                                <rect key="frame" x="76" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="随机"/>
+                                <state key="normal" image="linnar"/>
+                                <state key="selected" image="shuffle"/>
                                 <connections>
                                     <action selector="modeAction:" destination="-1" eventType="touchUpInside" id="bOq-Ny-dEk"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" id="7ZB-mi-rY3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hCE-64-u9Z">
-                                <rect key="frame" x="132" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="全显"/>
-                                <connections>
-                                    <action selector="showAllAction:" destination="-1" eventType="touchUpInside" id="eks-im-Jnu"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="DcM-1S-wXo"/>
                         <barButtonItem style="plain" id="ff6-wi-k5L">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="754-4o-Dsf">
-                                <rect key="frame" x="179" y="7" width="46" height="30"/>
+                                <rect key="frame" x="291" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="日-中"/>
                                 <connections>
@@ -108,7 +97,7 @@
                         </barButtonItem>
                         <barButtonItem style="plain" id="wpK-Ke-MCI">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZFs-5w-UNV">
-                                <rect key="frame" x="235" y="7" width="46" height="30"/>
+                                <rect key="frame" x="347" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="中-日"/>
                                 <connections>
@@ -116,37 +105,17 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem style="plain" id="7ZB-mi-rY3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hCE-64-u9Z">
+                                <rect key="frame" x="403" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="全显"/>
+                                <connections>
+                                    <action selector="showAllAction:" destination="-1" eventType="touchUpInside" id="eks-im-Jnu"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="8Kp-65-Nc1"/>
-                        <barButtonItem style="plain" id="lKU-fO-OaR">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3gW-XH-Ezu">
-                                <rect key="frame" x="333" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="日文"/>
-                                <connections>
-                                    <action selector="japaneseAction:" destination="-1" eventType="touchUpInside" id="TeU-yl-6Ot"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" id="YmL-hv-Yja">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="US1-yK-b2b">
-                                <rect key="frame" x="389" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="假名"/>
-                                <connections>
-                                    <action selector="kanaAction:" destination="-1" eventType="touchUpInside" id="6vM-OA-UZa"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" id="u78-L0-PqE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="seO-kJ-zH1">
-                                <rect key="frame" x="445" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="翻译"/>
-                                <connections>
-                                    <action selector="chineseAction:" destination="-1" eventType="touchUpInside" id="R1G-rr-XMa"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0cu-fo-z8f"/>
                         <barButtonItem title="撤销" id="QG4-IW-Hxa">
                             <connections>
@@ -203,4 +172,8 @@
             <point key="canvasLocation" x="-997.5" y="-203.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="linnar" width="30" height="30"/>
+        <image name="shuffle" width="30" height="30"/>
+    </resources>
 </document>

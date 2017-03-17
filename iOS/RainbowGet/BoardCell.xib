@@ -27,9 +27,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46Z-Cb-SzA">
+                                <rect key="frame" x="275.5" y="189" width="46.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90087108217801759" green="0.90722764280288837" blue="0.93754047927461137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="46Z-Cb-SzA" secondAttribute="bottom" constant="8" id="DJt-u7-CvA"/>
+                            <constraint firstAttribute="trailing" secondItem="46Z-Cb-SzA" secondAttribute="trailing" constant="8" id="JxF-tE-TFw"/>
                             <constraint firstItem="kcB-7F-JmP" firstAttribute="centerY" secondItem="euj-pP-rEg" secondAttribute="centerY" id="Q8P-8r-Ca7"/>
                             <constraint firstItem="kcB-7F-JmP" firstAttribute="leading" secondItem="euj-pP-rEg" secondAttribute="leading" constant="8" id="lOE-bh-fGh"/>
                             <constraint firstAttribute="trailing" secondItem="kcB-7F-JmP" secondAttribute="trailing" constant="8" id="oe0-YE-tQm"/>
@@ -46,6 +54,7 @@
             <connections>
                 <outlet property="backView" destination="euj-pP-rEg" id="CVU-sv-9Aa"/>
                 <outlet property="contentLabel" destination="kcB-7F-JmP" id="pAH-Hy-9Eu"/>
+                <outlet property="propertyLabel" destination="46Z-Cb-SzA" id="t39-xl-7uo"/>
             </connections>
             <point key="canvasLocation" x="-18" y="-75"/>
         </collectionViewCell>
