@@ -5,6 +5,7 @@ import re
 import sys
 import os
 import leancloud
+import time
 
 def postWord(classname,word) :
 	ClassObj = leancloud.Object.extend(classname)
@@ -110,8 +111,8 @@ def parseLine(originalLine,regex):
 def seperateComponent(originalLine):
 	tones = u"[Ⓞ◎①②③④⑤⑥⑧⑨]"
 	chineseJapanese = u"[\u4E00-\u9FA5\uF900-\uFA2D\u3040-\u309F\u30A0-\u30FF\u30A0-\u30FF]"
-	regex1 =  u"(" +chineseJapanese + u"+)\s*(?:（([\W]+)）)?\W*【(\W+)】\s*(" + tones + u"{0,2})\s*：\s*(\W*)"
-	regex2 =  u"(" +chineseJapanese + u"+)\s*(?:（([\S\s]+)）)?\W*【(\W+)】\s*(" + tones + u"{0,2})\s*：\s*(\W*)"
+	regex1 =  u"(" +chineseJapanese + u"+)\s*(?:（([\W]+)）)?\W*【(\W+)】\s*(" + tones + u"{0,2})\s*：?\s*(\W*)"
+	regex2 =  u"(" +chineseJapanese + u"+)\s*(?:（([\S\s]+)）)?\W*【(\W+)】\s*(" + tones + u"{0,2})\s*：?\s*(\W*)"
 	isHira = True
 	results = parseLine(originalLine, regex1)
 	if len(results) == 0 :
@@ -129,9 +130,14 @@ def seperateComponent(originalLine):
 	wordProperties = list(group)
 	wordProperties.append(isHira)
 	return wordProperties
-
+def replaceChars(originalLine):
+	newLine = originalLine.replace(u'(',u'（')
+	newLine = newLine.replace(u')',u'）')
+	newLine = newLine.replace(u':',u'：')
+	return newLine
 def handleLine(originalLine):
-	components = seperateComponent(originalLine);
+	newLine = replaceChars(originalLine)
+	components = seperateComponent(newLine);
 	if components:
 		word = handleComponents(components)
 		words.append(word);
@@ -173,6 +179,7 @@ if originalFilePath.rfind(".txt") > 0:
 		i = i + 1
 		print "%s/%s : %s"%(i,len(words),word["kana"])
 		postWord("Class" + classIndex ,word)
+		time.sleep( 1 )
 
 	print "Process Finished"
 else:
