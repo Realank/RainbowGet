@@ -4,11 +4,71 @@
 import re 
 import sys
 import os
+import leancloud
+
+def postWord(classname,word) :
+	ClassObj = leancloud.Object.extend(classname)
+	classToPost = ClassObj()
+	classToPost.set("japanese",word["japanese"]);
+	classToPost.set("kana",word["kana"]);
+	classToPost.set("chinese",word["chinese"]);
+	classToPost.set("ishiragana",word["ishiragana"]);
+	classToPost.set("type1",word["type1"]);
+	classToPost.set("type2",word["type2"]);
+	classToPost.set("tone1",word["tone1"]);
+	classToPost.set("tone2",word["tone2"]);
+	classToPost.save()
+
+def processTone(tone):
+	tone = tone.strip()
+	if tone == u"Ⓞ" or tone == u"◎":
+		return 0
+	elif tone == u"①":
+		return 1
+	elif tone == u"②":
+		return 2
+	elif tone == u"③":
+		return 3
+	elif tone == u"④":
+		return 4
+	elif tone == u"⑤":
+		return 5
+	elif tone == u"⑥":
+		return 6
+	elif tone == u"⑦":
+		return 7
+	elif tone == u"⑧":
+		return 8
+	elif tone == u"⑨":
+		return 9
+	else:
+		return -1;
+	
 
 def processWordType(type):
 	type = type.strip()
 	if type == u"名":
 		return u"名词"
+	elif type == u"数":
+		return u"数词"
+	elif type == u"代":
+		return u"代词"
+	elif type == u"副":
+		return u"副词"
+	elif type == u"形":
+		return u"形容词"
+	elif type == u"形动":
+		return u"形容动词"
+	elif type == u"组":
+		return u"词组"
+	elif type == u"叹":
+		return u"叹词"
+	elif type == u"接":
+		return u"接词"
+	elif type == u"专":
+		return u"专有名词"
+	elif type == u"连体":
+		return u"连体词"
 	return type
 
 def handleComponents(components):
@@ -18,8 +78,11 @@ def handleComponents(components):
 	isHiragana = components[5]
 	types = components[2]
 	tones = components[3]
-	tone1 = tones[:1]
-	tone2 = tones[1:2]
+	tone1Str = tones[:1]
+	if len(tones) == 0:
+		tone1Str = u"Ⓞ"
+	tone1 = processTone(tone1Str)
+	tone2 = processTone(tones[1:2])
 	types = types.split(u"·")
 	type1 = types[0]
 	type1 = processWordType(type1)
@@ -27,12 +90,17 @@ def handleComponents(components):
 	if len(types) > 1:
 		type2 = types[1]
 		type2 = processWordType(type2)
-	hira = u"\t平假名"
-	if isHiragana == False:
-		hira = u"\t片假名"
-
-	print type1 + " " + type2
-	return None
+	wordDict = {
+		"japanese":japanese,
+		"kana":kana,
+		"chinese":chinese,
+		"ishiragana":isHiragana,
+		"type1":type1,
+		"type2":type2,
+		"tone1":tone1,
+		"tone2":tone2
+	}
+	return wordDict
 
 def parseLine(originalLine,regex):
 	pattern = re.compile(regex)
@@ -40,9 +108,10 @@ def parseLine(originalLine,regex):
 	return results;
 
 def seperateComponent(originalLine):
+	tones = u"[Ⓞ◎①②③④⑤⑥⑧⑨]"
 	chineseJapanese = u"[\u4E00-\u9FA5\uF900-\uFA2D\u3040-\u309F\u30A0-\u30FF\u30A0-\u30FF]"
-	regex1 =  u"(" +chineseJapanese + u"+)\s*(?:（([\W]+)）)?\W*【(\W+)】\s*(\W*)：\s*(\W*)"
-	regex2 =  u"(" +chineseJapanese + u"+)\s*(?:（([\S\s]+)）)?\W*【(\W+)】\s*(\W*)：\s*(\W*)"
+	regex1 =  u"(" +chineseJapanese + u"+)\s*(?:（([\W]+)）)?\W*【(\W+)】\s*(" + tones + u"{0,2})\s*：\s*(\W*)"
+	regex2 =  u"(" +chineseJapanese + u"+)\s*(?:（([\S\s]+)）)?\W*【(\W+)】\s*(" + tones + u"{0,2})\s*：\s*(\W*)"
 	isHira = True
 	results = parseLine(originalLine, regex1)
 	if len(results) == 0 :
@@ -50,14 +119,13 @@ def seperateComponent(originalLine):
 		results = parseLine(originalLine, regex2)
 
 	if len(results) == 0 :
-		print "///can't parse + " + originalLine
 		return None
 
 	group = results[0]
 	hira = u"\t平假名"
 	if isHira == False:
 		hira = u"\t片假名"
-	# return u"假名:" + group[0] + u"\t日文:" + group[1] + u"\t词性:" + group[2] + u"\t音调:" + group[3] + u"\t中文:" + group[4] + hira
+	print u"假名:" + group[0] + u"\t日文:" + group[1] + u"\t词性:" + group[2] + u"\t音调:" + group[3] + u"\t中文:" + group[4] + hira
 	wordProperties = list(group)
 	wordProperties.append(isHira)
 	return wordProperties
@@ -69,6 +137,7 @@ def handleLine(originalLine):
 		words.append(word);
 	else:
 		print "/// Can't parse " + originalLine
+		sys.exit(1)
 
 def arrangeFile(originalFilePath):
 
@@ -93,24 +162,21 @@ if len(sys.argv) != 2:
 
 originalFilePath = sys.argv[1]
 words = list()
-if os.path.isdir(originalFilePath):
-	print "is directory "
-	def callback(arg,top,names):
-		for i in xrange(0,len(names)):
-			fileName = top + "/" + names[i]
-			if fileName.rfind(".txt") > 0:
-				# print fileName
-				arrangeFile(fileName)
-		return;
-	os.path.walk(originalFilePath,callback,0)
-			
+if originalFilePath.rfind(".txt") > 0:
+	arrangeFile(originalFilePath)
+	print "Loaded %s words"%(len(words))
+	print "Upload to server"
+	leancloud.init("kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz", "aGRwOxwVWSaBmrPT0xrsek1O")
+	i = 0
+	classIndex = os.path.basename(originalFilePath)[:-4]
+	for word in words:
+		i = i + 1
+		print "%s/%s : %s"%(i,len(words),word["kana"])
+		postWord("Class" + classIndex ,word)
+
+	print "Process Finished"
 else:
-	if originalFilePath.rfind(".txt") > 0:
-		arrangeFile(originalFilePath)
+	print "Please input a file with .txt"
 
-print words
-print "Upload to server"
-
-print "Process Finished"
 
 
