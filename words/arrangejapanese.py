@@ -92,12 +92,12 @@ def handleComponents(components):
 		type2 = types[1]
 		type2 = processWordType(type2)
 	wordDict = {
-		"japanese":japanese,
-		"kana":kana,
-		"chinese":chinese,
+		"japanese":japanese.strip(),
+		"kana":kana.strip(),
+		"chinese":chinese.strip(),
 		"ishiragana":isHiragana,
-		"type1":type1,
-		"type2":type2,
+		"type1":type1.strip(),
+		"type2":type2.strip(),
 		"tone1":tone1,
 		"tone2":tone2
 	}

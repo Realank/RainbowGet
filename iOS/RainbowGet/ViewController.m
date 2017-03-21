@@ -11,6 +11,7 @@
 #import "ClassesListViewController.h"
 #import "WordModel.h"
 #import "PersistWords.h"
+#import "PopUpBigViewForNotice.h"
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
@@ -30,6 +31,30 @@
     [self configRoundButton:self.aNewWordButton];
     // Do any additional setup after loading the view, typically from a nib.
 //    _signLabel.layer.affineTransform = CGAffineTransformMakeRotation(-M_PI/4);
+    [self checkFirstUse];
+}
+
+- (void) checkFirstUse {
+
+    NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *key = [NSString stringWithFormat:@"firstUseThisVersion:%@",bundleVersion];
+    NSString *firstUseThisVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    if (!firstUseThisVersion) {
+        firstUseThisVersion = @"yes";
+        [[NSUserDefaults standardUserDefaults] setObject:firstUseThisVersion forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self showIntroduce];
+    }
+    
+}
+
+- (IBAction)showIntroduce{
+    PopUpBigViewForNotice *view = [[PopUpBigViewForNotice alloc]initWithFrame:self.view.bounds];
+    view.title = @"こんにちは";
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"introduce" ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
+    view.content = content;
+    [[UIApplication sharedApplication].keyWindow addSubview:view];
 }
 
 - (void)configRoundButton:(UIButton*)button{

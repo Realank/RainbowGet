@@ -14,6 +14,8 @@
 		8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */; };
 		8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91B91E80C9ED0071209E /* WordCell.m */; };
 		8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91BA1E80C9ED0071209E /* WordCell.xib */; };
+		8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */; };
+		8C1F91C11E80F2580071209E /* introduce.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91C01E80F2580071209E /* introduce.txt */; };
 		8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D403C1E6AF26B0024D5FD /* DrawView.m */; };
 		8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C84E4BC1E7A849C000466F8 /* PersistWords.m */; };
 		8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */; };
@@ -61,6 +63,9 @@
 		8C1F91B81E80C9ED0071209E /* WordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCell.h; sourceTree = "<group>"; };
 		8C1F91B91E80C9ED0071209E /* WordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCell.m; sourceTree = "<group>"; };
 		8C1F91BA1E80C9ED0071209E /* WordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
+		8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpBigViewForNotice.h; sourceTree = "<group>"; };
+		8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpBigViewForNotice.m; sourceTree = "<group>"; };
+		8C1F91C01E80F2580071209E /* introduce.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = introduce.txt; sourceTree = "<group>"; };
 		8C7D403B1E6AF26B0024D5FD /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		8C7D403C1E6AF26B0024D5FD /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		8C84E4B71E7A5E8A000466F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -181,6 +186,8 @@
 				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
 				8C7D403B1E6AF26B0024D5FD /* DrawView.h */,
 				8C7D403C1E6AF26B0024D5FD /* DrawView.m */,
+				8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */,
+				8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */,
 				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
 				8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */,
 				8CF8CD551E66560B00A50AE3 /* Info.plist */,
@@ -192,6 +199,7 @@
 		8CF8CD441E66560B00A50AE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C1F91C01E80F2580071209E /* introduce.txt */,
 				8CF8CD451E66560B00A50AE3 /* main.m */,
 				8C84E4B71E7A5E8A000466F8 /* PrefixHeader.pch */,
 			);
@@ -337,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1F91C11E80F2580071209E /* introduce.txt in Resources */,
 				8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */,
 				8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */,
 				8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */,
@@ -425,6 +434,7 @@
 				8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
 				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,
+				8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */,
 				8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */,
 				8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */,
 				8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */,
