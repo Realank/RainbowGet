@@ -67,8 +67,15 @@
 - (void)setupButtons{
     [_modeButton setImage:[[UIImage imageNamed:@"loop"] imageWithColor:TINT_COLOR] forState:UIControlStateNormal];
     [_modeButton setImage:[[UIImage imageNamed:@"shuffle"] imageWithColor:TINT_COLOR] forState:UIControlStateSelected];
-    [self japaneseToChineseModeAction:_jTCModeButton];
-
+    BOOL japaneseToChineseMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"japaneseToChineseMode"];
+    BOOL dontShowAll = [[NSUserDefaults standardUserDefaults] boolForKey:@"dontShowAll"];
+    if (japaneseToChineseMode) {
+        [self japaneseToChineseModeAction:_jTCModeButton];
+    }else{
+        [self chineseToJapaneseModeAction:_cTJModeButton];
+    }
+    
+    self.showAllState = dontShowAll ? 0 : 2;
 }
 
 - (void)setWordIndex:(NSInteger)wordIndex{
@@ -127,9 +134,8 @@
     _cTJModeButton.selected = NO;
     _jTCModeButton.selected = YES;
     self.showAllState = 0;
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"japaneseToChineseMode"];
     [self reloadData];
-
-    
 }
 
 - (IBAction)chineseToJapaneseModeAction:(UIButton *)sender {
@@ -137,6 +143,7 @@
     _cTJModeButton.selected = YES;
     _jTCModeButton.selected = NO;
     self.showAllState = 0;
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"japaneseToChineseMode"];
     [self reloadData];
     
 }
@@ -157,6 +164,12 @@
         _showAllButton.selected = NO;
     }else{
         _showAllButton.selected = YES;
+    }
+    
+    if (showAllState == 0) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"dontShowAll"];
+    }else if (showAllState >= 2) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"dontShowAll"];
     }
 }
 

@@ -21,10 +21,11 @@
                 for (AVObject* obj in objects) {
                     
                     if (obj.allKeys > 0) {
-                        ClassModel* class = [[ClassModel alloc] init];
-                        class.classID = obj[@"ClassID"];
-                        class.className = obj[@"ClassName"];
-                        [classList addObject:class];
+                        ClassModel* aclass = [[ClassModel alloc] init];
+                        aclass.classID = obj[@"ClassID"];
+                        aclass.className = obj[@"ClassName"];
+                        aclass.book = obj[@"Book"];
+                        [classList addObject:aclass];
                     }
                 }
                 if (classList.count > 0) {

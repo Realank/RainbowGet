@@ -10,6 +10,7 @@
 #import "WordModel.h"
 #import "WordBoardViewController.h"
 #import "PersistWords.h"
+#import "WordsListViewController.h"
 @interface ClassesListViewController ()
 
 @end
@@ -50,16 +51,25 @@
     cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
     cell.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
     
-    if (indexPath.row < _classes.count) {
-        ClassModel* class = _classes[indexPath.row];
-        cell.textLabel.text = class.className;
-        cell.detailTextLabel.text = @"新编日语第一册";
-    }else{
-        cell.textLabel.text = @"生词";
-        cell.detailTextLabel.text = @"";
-    }
+
+    ClassModel* aclass = _classes[indexPath.row];
+    cell.textLabel.text = aclass.className;
+    cell.detailTextLabel.text = aclass.book;
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    ClassModel* class = _classes[indexPath.row];
+    self.view.userInteractionEnabled = NO;
+    __weak typeof(self) weakSelf = self;
+    [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
+        [weakSelf pushToWithWordsList:words];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.view.userInteractionEnabled = YES;
+        });
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -82,20 +92,17 @@
     // Create the next view controller.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row < _classes.count) {
-        ClassModel* class = _classes[indexPath.row];
-        self.view.userInteractionEnabled = NO;
-        __weak typeof(self) weakSelf = self;
-        [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
-            [weakSelf pushToWithWords:words];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.view.userInteractionEnabled = YES;
-            });
-        }];
-    }else{
-        NSArray* words = [PersistWords allWords];
-        [self pushToWithWords:words];
-    }
+
+    ClassModel* class = _classes[indexPath.row];
+    self.view.userInteractionEnabled = NO;
+    __weak typeof(self) weakSelf = self;
+    [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
+        [weakSelf pushToWithWords:words];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.view.userInteractionEnabled = YES;
+        });
+    }];
+
     
 
 }
@@ -105,6 +112,16 @@
         return;
     }
     WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
+    detailViewController.wordsList = [words copy];
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+}
+
+- (void)pushToWithWordsList:(NSArray*)words{
+    if (words.count == 0) {
+        return;
+    }
+    WordsListViewController *detailViewController = [[WordsListViewController alloc] init];
     detailViewController.wordsList = [words copy];
     [self.navigationController pushViewController:detailViewController animated:YES];
     

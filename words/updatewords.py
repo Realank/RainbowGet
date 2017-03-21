@@ -33,6 +33,7 @@ leancloud.init("kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz", "aGRwOxwVWSaBmrPT0xrsek1O")
 # for x in xrange(20,21):
 # 	updateChineseOfClass("Class" + str(x))
 for x in xrange(1,21):
+	time.sleep(1)
 	addBookName("Class"+str(x),u"第"+str(x)+u"课",u"新编日语第一册")
 print "Process Finished"
 

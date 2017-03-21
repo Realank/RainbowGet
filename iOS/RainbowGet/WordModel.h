@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSString* classID;
 @property (nonatomic, strong) NSString* className;
+@property (nonatomic, strong) NSString* book;
 
 + (void)loadClassesWithResult:(void (^)(NSArray<ClassModel*>* classes))resultBlock;
 @end
@@ -27,6 +28,7 @@
 @property (nonatomic, assign) NSInteger tone1;
 @property (nonatomic, assign) NSInteger tone2;
 @property (nonatomic, assign) BOOL isHiragana;
+
 
 - (NSString*)toneString;
 - (NSString*)typeString;
