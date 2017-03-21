@@ -97,11 +97,11 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     CGFloat cellWidth = [BoardCell width];
     CGFloat cellHeight = [BoardCell height];
-    NSInteger cellNum = 3;
+//    NSInteger cellNum = 3;
     layout.itemSize = CGSizeMake(cellWidth, cellHeight);
-    NSInteger space = (_contentCollectionView.bounds.size.width - cellNum*cellWidth - 20)/(cellNum-1);
-    space = space > 5 ? space : 5;
-    layout.minimumInteritemSpacing = space;
+//    NSInteger space = (_contentCollectionView.bounds.size.width - cellNum*cellWidth - 20)/(cellNum-1);
+//    space = space > 5 ? space : 5;
+    layout.minimumInteritemSpacing = 10;
     //    space = (470 - 2*cellHeight);
     //    space = space > 5 ? space : 5;
     layout.minimumLineSpacing = 5;
