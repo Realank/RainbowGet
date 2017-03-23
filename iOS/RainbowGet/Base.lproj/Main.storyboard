@@ -71,7 +71,13 @@
                             <constraint firstItem="J62-NY-Cjq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wBa-6r-Ofo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="霓虹单词" id="m8u-ry-4HS"/>
+                    <navigationItem key="navigationItem" title="霓虹单词" id="m8u-ry-4HS">
+                        <barButtonItem key="rightBarButtonItem" title="关于" id="tNR-EF-naZ">
+                            <connections>
+                                <action selector="aboutAction:" destination="BYZ-38-t0r" id="10C-pR-Joq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="aNewWordButton" destination="iDM-ir-Acw" id="DpZ-3E-XUJ"/>
                         <outlet property="enterButton" destination="J62-NY-Cjq" id="Tnc-Uu-lY7"/>

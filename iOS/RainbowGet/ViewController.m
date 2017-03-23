@@ -33,6 +33,9 @@
 //    _signLabel.layer.affineTransform = CGAffineTransformMakeRotation(-M_PI/4);
     [self checkFirstUse];
 }
+- (IBAction)aboutAction:(id)sender {
+    [self showIntroduce];
+}
 
 - (void) checkFirstUse {
 
@@ -49,8 +52,9 @@
 }
 
 - (IBAction)showIntroduce{
+    NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     PopUpBigViewForNotice *view = [[PopUpBigViewForNotice alloc]initWithFrame:self.view.bounds];
-    view.title = @"こんにちは";
+    view.title = [NSString stringWithFormat:@"こんにちは(%@)",bundleVersion];
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"introduce" ofType:@"txt"];
     NSString *content = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
     view.content = content;
