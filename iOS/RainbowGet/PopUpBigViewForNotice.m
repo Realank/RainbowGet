@@ -8,8 +8,8 @@
 
 #import "PopUpBigViewForNotice.h"
 
-#define TopMargin 40
-#define ButtomMargin 40
+#define TopMargin 35
+#define ButtomMargin 35
 #define LeftRightMargin 20
 #define HeadHeight 40
 #define FootHeight 60
