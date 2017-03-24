@@ -12,6 +12,7 @@
 #import "PersistWords.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "DrawView.h"
+#import "AudioPlaybackTool.h"
 
 @implementation UIImage (ChangeColor)
 
@@ -45,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *aNewWordButton;
 @property (weak, nonatomic) IBOutlet UIButton *showAllButton;
 
+@property (weak, nonatomic) UIBarButtonItem* barbutton;
+
 @property (assign, nonatomic) NSInteger showAllState;//0 don't show all, 1 show all once, 2 show all always
 
 @end
@@ -57,10 +60,16 @@
     self.view.tintColor = TINT_COLOR;
     self.wordIndex = 0;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self refreshNewWord];
+    
+    UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playSound)];
+    _barbutton = barbutton;
+    [self.navigationItem setRightBarButtonItem:barbutton];
+    
+    [self refreshWord];
     [self setupButtons];
     [self setupCollectionView];
     [self setupDrawView];
+    
     
 }
 
@@ -213,7 +222,7 @@
         }
     }
     [self resetShowAllState];
-    [self refreshNewWord];
+    [self refreshWord];
     [self reloadData];
     [_drawView clearDrawing];
 }
@@ -228,14 +237,16 @@
         }
     }
     [self resetShowAllState];
-    [self refreshNewWord];
+    [self refreshWord];
     [self reloadData];
     [_drawView clearDrawing];
 }
 
-- (void)refreshNewWord{
+- (void)refreshWord{
     WordModel* word = _wordsList[_wordIndex];
     _aNewWordButton.selected = [PersistWords worldExist:word];
+    
+    _barbutton.enabled = word.audiofile.length > 0;
 }
 
 - (IBAction)undoDraw:(id)sender {
@@ -243,6 +254,15 @@
 }
 - (IBAction)clearDraw:(id)sender {
     [_drawView clearDrawing];
+    
+}
+
+- (void)playSound{
+    WordModel* word = _wordsList[_wordIndex];
+    if (word.audiofile.length > 0) {
+        [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime];
+    }
+    
 }
 
 - (void)reloadData{

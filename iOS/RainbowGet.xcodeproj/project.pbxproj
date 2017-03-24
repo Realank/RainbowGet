@@ -17,6 +17,27 @@
 		8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */; };
 		8C1F91C11E80F2580071209E /* introduce.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91C01E80F2580071209E /* introduce.txt */; };
 		8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D403C1E6AF26B0024D5FD /* DrawView.m */; };
+		8C83CD7A1E84F3130041FE56 /* MW101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD661E84F3130041FE56 /* MW101.mp3 */; };
+		8C83CD7B1E84F3130041FE56 /* MW102.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD671E84F3130041FE56 /* MW102.mp3 */; };
+		8C83CD7C1E84F3130041FE56 /* MW103.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD681E84F3130041FE56 /* MW103.mp3 */; };
+		8C83CD7D1E84F3130041FE56 /* MW104.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD691E84F3130041FE56 /* MW104.mp3 */; };
+		8C83CD7E1E84F3130041FE56 /* MW105.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD6A1E84F3130041FE56 /* MW105.mp3 */; };
+		8C83CD7F1E84F3130041FE56 /* MW106.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD6B1E84F3130041FE56 /* MW106.mp3 */; };
+		8C83CD801E84F3130041FE56 /* MW107.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD6C1E84F3130041FE56 /* MW107.mp3 */; };
+		8C83CD811E84F3130041FE56 /* MW108.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD6D1E84F3130041FE56 /* MW108.mp3 */; };
+		8C83CD821E84F3130041FE56 /* MW109.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD6E1E84F3130041FE56 /* MW109.mp3 */; };
+		8C83CD831E84F3130041FE56 /* MW110.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD6F1E84F3130041FE56 /* MW110.mp3 */; };
+		8C83CD841E84F3130041FE56 /* MW111.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD701E84F3130041FE56 /* MW111.mp3 */; };
+		8C83CD851E84F3130041FE56 /* MW112.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD711E84F3130041FE56 /* MW112.mp3 */; };
+		8C83CD861E84F3130041FE56 /* MW113.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD721E84F3130041FE56 /* MW113.mp3 */; };
+		8C83CD871E84F3130041FE56 /* MW114.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD731E84F3130041FE56 /* MW114.mp3 */; };
+		8C83CD881E84F3130041FE56 /* MW115.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD741E84F3130041FE56 /* MW115.mp3 */; };
+		8C83CD891E84F3130041FE56 /* MW116.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD751E84F3130041FE56 /* MW116.mp3 */; };
+		8C83CD8A1E84F3130041FE56 /* MW117.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD761E84F3130041FE56 /* MW117.mp3 */; };
+		8C83CD8B1E84F3130041FE56 /* MW118.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD771E84F3130041FE56 /* MW118.mp3 */; };
+		8C83CD8C1E84F3130041FE56 /* MW119.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD781E84F3130041FE56 /* MW119.mp3 */; };
+		8C83CD8D1E84F3130041FE56 /* MW120.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD791E84F3130041FE56 /* MW120.mp3 */; };
+		8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */; };
 		8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C84E4BC1E7A849C000466F8 /* PersistWords.m */; };
 		8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */; };
 		8CF8CD461E66560B00A50AE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD451E66560B00A50AE3 /* main.m */; };
@@ -68,6 +89,28 @@
 		8C1F91C01E80F2580071209E /* introduce.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = introduce.txt; sourceTree = "<group>"; };
 		8C7D403B1E6AF26B0024D5FD /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		8C7D403C1E6AF26B0024D5FD /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		8C83CD661E84F3130041FE56 /* MW101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW101.mp3; sourceTree = "<group>"; };
+		8C83CD671E84F3130041FE56 /* MW102.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW102.mp3; sourceTree = "<group>"; };
+		8C83CD681E84F3130041FE56 /* MW103.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW103.mp3; sourceTree = "<group>"; };
+		8C83CD691E84F3130041FE56 /* MW104.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW104.mp3; sourceTree = "<group>"; };
+		8C83CD6A1E84F3130041FE56 /* MW105.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW105.mp3; sourceTree = "<group>"; };
+		8C83CD6B1E84F3130041FE56 /* MW106.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW106.mp3; sourceTree = "<group>"; };
+		8C83CD6C1E84F3130041FE56 /* MW107.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW107.mp3; sourceTree = "<group>"; };
+		8C83CD6D1E84F3130041FE56 /* MW108.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW108.mp3; sourceTree = "<group>"; };
+		8C83CD6E1E84F3130041FE56 /* MW109.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW109.mp3; sourceTree = "<group>"; };
+		8C83CD6F1E84F3130041FE56 /* MW110.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW110.mp3; sourceTree = "<group>"; };
+		8C83CD701E84F3130041FE56 /* MW111.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW111.mp3; sourceTree = "<group>"; };
+		8C83CD711E84F3130041FE56 /* MW112.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW112.mp3; sourceTree = "<group>"; };
+		8C83CD721E84F3130041FE56 /* MW113.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW113.mp3; sourceTree = "<group>"; };
+		8C83CD731E84F3130041FE56 /* MW114.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW114.mp3; sourceTree = "<group>"; };
+		8C83CD741E84F3130041FE56 /* MW115.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW115.mp3; sourceTree = "<group>"; };
+		8C83CD751E84F3130041FE56 /* MW116.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW116.mp3; sourceTree = "<group>"; };
+		8C83CD761E84F3130041FE56 /* MW117.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW117.mp3; sourceTree = "<group>"; };
+		8C83CD771E84F3130041FE56 /* MW118.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW118.mp3; sourceTree = "<group>"; };
+		8C83CD781E84F3130041FE56 /* MW119.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW119.mp3; sourceTree = "<group>"; };
+		8C83CD791E84F3130041FE56 /* MW120.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW120.mp3; sourceTree = "<group>"; };
+		8C83CD941E84F42F0041FE56 /* AudioPlaybackTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlaybackTool.h; sourceTree = "<group>"; };
+		8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlaybackTool.m; sourceTree = "<group>"; };
 		8C84E4B71E7A5E8A000466F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8C84E4BB1E7A849C000466F8 /* PersistWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistWords.h; sourceTree = "<group>"; };
 		8C84E4BC1E7A849C000466F8 /* PersistWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistWords.m; sourceTree = "<group>"; };
@@ -135,6 +178,103 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8C83CD651E84F3130041FE56 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				8C83CD661E84F3130041FE56 /* MW101.mp3 */,
+				8C83CD671E84F3130041FE56 /* MW102.mp3 */,
+				8C83CD681E84F3130041FE56 /* MW103.mp3 */,
+				8C83CD691E84F3130041FE56 /* MW104.mp3 */,
+				8C83CD6A1E84F3130041FE56 /* MW105.mp3 */,
+				8C83CD6B1E84F3130041FE56 /* MW106.mp3 */,
+				8C83CD6C1E84F3130041FE56 /* MW107.mp3 */,
+				8C83CD6D1E84F3130041FE56 /* MW108.mp3 */,
+				8C83CD6E1E84F3130041FE56 /* MW109.mp3 */,
+				8C83CD6F1E84F3130041FE56 /* MW110.mp3 */,
+				8C83CD701E84F3130041FE56 /* MW111.mp3 */,
+				8C83CD711E84F3130041FE56 /* MW112.mp3 */,
+				8C83CD721E84F3130041FE56 /* MW113.mp3 */,
+				8C83CD731E84F3130041FE56 /* MW114.mp3 */,
+				8C83CD741E84F3130041FE56 /* MW115.mp3 */,
+				8C83CD751E84F3130041FE56 /* MW116.mp3 */,
+				8C83CD761E84F3130041FE56 /* MW117.mp3 */,
+				8C83CD771E84F3130041FE56 /* MW118.mp3 */,
+				8C83CD781E84F3130041FE56 /* MW119.mp3 */,
+				8C83CD791E84F3130041FE56 /* MW120.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		8C83CD8E1E84F31E0041FE56 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD861E66645800A50AE3 /* WordModel.h */,
+				8CF8CD871E66645800A50AE3 /* WordModel.m */,
+				8C84E4BB1E7A849C000466F8 /* PersistWords.h */,
+				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
+				8C83CD941E84F42F0041FE56 /* AudioPlaybackTool.h */,
+				8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		8C83CD8F1E84F34D0041FE56 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				8C7D403B1E6AF26B0024D5FD /* DrawView.h */,
+				8C7D403C1E6AF26B0024D5FD /* DrawView.m */,
+				8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */,
+				8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
+		8C83CD901E84F3710041FE56 /* FirstPage */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
+				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
+				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
+			);
+			name = FirstPage;
+			sourceTree = "<group>";
+		};
+		8C83CD911E84F39A0041FE56 /* ClassList */ = {
+			isa = PBXGroup;
+			children = (
+				8C0B1ACC1E69D125003DBE7F /* ClassesListViewController.h */,
+				8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */,
+				8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */,
+			);
+			name = ClassList;
+			sourceTree = "<group>";
+		};
+		8C83CD921E84F3AC0041FE56 /* WordBoard */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
+				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
+				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
+				8CF8CD811E665B7F00A50AE3 /* BoardCell.h */,
+				8CF8CD821E665B7F00A50AE3 /* BoardCell.m */,
+				8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */,
+			);
+			name = WordBoard;
+			sourceTree = "<group>";
+		};
+		8C83CD931E84F3BB0041FE56 /* WordList */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F91B31E80C9CF0071209E /* WordsListViewController.h */,
+				8C1F91B41E80C9CF0071209E /* WordsListViewController.m */,
+				8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */,
+				8C1F91B81E80C9ED0071209E /* WordCell.h */,
+				8C1F91B91E80C9ED0071209E /* WordCell.m */,
+				8C1F91BA1E80C9ED0071209E /* WordCell.xib */,
+			);
+			name = WordList;
+			sourceTree = "<group>";
+		};
 		8CF8CD381E66560B00A50AE3 = {
 			isa = PBXGroup;
 			children = (
@@ -160,34 +300,15 @@
 		8CF8CD431E66560B00A50AE3 /* RainbowGet */ = {
 			isa = PBXGroup;
 			children = (
+				8C83CD651E84F3130041FE56 /* audio */,
+				8C83CD8E1E84F31E0041FE56 /* Util */,
+				8C83CD8F1E84F34D0041FE56 /* CustomView */,
 				8CF8CD471E66560B00A50AE3 /* AppDelegate.h */,
 				8CF8CD481E66560B00A50AE3 /* AppDelegate.m */,
-				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
-				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
-				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
-				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
-				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
-				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
-				8C0B1ACC1E69D125003DBE7F /* ClassesListViewController.h */,
-				8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */,
-				8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */,
-				8CF8CD811E665B7F00A50AE3 /* BoardCell.h */,
-				8CF8CD821E665B7F00A50AE3 /* BoardCell.m */,
-				8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */,
-				8C1F91B31E80C9CF0071209E /* WordsListViewController.h */,
-				8C1F91B41E80C9CF0071209E /* WordsListViewController.m */,
-				8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */,
-				8C1F91B81E80C9ED0071209E /* WordCell.h */,
-				8C1F91B91E80C9ED0071209E /* WordCell.m */,
-				8C1F91BA1E80C9ED0071209E /* WordCell.xib */,
-				8CF8CD861E66645800A50AE3 /* WordModel.h */,
-				8CF8CD871E66645800A50AE3 /* WordModel.m */,
-				8C84E4BB1E7A849C000466F8 /* PersistWords.h */,
-				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
-				8C7D403B1E6AF26B0024D5FD /* DrawView.h */,
-				8C7D403C1E6AF26B0024D5FD /* DrawView.m */,
-				8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */,
-				8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */,
+				8C83CD901E84F3710041FE56 /* FirstPage */,
+				8C83CD911E84F39A0041FE56 /* ClassList */,
+				8C83CD921E84F3AC0041FE56 /* WordBoard */,
+				8C83CD931E84F3BB0041FE56 /* WordList */,
 				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
 				8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */,
 				8CF8CD551E66560B00A50AE3 /* Info.plist */,
@@ -305,6 +426,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 275X96KVEB;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					8CF8CD591E66560B00A50AE3 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -346,14 +472,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F91C11E80F2580071209E /* introduce.txt in Resources */,
+				8C83CD851E84F3130041FE56 /* MW112.mp3 in Resources */,
 				8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */,
 				8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */,
+				8C83CD801E84F3130041FE56 /* MW107.mp3 in Resources */,
+				8C83CD811E84F3130041FE56 /* MW108.mp3 in Resources */,
+				8C83CD7A1E84F3130041FE56 /* MW101.mp3 in Resources */,
 				8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */,
+				8C83CD821E84F3130041FE56 /* MW109.mp3 in Resources */,
+				8C83CD7E1E84F3130041FE56 /* MW105.mp3 in Resources */,
+				8C83CD881E84F3130041FE56 /* MW115.mp3 in Resources */,
+				8C83CD831E84F3130041FE56 /* MW110.mp3 in Resources */,
+				8C83CD8A1E84F3130041FE56 /* MW117.mp3 in Resources */,
+				8C83CD871E84F3130041FE56 /* MW114.mp3 in Resources */,
 				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
+				8C83CD7D1E84F3130041FE56 /* MW104.mp3 in Resources */,
+				8C83CD8B1E84F3130041FE56 /* MW118.mp3 in Resources */,
 				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
+				8C83CD861E84F3130041FE56 /* MW113.mp3 in Resources */,
+				8C83CD7C1E84F3130041FE56 /* MW103.mp3 in Resources */,
+				8C83CD891E84F3130041FE56 /* MW116.mp3 in Resources */,
+				8C83CD8D1E84F3130041FE56 /* MW120.mp3 in Resources */,
 				8CF8CD7B1E66575100A50AE3 /* WordBoardViewController.xib in Resources */,
+				8C83CD8C1E84F3130041FE56 /* MW119.mp3 in Resources */,
 				8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */,
 				8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */,
+				8C83CD7F1E84F3130041FE56 /* MW106.mp3 in Resources */,
+				8C83CD841E84F3130041FE56 /* MW111.mp3 in Resources */,
+				8C83CD7B1E84F3130041FE56 /* MW102.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +574,7 @@
 			files = (
 				8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */,
 				8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */,
+				8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */,
 				8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */,
 				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,
 				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,

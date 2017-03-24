@@ -92,18 +92,26 @@
         word.kana = obj[@"kana"];
         word.chinese = obj[@"chinese"];
         word.tone1 = [obj[@"tone1"] integerValue];
-        word.type1 = obj[@"type1"];
         word.tone2 = [obj[@"tone2"] integerValue];
+        word.tone3 = [obj[@"tone3"] integerValue];
+        word.type1 = obj[@"type1"];
         word.type2 = obj[@"type2"];
+        word.type3 = obj[@"type3"];
+        word.classname = obj[@"classname"];
+        word.wordid = obj[@"wordid"];
+        word.audiofile = obj[@"audiofile"];
         word.isHiragana = [obj[@"ishiragana"] boolValue];
+        word.starttime = [obj[@"starttime"] doubleValue];
+        word.periodtime = [obj[@"periodtime"] doubleValue];
         return word;
     }
     return nil;
 }
 
 + (void)loadWordsFromClass:(NSString *)classID result:(void (^)(NSArray<WordModel*>* words))resultBlock{
-    AVQuery *query = [AVQuery queryWithClassName:classID];
-    [query orderByAscending:@"createdAt"];
+    AVQuery *query = [AVQuery queryWithClassName:@"BOOK1"];
+    [query whereKey:@"classname" equalTo:classID];
+    [query orderByAscending:@"wordid"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count) {

@@ -22,6 +22,8 @@
     [super awakeFromNib];
     // Initialization code
     self.contentView.backgroundColor = TINT_COLOR;
+    self.selectedBackgroundView = [[UIView alloc] init];
+    self.selectedBackgroundView.backgroundColor = TINT_SELECTED_COLOR;
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{
