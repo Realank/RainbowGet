@@ -136,7 +136,7 @@
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
     NSLog(@"音乐播放完成...");
-    [self stopAndCloseFile];
+    [self _stopPlayback];
 }
 
 -(void)routeChange:(NSNotification *)notification{
