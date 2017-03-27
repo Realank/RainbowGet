@@ -44,6 +44,8 @@
 
 - (NSString*)toneStringWithIndex:(NSInteger)index{
     switch (index) {
+        case -1:
+            return @"";
         case 0:
             return @"⓪";
         case 1:
@@ -70,18 +72,19 @@
 }
 
 - (NSString *)toneString{
-    if (self.tone2 < 0) {
-        return [self toneStringWithIndex:self.tone1];
-    }
-    return [NSString stringWithFormat:@"%@%@",[self toneStringWithIndex:self.tone1],[self toneStringWithIndex:self.tone2]];
+    return [NSString stringWithFormat:@"%@%@%@",[self toneStringWithIndex:self.tone1],[self toneStringWithIndex:self.tone2],[self toneStringWithIndex:self.tone3]];
 }
 
 - (NSString *)typeString{
     if (self.type2.length <= 0) {
         return self.type1;
     }
+    if (self.type3.length <= 0) {
+        return [NSString stringWithFormat:@"%@·%@",self.type1,self.type2];
+    }
     
-    return [NSString stringWithFormat:@"%@·%@",self.type1,self.type2];
+    return [NSString stringWithFormat:@"%@·%@·%@",self.type1,self.type2,self.type3];
+    
 }
 
 + (instancetype)wordWithAVObj:(AVObject*)obj{
