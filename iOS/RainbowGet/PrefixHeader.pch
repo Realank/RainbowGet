@@ -13,7 +13,11 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #define TINT_SELECTED_COLOR RGBColor(21,92,76,1)
 #define TINT_COLOR RGBColor(31,102,86,1)
-#define FORE_COLOR RGBColor(240,219,157,1)
+#define FORE_COLOR RGBColor(250,219,167,1)
 #define GRAY_COLOR RGBColor(216,216,216,1)
 #define RGBColor(r,g,b,a) ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a])
+
+#import "CommTool.h"
+
+
 #endif /* PrefixHeader_pch */

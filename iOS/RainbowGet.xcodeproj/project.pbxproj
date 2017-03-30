@@ -10,6 +10,8 @@
 		4BD80DDAE655035B9FC517F8 /* libPods-RainbowGet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B353427C0C86AFD0A69E54 /* libPods-RainbowGet.a */; };
 		8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */; };
 		8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */; };
+		8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C11886F1E8CE3DF0073A194 /* BookCell.m */; };
+		8C1188731E8CF0D20073A194 /* CommTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1188721E8CF0D20073A194 /* CommTool.m */; };
 		8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91B41E80C9CF0071209E /* WordsListViewController.m */; };
 		8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */; };
 		8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91B91E80C9ED0071209E /* WordCell.m */; };
@@ -78,6 +80,10 @@
 		8C0B1ACC1E69D125003DBE7F /* ClassesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassesListViewController.h; sourceTree = "<group>"; };
 		8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassesListViewController.m; sourceTree = "<group>"; };
 		8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassesListViewController.xib; sourceTree = "<group>"; };
+		8C11886E1E8CE3DF0073A194 /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
+		8C11886F1E8CE3DF0073A194 /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
+		8C1188711E8CF0D20073A194 /* CommTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommTool.h; sourceTree = "<group>"; };
+		8C1188721E8CF0D20073A194 /* CommTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommTool.m; sourceTree = "<group>"; };
 		8C1F91B31E80C9CF0071209E /* WordsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordsListViewController.h; sourceTree = "<group>"; };
 		8C1F91B41E80C9CF0071209E /* WordsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordsListViewController.m; sourceTree = "<group>"; };
 		8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordsListViewController.xib; sourceTree = "<group>"; };
@@ -214,6 +220,8 @@
 				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
 				8C83CD941E84F42F0041FE56 /* AudioPlaybackTool.h */,
 				8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */,
+				8C1188711E8CF0D20073A194 /* CommTool.h */,
+				8C1188721E8CF0D20073A194 /* CommTool.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -235,6 +243,8 @@
 				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
 				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
 				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
+				8C11886E1E8CE3DF0073A194 /* BookCell.h */,
+				8C11886F1E8CE3DF0073A194 /* BookCell.m */,
 			);
 			name = FirstPage;
 			sourceTree = "<group>";
@@ -575,11 +585,13 @@
 				8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */,
 				8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */,
 				8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */,
+				8C1188731E8CF0D20073A194 /* CommTool.m in Sources */,
 				8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */,
 				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,
 				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,
 				8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
+				8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */,
 				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,
 				8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */,
 				8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */,

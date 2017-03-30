@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ve8-Ou-1Qj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ve8-Ou-1Qj">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,21 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J62-NY-Cjq">
-                                <rect key="frame" x="234" y="87.5" width="200" height="200"/>
-                                <color key="backgroundColor" red="1" green="0.45370447069999997" blue="0.33556070230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="GHN-0I-YaE"/>
-                                    <constraint firstAttribute="width" constant="200" id="Kvm-8z-hod"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="课程单词">
-                                    <color key="titleColor" red="0.1130422982" green="0.45596442339999999" blue="0.63797360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="enter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QjF-lL-72q"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By Realank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEq-sf-5JT">
                                 <rect key="frame" x="260" y="335" width="147" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -45,30 +31,63 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDM-ir-Acw">
-                                <rect key="frame" x="447" y="187" width="100" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.45370447069999997" blue="0.33556070230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="N4S-O9-vuV"/>
-                                    <constraint firstAttribute="height" constant="100" id="OjV-Ig-gSd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="生词复习">
-                                    <color key="titleColor" red="0.1130422982" green="0.45596442339999999" blue="0.63797360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="enterNewWordPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZIk-hX-APa"/>
-                                </connections>
-                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2wM-Cu-v2U">
+                                <rect key="frame" x="0.0" y="64" width="667" height="312"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="KLN-1O-ny0">
+                                    <size key="itemSize" width="130" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="9" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bookCell" id="bc9-td-1v1" customClass="BookCell">
+                                        <rect key="frame" x="10" y="10" width="130" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TN-hU-eUT">
+                                                    <rect key="frame" x="0.5" y="23" width="130" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh1-FS-xRD">
+                                                    <rect key="frame" x="13" y="137" width="104" height="20"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.98394996759999998" green="0.9073435514" blue="0.76342652990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Zh1-FS-xRD" firstAttribute="leading" secondItem="bc9-td-1v1" secondAttribute="leadingMargin" constant="5" id="0tf-Ow-I0R"/>
+                                            <constraint firstItem="5TN-hU-eUT" firstAttribute="centerX" secondItem="bc9-td-1v1" secondAttribute="centerX" id="7Al-lI-Fd2"/>
+                                            <constraint firstItem="5TN-hU-eUT" firstAttribute="width" secondItem="bc9-td-1v1" secondAttribute="width" id="BAQ-8u-Z35"/>
+                                            <constraint firstItem="Zh1-FS-xRD" firstAttribute="centerX" secondItem="bc9-td-1v1" secondAttribute="centerX" id="Jk8-Pf-0kf"/>
+                                            <constraint firstItem="5TN-hU-eUT" firstAttribute="top" secondItem="bc9-td-1v1" secondAttribute="topMargin" constant="15" id="aLT-tr-1Th"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Zh1-FS-xRD" secondAttribute="bottom" constant="15" id="aXf-f4-ELD"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Zh1-FS-xRD" secondAttribute="trailing" constant="5" id="fpC-Pl-Eh0"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="subTitleLabel" destination="Zh1-FS-xRD" id="rIs-1o-Yv6"/>
+                                            <outlet property="titleLabel" destination="5TN-hU-eUT" id="oE1-Ra-O0d"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98394996761658027" green="0.90734355137224443" blue="0.76342652986726356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1215686275" green="0.40000000000000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IEq-sf-5JT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1K8-Jo-igt"/>
-                            <constraint firstItem="iDM-ir-Acw" firstAttribute="bottom" secondItem="J62-NY-Cjq" secondAttribute="bottom" id="9IC-z0-IYt"/>
-                            <constraint firstItem="iDM-ir-Acw" firstAttribute="leading" secondItem="J62-NY-Cjq" secondAttribute="trailing" constant="13" id="BiC-gG-INR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2wM-Cu-v2U" secondAttribute="bottom" constant="-1" id="AQf-0T-dUI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IEq-sf-5JT" secondAttribute="bottom" constant="20.5" id="Cfe-8M-wmK"/>
-                            <constraint firstItem="J62-NY-Cjq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="noi-Ee-UcN"/>
-                            <constraint firstItem="J62-NY-Cjq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wBa-6r-Ofo"/>
+                            <constraint firstItem="2wM-Cu-v2U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Dee-cR-Byv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2wM-Cu-v2U" secondAttribute="trailing" constant="-20" id="QMC-7W-iMa"/>
+                            <constraint firstItem="2wM-Cu-v2U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TGJ-qq-COv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="霓虹单词" id="m8u-ry-4HS">
@@ -79,14 +98,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="aNewWordButton" destination="iDM-ir-Acw" id="DpZ-3E-XUJ"/>
-                        <outlet property="enterButton" destination="J62-NY-Cjq" id="Tnc-Uu-lY7"/>
+                        <outlet property="bookCollectionView" destination="2wM-Cu-v2U" id="vkf-7v-HdI"/>
                         <outlet property="signLabel" destination="IEq-sf-5JT" id="MpN-5o-5PM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421.2890625" y="642.1875"/>
+            <point key="canvasLocation" x="419.64017991004499" y="640.79999999999995"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="euX-gP-OAO">

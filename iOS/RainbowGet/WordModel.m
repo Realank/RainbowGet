@@ -9,12 +9,58 @@
 #import "WordModel.h"
 #import <AVOSCloud.h>
 
-@implementation ClassModel
+/*
+ 
+ Hierarchy
+ 
+ BookList
+ | 
+ MainBookName  WordsTable   ClassesTable
+                    |           |
+                WordsList---ClassList
+ 
+ */
 
-+ (void)loadClassesWithResult:(void (^)(NSArray<ClassModel*>* classes))resultBlock{
-    AVQuery *query = [AVQuery queryWithClassName:@"ClassList"];
-    [query orderByAscending:@"createdAt"];
+@interface WordModel ()
+
++ (instancetype)wordWithAVObj:(AVObject*)obj;
+
+@end
+
+@implementation BookModel
+
++ (void)loadBooksWithResult:(void (^)(NSArray<BookModel*>* books))resultBlock{
+    AVQuery *query = [AVQuery queryWithClassName:@"BookList"];
+    [query orderByAscending:@"index"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count) {
+                NSMutableArray* booksList = [NSMutableArray array];
+                for (AVObject* obj in objects) {
+                    
+                    if (obj.allKeys > 0) {
+                        BookModel* book = [[BookModel alloc] init];
+                        book.title = obj[@"BookTitle"];
+                        book.subtitle = obj[@"BookSubTitle"];
+                        book.classesTableName = obj[@"ClassesTable"];
+                        book.wordsTableName = obj[@"WordsTable"];
+                        [booksList addObject:book];
+                    }
+                }
+                if (booksList.count > 0) {
+                    resultBlock([booksList copy]);
+                    return;
+                }
+            }
+        }
+        resultBlock(nil);
+    }];
+
+}
+- (void)loadClassesWithComplete:(void (^)())completeBlock{
+    AVQuery *queryMain = [AVQuery queryWithClassName:self.classesTableName];
+    [queryMain orderByAscending:@"index"];
+    [queryMain findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count) {
                 NSMutableArray* classList = [NSMutableArray array];
@@ -24,21 +70,60 @@
                         ClassModel* aclass = [[ClassModel alloc] init];
                         aclass.classID = obj[@"ClassID"];
                         aclass.className = obj[@"ClassName"];
-                        aclass.book = obj[@"Book"];
+                        aclass.wordsTableName = self.wordsTableName;
                         [classList addObject:aclass];
                     }
                 }
                 if (classList.count > 0) {
-                    resultBlock([classList copy]);
-                    return;
+                    self.classes = [classList copy];
                 }
             }
+        }else{
+            
         }
-        resultBlock(nil);
+        completeBlock();
     }];
 }
 
 @end
+@implementation ClassModel
+
+- (void)loadWordsWithComplete:(void (^)())completeBlock{
+    if (self.words.count) {
+        if (completeBlock) {
+            completeBlock();
+        }
+        return;
+    }
+    AVQuery *query = [AVQuery queryWithClassName:self.wordsTableName];
+    [query whereKey:@"classname" equalTo:self.classID];
+    [query orderByAscending:@"wordid"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count) {
+                NSMutableArray* wordsList = [NSMutableArray array];
+                for (AVObject* obj in objects) {
+                    
+                    WordModel* word = [WordModel wordWithAVObj:obj];
+                    if (obj) {
+                        [wordsList addObject:word];
+                    }
+                }
+                if (wordsList.count > 0) {
+                    self.words = [wordsList copy];
+                }
+            }
+        }
+        if (completeBlock) {
+            completeBlock();
+        }
+        
+    }];
+}
+
+@end
+
+
 
 @implementation WordModel
 
@@ -111,28 +196,4 @@
     return nil;
 }
 
-+ (void)loadWordsFromClass:(NSString *)classID result:(void (^)(NSArray<WordModel*>* words))resultBlock{
-    AVQuery *query = [AVQuery queryWithClassName:@"BOOK1"];
-    [query whereKey:@"classname" equalTo:classID];
-    [query orderByAscending:@"wordid"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (objects.count) {
-                NSMutableArray* wordsList = [NSMutableArray array];
-                for (AVObject* obj in objects) {
-                    
-                    WordModel* word = [WordModel wordWithAVObj:obj];
-                    if (obj) {
-                        [wordsList addObject:word];
-                    }
-                }
-                if (wordsList.count > 0) {
-                    resultBlock([wordsList copy]);
-                    return;
-                }
-            }
-        }
-        resultBlock(nil);
-    }];
-}
 @end

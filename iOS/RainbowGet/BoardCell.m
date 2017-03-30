@@ -18,9 +18,7 @@
 
 @implementation BoardCell
 
-+ (BOOL)isIPAD{
-    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
-}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -29,7 +27,7 @@
 //    _backView.layer.borderWidth = 2;
 //    _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _backView.backgroundColor = FORE_COLOR;
-    if (![BoardCell isIPAD]) {
+    if (![CommTool isIPAD]) {
         _contentLabel.font = [UIFont systemFontOfSize:21];
         _propertyLabel.font = [UIFont systemFontOfSize:17];
     }
@@ -47,7 +45,7 @@
 + (CGFloat)width{
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat width = (screenWidth - 40)/3;
-    if ([self isIPAD]) {
+    if ([CommTool isIPAD]) {
         if (width > 330) {
             width = 330;
         }
@@ -65,7 +63,7 @@
 
 
 + (CGFloat)height{
-    if ([self isIPAD]) {
+    if ([CommTool isIPAD]) {
         return 220;
     }else{
         return 120;

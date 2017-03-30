@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.tintColor = TINT_COLOR;
-    self.title = @"课程列表";
+//    self.title = @"课程列表";
 //    self.tableView.backgroundColor = TINT_COLOR;
 }
 
@@ -54,18 +54,18 @@
 
     ClassModel* aclass = _classes[indexPath.row];
     cell.textLabel.text = aclass.className;
-    cell.detailTextLabel.text = aclass.book;
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    ClassModel* class = _classes[indexPath.row];
+    ClassModel* aclass = _classes[indexPath.row];
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
-    [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
-        [weakSelf pushToWithWordsList:words];
+    
+    [aclass loadWordsWithComplete:^{
+        [weakSelf pushToWithWordsList:aclass.words];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
         });
@@ -73,16 +73,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self isIPAD]) {
+    if ([CommTool isIPAD]) {
         return 65;
     }else{
         return 45;
     }
 }
 
-- (BOOL)isIPAD{
-    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
-}
 
 #pragma mark - Table view delegate
 
@@ -93,16 +90,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 
-    ClassModel* class = _classes[indexPath.row];
+    ClassModel* aclass = _classes[indexPath.row];
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
-    [WordModel loadWordsFromClass:class.classID result:^(NSArray<WordModel *> *words) {
-        [weakSelf pushToWithWords:words];
+    [aclass loadWordsWithComplete:^{
+        [weakSelf pushToWithWords:aclass.words];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
         });
     }];
-
     
 
 }

@@ -12,13 +12,13 @@
 #import "WordModel.h"
 #import "PersistWords.h"
 #import "PopUpBigViewForNotice.h"
-@interface ViewController ()
+#import "BookCell.h"
+@interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIButton *enterButton;
-@property (weak, nonatomic) IBOutlet UIButton *aNewWordButton;
 @property (weak, nonatomic) IBOutlet UILabel *signLabel;
-
+@property (weak, nonatomic) IBOutlet UICollectionView *bookCollectionView;
 @property (strong, nonatomic) NSArray* someNewWords;
+@property (strong, nonatomic) NSArray* books;
 @end
 
 @implementation ViewController
@@ -27,15 +27,43 @@
     [super viewDidLoad];
     self.navigationController.view.tintColor = TINT_COLOR;
     self.view.backgroundColor = TINT_COLOR;
-    [self configRoundButton:self.enterButton];
-    [self configRoundButton:self.aNewWordButton];
+    [self setupCollectionView];
     // Do any additional setup after loading the view, typically from a nib.
 //    _signLabel.layer.affineTransform = CGAffineTransformMakeRotation(-M_PI/4);
     [self checkFirstUse];
+    [self loadBooks];
+}
+- (void)setupCollectionView{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    CGFloat cellWidth = 120;
+    CGFloat cellHeight = 160;
+    if ([CommTool isIPAD]) {
+        cellWidth = 180;
+        cellHeight = 240;
+    }
+    //    NSInteger cellNum = 3;
+    layout.itemSize = CGSizeMake(cellWidth, cellHeight);
+    //    NSInteger space = (_contentCollectionView.bounds.size.width - cellNum*cellWidth - 20)/(cellNum-1);
+    //    space = space > 5 ? space : 5;
+    layout.minimumInteritemSpacing = 10;
+    //    space = (470 - 2*cellHeight);
+    //    space = space > 5 ? space : 5;
+    layout.minimumLineSpacing = 5;
+    layout.sectionInset = UIEdgeInsetsMake(15, 10, 15, 10);
+    _bookCollectionView.collectionViewLayout = layout;
+
+    _bookCollectionView.delegate = self;
+    _bookCollectionView.dataSource = self;
+    
+}
+
+- (void)reloadData{
+    [_bookCollectionView reloadData];
 }
 - (IBAction)aboutAction:(id)sender {
     [self showIntroduce];
 }
+
 
 - (void) checkFirstUse {
 
@@ -76,7 +104,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _someNewWords = [PersistWords allWords];
-    _aNewWordButton.hidden = _someNewWords.count == 0;
+    [self reloadData];
 }
 
 - (void)showButtonAnimate:(UIButton*)button{
@@ -91,17 +119,16 @@
     }];
 }
 
-- (IBAction)enter:(UIButton*)sender {
+- (void)loadBooks {
     
     __weak typeof(self) weakSelf = self;
-    [ClassModel loadClassesWithResult:^(NSArray<ClassModel *> *classes) {
-        if (classes.count <= 0) {
-            return;
+    
+    [BookModel loadBooksWithResult:^(NSArray<BookModel *> *books) {
+        if (books.count) {
+            weakSelf.books = [books copy];
+            [weakSelf reloadData];
+
         }
-        [self showButtonAnimate:sender];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf goNextWithClasses:classes];
-        });
     }];
     
     
@@ -114,9 +141,10 @@
     });
 }
 
-- (void)goNextWithClasses:(NSArray*)classes{
+- (void)goNextWithClasses:(NSArray*)classes ofBookName:(NSString*)bookName{
     ClassesListViewController* vc = [[ClassesListViewController alloc] init];
     vc.classes = [classes copy];
+    vc.title = bookName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)pushToWithWords:(NSArray*)words{
@@ -128,5 +156,52 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
+
+#pragma mark - collectionview delegate
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    
+    return 1;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSInteger number =  _books.count + (_someNewWords.count > 0 ? 1 : 0);
+    return number;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = indexPath.row;
+    BookCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bookCell" forIndexPath:indexPath];
+    if (row < _books.count) {
+        BookModel* book = _books[row];
+        cell.book = book;
+    }else{
+        BookModel* newWordsBook = [[BookModel alloc] init];
+        newWordsBook.title = @"生词本";
+        cell.book = newWordsBook;
+    }
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = indexPath.row;
+    if (row < _books.count) {
+        BookModel* book = _books[row];
+        __weak typeof(self) weakSelf = self;
+        self.view.userInteractionEnabled = NO;
+        [book loadClassesWithComplete:^{
+            weakSelf.view.userInteractionEnabled = YES;
+            if (book.classes.count) {
+                NSString* bookName = [NSString stringWithFormat:@"%@(%@)",book.title,book.subtitle];
+                [weakSelf goNextWithClasses:book.classes ofBookName:bookName];
+            }
+        }];
+    }else{
+        [self pushToWithWords:_someNewWords];
+    }
+    
+}
+
 
 @end

@@ -8,14 +8,29 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud.h>
+@class ClassModel;
+@class WordModel;
+@interface BookModel : NSObject
+@property (nonatomic, strong) NSString* title;
+@property (nonatomic, strong) NSString* subtitle;
+@property (nonatomic, strong) NSString* classesTableName;
+@property (nonatomic, strong) NSString* wordsTableName;
+
+@property (nonatomic, strong) NSArray<ClassModel*>* classes;
+
++ (void)loadBooksWithResult:(void (^)(NSArray<BookModel*>* books))resultBlock;
+- (void)loadClassesWithComplete:(void (^)())completeBlock;
+@end
 
 @interface ClassModel : NSObject
 
 @property (nonatomic, strong) NSString* classID;
 @property (nonatomic, strong) NSString* className;
-@property (nonatomic, strong) NSString* book;
+@property (nonatomic, weak) NSString* wordsTableName;
 
-+ (void)loadClassesWithResult:(void (^)(NSArray<ClassModel*>* classes))resultBlock;
+@property (nonatomic, strong) NSArray<WordModel*>* words;
+
+- (void)loadWordsWithComplete:(void (^)())completeBlock;
 @end
 
 @interface WordModel : NSObject
@@ -37,8 +52,5 @@
 @property (nonatomic, assign) NSTimeInterval periodtime;
 - (NSString*)toneString;
 - (NSString*)typeString;
-
-+ (instancetype)wordWithAVObj:(AVObject*)obj;
-+ (void)loadWordsFromClass:(NSString *)classID result:(void (^)(NSArray<WordModel*>* words))resultBlock;
 
 @end

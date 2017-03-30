@@ -51,7 +51,14 @@
         _nakaLabel.text = @"";
     }
     _chineseLabel.text = word.chinese;
-    _typeLabel.text = [NSString stringWithFormat:@"%@\n%@",[word typeString],[word toneString]];
+    
+    if ([word typeString].length > 6) {
+        _typeLabel.text = [NSString stringWithFormat:@"%@ %@",[word typeString],[word toneString]];
+    }else{
+        _typeLabel.text = [NSString stringWithFormat:@"%@\n%@",[word typeString],[word toneString]];
+    }
+    
+    
     
 }
 
