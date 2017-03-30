@@ -87,9 +87,7 @@
         [self stopAndCloseFile];
         return NO;
     }
-    _audioTimer = [NSTimer scheduledTimerWithTimeInterval:duration repeats:NO block:^(NSTimer * _Nonnull timer) {
-        [self _stopPlayback];
-    }];
+    _audioTimer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(_stopPlayback) userInfo:nil repeats:NO];
     _shouldKeepReadyWhenPause = YES;
     return YES;
 }
