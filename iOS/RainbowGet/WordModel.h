@@ -26,11 +26,15 @@
 
 @property (nonatomic, strong) NSString* classID;
 @property (nonatomic, strong) NSString* className;
-@property (nonatomic, weak) NSString* wordsTableName;
+@property (nonatomic, strong) NSString* classTitle;
+@property (nonatomic, copy) NSString* wordsTableName;
+@property (nonatomic, copy) NSString* bookName;
 
 @property (nonatomic, strong) NSArray<WordModel*>* words;
 
 - (void)loadWordsWithComplete:(void (^)())completeBlock;
+
+- (NSString*)wordBookKey;
 @end
 
 @interface WordModel : NSObject

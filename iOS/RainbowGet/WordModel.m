@@ -70,7 +70,9 @@
                         ClassModel* aclass = [[ClassModel alloc] init];
                         aclass.classID = obj[@"ClassID"];
                         aclass.className = obj[@"ClassName"];
+                        aclass.classTitle = obj[@"ClassTitle"];
                         aclass.wordsTableName = self.wordsTableName;
+                        aclass.bookName = [NSString stringWithFormat:@"%@(%@)",self.title, self.subtitle];
                         [classList addObject:aclass];
                     }
                 }
@@ -87,6 +89,10 @@
 
 @end
 @implementation ClassModel
+
+- (NSString*)wordBookKey{
+    return [NSString stringWithFormat:@"%@-%@",self.bookName,self.className];
+}
 
 - (void)loadWordsWithComplete:(void (^)())completeBlock{
     if (self.words.count) {

@@ -46,7 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *aNewWordButton;
 @property (weak, nonatomic) IBOutlet UIButton *showAllButton;
 
-@property (weak, nonatomic) UIBarButtonItem* barbutton;
+@property (weak, nonatomic) UIBarButtonItem* rewindButton;
+@property (weak, nonatomic) UIBarButtonItem* playButton;
 
 @property (assign, nonatomic) NSInteger showAllState;//0 don't show all, 1 show all once, 2 show all always
 
@@ -58,19 +59,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.tintColor = TINT_COLOR;
-    self.wordIndex = 0;
+    if (_shouldBeginWithZero) {
+        self.wordIndex = 0;
+    }else{
+        self.wordIndex = [[NSUserDefaults standardUserDefaults] integerForKey:[_aclass wordBookKey]];
+    }
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playSound)];
-    _barbutton = barbutton;
-    [self.navigationItem setRightBarButtonItem:barbutton];
+    UIBarButtonItem* rewindButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(rewind)];
+    UIBarButtonItem* playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playSound)];
+    _rewindButton = rewindButton;
+    _playButton = playButton;
+    [self.navigationItem setRightBarButtonItems:@[playButton,rewindButton]];
     
-    [self refreshWord];
+    
     [self setupButtons];
     [self setupCollectionView];
     [self setupDrawView];
+    [self refreshWord];
+}
+
+- (void)rewind{
+    UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"跳转" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.wordIndex = 0;
+        [self refreshWord];
+    }];
     
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
+    UIAlertController* vc = [UIAlertController alertControllerWithTitle:@"注意" message:@"确认跳转到单词起始位置吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [vc addAction:confirmAction];
+    [vc addAction:cancelAction];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)setupButtons{
@@ -89,7 +110,12 @@
 
 - (void)setWordIndex:(NSInteger)wordIndex{
     _wordIndex = wordIndex;
-    self.title = [NSString stringWithFormat:@"%d/%d",wordIndex+1,_wordsList.count];
+    self.title = [NSString stringWithFormat:@"%@(%d/%d)",_aclass.className,wordIndex+1,_aclass.words.count];
+    
+    if (!_shouldBeginWithZero) {
+        [[NSUserDefaults standardUserDefaults] setInteger:wordIndex forKey:[_aclass wordBookKey]];
+    }
+    
 }
 
 - (void)setupDrawView{
@@ -185,7 +211,7 @@
 
 - (IBAction)aNewWordAction:(UIButton*)sender {
     BOOL isAdd = !sender.selected;
-    WordModel* word = _wordsList[_wordIndex];
+    WordModel* word = _aclass.words[_wordIndex];
     if (isAdd) {
         if (![PersistWords worldExist:word]) {
             [PersistWords addWord:word];
@@ -213,40 +239,44 @@
 }
 
 - (void)forward{
+    NSInteger index = _wordIndex;
     if (_modeButton.selected) {
-        self.wordIndex = arc4random() % _wordsList.count;
+        index = arc4random() % _aclass.words.count;
     }else{
-        self.wordIndex++;
-        if (self.wordIndex >= _wordsList.count) {
-            self.wordIndex = 0;
+        index++;
+        if (index >= _aclass.words.count) {
+            index = 0;
         }
     }
-    [self resetShowAllState];
+    self.wordIndex = index;
+    
     [self refreshWord];
-    [self reloadData];
-    [_drawView clearDrawing];
 }
 
 - (void)backward{
+    NSInteger index = _wordIndex;
     if (_modeButton.selected) {
-        self.wordIndex = arc4random() % _wordsList.count;
+        index = arc4random() % _aclass.words.count;
     }else{
-        self.wordIndex--;
-        if (self.wordIndex < 0) {
-            self.wordIndex = _wordsList.count - 1;
+        index--;
+        if (index < 0) {
+            index = _aclass.words.count - 1;
         }
     }
-    [self resetShowAllState];
+    self.wordIndex = index;
     [self refreshWord];
-    [self reloadData];
-    [_drawView clearDrawing];
 }
 
 - (void)refreshWord{
-    WordModel* word = _wordsList[_wordIndex];
+    WordModel* word = _aclass.words[_wordIndex];
     _aNewWordButton.selected = [PersistWords worldExist:word];
     
-    _barbutton.enabled = word.audiofile.length > 0;
+    _playButton.enabled = word.audiofile.length > 0;
+    _rewindButton.enabled = _wordIndex != 0;
+    
+    [self resetShowAllState];
+    [self reloadData];
+    [_drawView clearDrawing];
 }
 
 - (IBAction)undoDraw:(id)sender {
@@ -258,7 +288,7 @@
 }
 
 - (void)playSound{
-    WordModel* word = _wordsList[_wordIndex];
+    WordModel* word = _aclass.words[_wordIndex];
     if (word.audiofile.length > 0) {
         [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime];
     }
@@ -282,7 +312,7 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
-    WordModel* word = _wordsList[_wordIndex];
+    WordModel* word = _aclass.words[_wordIndex];
     BoardCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:[BoardCell identifier] forIndexPath:indexPath];
     BOOL show = _showAllState > 0;
     switch (row) {

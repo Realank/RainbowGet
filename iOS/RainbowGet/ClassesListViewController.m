@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.tintColor = TINT_COLOR;
-//    self.title = @"课程列表";
+    self.title = _classes.firstObject.bookName;
 //    self.tableView.backgroundColor = TINT_COLOR;
 }
 
@@ -54,6 +54,7 @@
 
     ClassModel* aclass = _classes[indexPath.row];
     cell.textLabel.text = aclass.className;
+    cell.detailTextLabel.text = aclass.classTitle;
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
     return cell;
@@ -65,7 +66,7 @@
     __weak typeof(self) weakSelf = self;
     
     [aclass loadWordsWithComplete:^{
-        [weakSelf pushToWithWordsList:aclass.words];
+        [weakSelf pushToWordsListWithClass:aclass];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
         });
@@ -94,7 +95,7 @@
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
     [aclass loadWordsWithComplete:^{
-        [weakSelf pushToWithWords:aclass.words];
+        [weakSelf pushToWordsBoardWithClass:aclass];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
         });
@@ -103,22 +104,22 @@
 
 }
 
-- (void)pushToWithWords:(NSArray*)words{
-    if (words.count == 0) {
+- (void)pushToWordsBoardWithClass:(ClassModel*)aclass{
+    if (aclass.words.count == 0) {
         return;
     }
     WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
-    detailViewController.wordsList = [words copy];
+    detailViewController.aclass = aclass;
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
 
-- (void)pushToWithWordsList:(NSArray*)words{
-    if (words.count == 0) {
+- (void)pushToWordsListWithClass:(ClassModel*)aclass{
+    if (aclass.words.count == 0) {
         return;
     }
     WordsListViewController *detailViewController = [[WordsListViewController alloc] init];
-    detailViewController.wordsList = [words copy];
+    detailViewController.aclass = aclass;
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }

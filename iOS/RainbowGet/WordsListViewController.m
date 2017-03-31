@@ -21,13 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = _aclass.className;
     self.tableView.backgroundColor = TINT_COLOR;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    WordModel* word = _wordsList.firstObject;
+    WordModel* word = _aclass.words.firstObject;
     if (word.audiofile.length > 0) {
         UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(loopPlaySound)];
         _barbutton = barbutton;
@@ -46,7 +47,7 @@
         [[AudioPlaybackTool sharedInstance] stopAndCloseFile];
     }else{
         self.autoPlaying = YES;
-        WordModel* word = _wordsList.firstObject;
+        WordModel* word = _aclass.words.firstObject;
         if([[AudioPlaybackTool sharedInstance] loadAudioFile:word.audiofile]){
             [self loopPlay];
         }else{
@@ -66,7 +67,7 @@
         UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(loopPlaySound)];
         [self.navigationItem setRightBarButtonItem:barbutton];
         [[AudioPlaybackTool sharedInstance] stopAndCloseFile];
-        if (_autoPlayIndex > 0 && _autoPlayIndex <= _wordsList.count) {
+        if (_autoPlayIndex > 0 && _autoPlayIndex <= _aclass.words.count) {
             [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:_autoPlayIndex-1 inSection:0] animated:YES];
         }
         
@@ -79,8 +80,8 @@
         return;
     }
     
-    if (_autoPlayIndex < _wordsList.count) {
-        WordModel* word = _wordsList[_autoPlayIndex];
+    if (_autoPlayIndex < _aclass.words.count) {
+        WordModel* word = _aclass.words[_autoPlayIndex];
         if (word.audiofile.length > 0) {
             [[AudioPlaybackTool sharedInstance] playLoadedAudioFileFromTime:word.starttime withDuration:word.periodtime complete:^{
                 [self loopPlay];
@@ -107,7 +108,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _wordsList.count;
+    return _aclass.words.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -117,7 +118,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      WordCell *cell = [WordCell cellWithTableView:tableView];
-    WordModel* word = _wordsList[indexPath.row];
+    WordModel* word = _aclass.words[indexPath.row];
     cell.word = word;
     return cell;
 }
@@ -130,7 +131,7 @@
     if (_autoPlaying) {
         self.autoPlaying = NO;
     }
-    WordModel* word = _wordsList[indexPath.row];
+    WordModel* word = _aclass.words[indexPath.row];
     if (word.audiofile.length > 0) {
         [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime];
     }

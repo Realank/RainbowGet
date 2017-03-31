@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WordModel.h"
 @interface WordsListViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray* wordsList;
+@property (strong, nonatomic) ClassModel* aclass;
 
 @end

@@ -41,14 +41,9 @@
         cellWidth = 180;
         cellHeight = 240;
     }
-    //    NSInteger cellNum = 3;
     layout.itemSize = CGSizeMake(cellWidth, cellHeight);
-    //    NSInteger space = (_contentCollectionView.bounds.size.width - cellNum*cellWidth - 20)/(cellNum-1);
-    //    space = space > 5 ? space : 5;
-    layout.minimumInteritemSpacing = 10;
-    //    space = (470 - 2*cellHeight);
-    //    space = space > 5 ? space : 5;
-    layout.minimumLineSpacing = 5;
+    layout.minimumInteritemSpacing = 15;
+    layout.minimumLineSpacing = 20;
     layout.sectionInset = UIEdgeInsetsMake(15, 10, 15, 10);
     _bookCollectionView.collectionViewLayout = layout;
 
@@ -141,18 +136,22 @@
     });
 }
 
-- (void)goNextWithClasses:(NSArray*)classes ofBookName:(NSString*)bookName{
+- (void)goNextWithClasses:(NSArray*)classes{
     ClassesListViewController* vc = [[ClassesListViewController alloc] init];
     vc.classes = [classes copy];
-    vc.title = bookName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)pushToWithWords:(NSArray*)words{
     if (words.count == 0) {
         return;
     }
+    ClassModel* aclass= [ClassModel new];
+    aclass.words = words;
+    aclass.className = @"生词";
+    aclass.bookName = @"生词本";
     WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
-    detailViewController.wordsList = [words copy];
+    detailViewController.shouldBeginWithZero = YES;
+    detailViewController.aclass = aclass;
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
@@ -193,8 +192,7 @@
         [book loadClassesWithComplete:^{
             weakSelf.view.userInteractionEnabled = YES;
             if (book.classes.count) {
-                NSString* bookName = [NSString stringWithFormat:@"%@(%@)",book.title,book.subtitle];
-                [weakSelf goNextWithClasses:book.classes ofBookName:bookName];
+                [weakSelf goNextWithClasses:book.classes];
             }
         }];
     }else{

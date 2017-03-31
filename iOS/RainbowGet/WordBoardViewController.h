@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WordModel.h"
 @interface WordBoardViewController : UIViewController
 
-@property (strong, nonatomic) NSArray* wordsList;
+@property (strong, nonatomic) ClassModel* aclass;
+@property (assign, nonatomic) BOOL shouldBeginWithZero;
 
 @end
