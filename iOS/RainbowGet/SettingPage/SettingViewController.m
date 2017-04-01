@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 
@@ -52,12 +52,22 @@
         {
             cell.textLabel.text = @"主题";
             cell.detailTextLabel.text = [ThemeColor currentColor].themeName;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
             break;
         case 1:
         {
             cell.textLabel.text = @"关于";
             cell.detailTextLabel.text = [CommTool bundleVersion];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+        }
+            break;
+        case 2:
+        {
+            cell.textLabel.text = @"技术支持 / 打赏支付宝账号";
+            cell.detailTextLabel.text = @"realank@126.com";
+            cell.accessoryType = UITableViewCellAccessoryNone;
             
         }
             break;
@@ -68,7 +78,6 @@
     cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
     cell.textLabel.textColor = [ThemeColor currentColor].foreColor;
     cell.detailTextLabel.textColor = [ThemeColor currentColor].grayColor;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.backgroundColor = [ThemeColor currentColor].tintColor;
     cell.selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
