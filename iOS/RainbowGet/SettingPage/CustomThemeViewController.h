@@ -10,4 +10,6 @@
 
 @interface CustomThemeViewController : UIViewController
 
+@property (nonatomic, strong) ThemeColor* preloadTheme;
+
 @end

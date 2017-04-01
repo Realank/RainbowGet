@@ -16,6 +16,7 @@
 
 #import "CommTool.h"
 #import "ThemeColor.h"
+#import "SVProgressHUD.h"
 
 
 #endif /* PrefixHeader_pch */

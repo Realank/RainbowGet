@@ -9,6 +9,7 @@
 #import "CustomThemeViewController.h"
 
 @interface CustomThemeViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @end
 

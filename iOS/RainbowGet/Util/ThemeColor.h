@@ -20,4 +20,5 @@
 + (void)setTheme:(ThemeColor*)newTheme;
 + (instancetype) currentColor;
 + (NSArray<ThemeColor*>*)allThemeColor;
++ (instancetype)customTheme;
 @end

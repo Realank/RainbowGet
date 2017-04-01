@@ -89,7 +89,7 @@
 - (void)loadBooks {
     
     __weak typeof(self) weakSelf = self;
-    
+//    SVProgressHUD 
     [BookModel loadBooksWithResult:^(NSArray<BookModel *> *books) {
         if (books.count) {
             weakSelf.books = [books copy];

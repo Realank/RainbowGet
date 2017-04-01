@@ -7,7 +7,7 @@
 //
 
 #import "ThemeTableViewController.h"
-
+#import "CustomThemeViewController.h"
 @interface ThemeTableViewController ()
 
 @property (nonatomic, strong) NSArray* themes;
@@ -20,7 +20,20 @@
     [super viewDidLoad];
     self.title = @"主题";
     _themes = [[ThemeColor allThemeColor] copy];
+    UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithTitle:@"编辑自定义主题" style:UIBarButtonItemStylePlain target:self action:@selector(customTheme)];
+    [self.navigationItem setRightBarButtonItem:barbutton];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self refreshTheme];
+}
+
+- (void)customTheme{
+    CustomThemeViewController* vc = [[CustomThemeViewController alloc] init];
+    vc.preloadTheme = [ThemeColor customTheme];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)refreshTheme{
