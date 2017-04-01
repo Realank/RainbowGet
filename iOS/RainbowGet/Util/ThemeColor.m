@@ -156,6 +156,7 @@
         NSDictionary* customThemeDict = [customTheme toDict];
         if (customThemeDict) {
             [[NSUserDefaults standardUserDefaults] setObject:customThemeDict forKey:@"ThemeColorCustomColor"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }
 

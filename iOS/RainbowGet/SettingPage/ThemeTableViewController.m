@@ -27,6 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _themes = [[ThemeColor allThemeColor] copy];
     [self refreshTheme];
 }
 

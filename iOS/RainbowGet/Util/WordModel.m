@@ -30,6 +30,7 @@
 @implementation BookModel
 
 + (void)loadBooksWithResult:(void (^)(NSArray<BookModel*>* books))resultBlock{
+    
     AVQuery *query = [AVQuery queryWithClassName:@"BookList"];
     [query orderByAscending:@"index"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -58,6 +59,12 @@
 
 }
 - (void)loadClassesWithComplete:(void (^)())completeBlock{
+    if (self.classes.count) {
+        if (completeBlock) {
+            completeBlock();
+        }
+        return;
+    }
     AVQuery *queryMain = [AVQuery queryWithClassName:self.classesTableName];
     [queryMain orderByAscending:@"index"];
     [queryMain findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

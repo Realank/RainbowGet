@@ -89,12 +89,15 @@
 - (void)loadBooks {
     
     __weak typeof(self) weakSelf = self;
-//    SVProgressHUD 
+    [SVProgressHUD show];
     [BookModel loadBooksWithResult:^(NSArray<BookModel *> *books) {
         if (books.count) {
+            [SVProgressHUD dismiss];
             weakSelf.books = [books copy];
             [weakSelf reloadData];
 
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"网络错误\n如果您第一次打开，请在设置中允许互联网访问，再重启APP"];
         }
     }];
     
@@ -155,10 +158,14 @@
         BookModel* book = _books[row];
         __weak typeof(self) weakSelf = self;
         self.view.userInteractionEnabled = NO;
+        [SVProgressHUD show];
         [book loadClassesWithComplete:^{
             weakSelf.view.userInteractionEnabled = YES;
             if (book.classes.count) {
+                [SVProgressHUD dismiss];
                 [weakSelf goNextWithClasses:book.classes];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"加载失败"];
             }
         }];
     }else{

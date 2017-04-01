@@ -43,7 +43,7 @@
 - (void)initSVHUD{
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    [SVProgressHUD setMinimumDismissTimeInterval:3];
+    [SVProgressHUD setMinimumDismissTimeInterval:5];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

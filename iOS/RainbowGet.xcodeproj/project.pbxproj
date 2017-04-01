@@ -23,6 +23,8 @@
 		8C7C0E4B1E8F5956008B5D18 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8C7C0E441E8F5956008B5D18 /* SVProgressHUD.bundle */; };
 		8C7C0E4C1E8F5956008B5D18 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E461E8F5956008B5D18 /* SVProgressHUD.m */; };
 		8C7C0E4D1E8F5956008B5D18 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E481E8F5956008B5D18 /* SVRadialGradientLayer.m */; };
+		8C7C0E4F1E8F7C45008B5D18 /* colormap.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C7C0E4E1E8F7C45008B5D18 /* colormap.png */; };
+		8C7C0E521E8F7D87008B5D18 /* FCBrightDarkGradView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E511E8F7D87008B5D18 /* FCBrightDarkGradView.m */; };
 		8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D403C1E6AF26B0024D5FD /* DrawView.m */; };
 		8C83CD7A1E84F3130041FE56 /* MW101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD661E84F3130041FE56 /* MW101.mp3 */; };
 		8C83CD7B1E84F3130041FE56 /* MW102.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C83CD671E84F3130041FE56 /* MW102.mp3 */; };
@@ -115,6 +117,9 @@
 		8C7C0E461E8F5956008B5D18 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		8C7C0E471E8F5956008B5D18 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		8C7C0E481E8F5956008B5D18 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		8C7C0E4E1E8F7C45008B5D18 /* colormap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colormap.png; sourceTree = "<group>"; };
+		8C7C0E501E8F7D87008B5D18 /* FCBrightDarkGradView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBrightDarkGradView.h; sourceTree = "<group>"; };
+		8C7C0E511E8F7D87008B5D18 /* FCBrightDarkGradView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBrightDarkGradView.m; sourceTree = "<group>"; };
 		8C7D403B1E6AF26B0024D5FD /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		8C7D403C1E6AF26B0024D5FD /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		8C83CD661E84F3130041FE56 /* MW101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MW101.mp3; sourceTree = "<group>"; };
@@ -358,6 +363,9 @@
 				8CF0840A1E8F580600D5092B /* CustomThemeViewController.h */,
 				8CF0840B1E8F580600D5092B /* CustomThemeViewController.m */,
 				8CF0840C1E8F580600D5092B /* CustomThemeViewController.xib */,
+				8C7C0E501E8F7D87008B5D18 /* FCBrightDarkGradView.h */,
+				8C7C0E511E8F7D87008B5D18 /* FCBrightDarkGradView.m */,
+				8C7C0E4E1E8F7C45008B5D18 /* colormap.png */,
 			);
 			path = SettingPage;
 			sourceTree = "<group>";
@@ -559,6 +567,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C7C0E4F1E8F7C45008B5D18 /* colormap.png in Resources */,
 				8C1F91C11E80F2580071209E /* introduce.txt in Resources */,
 				8CF084011E8F43E000D5092B /* SettingViewController.xib in Resources */,
 				8C83CD851E84F3130041FE56 /* MW112.mp3 in Resources */,
@@ -677,6 +686,7 @@
 				8C7C0E4C1E8F5956008B5D18 /* SVProgressHUD.m in Sources */,
 				8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */,
 				8CF0840D1E8F580600D5092B /* CustomThemeViewController.m in Sources */,
+				8C7C0E521E8F7D87008B5D18 /* FCBrightDarkGradView.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
 				8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */,
 				8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */,

@@ -23,13 +23,14 @@
     self.layer.shadowOffset = CGSizeMake(1, 1);
     self.layer.shadowOpacity = 0.5;
     self.layer.masksToBounds = NO;
-    self.backgroundColor = [ThemeColor currentColor].foreColor;
+//    self.layer.shouldRasterize = YES;
 }
 
 - (void)setBook:(BookModel *)book{
     _book = book;
     _titleLabel.text = book.title;
     _subTitleLabel.text = book.subtitle;
+    self.backgroundColor = [ThemeColor currentColor].foreColor;
 }
 
 @end

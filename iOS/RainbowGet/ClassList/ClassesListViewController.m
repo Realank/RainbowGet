@@ -69,8 +69,9 @@
     ClassModel* aclass = _classes[indexPath.row];
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
-    
+    [SVProgressHUD show];
     [aclass loadWordsWithComplete:^{
+        [SVProgressHUD dismiss];
         [weakSelf pushToWordsListWithClass:aclass];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
@@ -99,7 +100,9 @@
     ClassModel* aclass = _classes[indexPath.row];
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
+    [SVProgressHUD show];
     [aclass loadWordsWithComplete:^{
+        [SVProgressHUD dismiss];
         [weakSelf pushToWordsBoardWithClass:aclass];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
