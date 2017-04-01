@@ -235,43 +235,43 @@
 		8C83CD8E1E84F31E0041FE56 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				8CF8CD861E66645800A50AE3 /* WordModel.h */,
-				8CF8CD871E66645800A50AE3 /* WordModel.m */,
-				8C84E4BB1E7A849C000466F8 /* PersistWords.h */,
-				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
 				8C83CD941E84F42F0041FE56 /* AudioPlaybackTool.h */,
 				8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */,
-				8CF083E91E8F313B00D5092B /* ThemeColor.h */,
-				8CF083EA1E8F313B00D5092B /* ThemeColor.m */,
 				8C1188711E8CF0D20073A194 /* CommTool.h */,
 				8C1188721E8CF0D20073A194 /* CommTool.m */,
+				8C84E4BB1E7A849C000466F8 /* PersistWords.h */,
+				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
+				8CF083E91E8F313B00D5092B /* ThemeColor.h */,
+				8CF083EA1E8F313B00D5092B /* ThemeColor.m */,
+				8CF8CD861E66645800A50AE3 /* WordModel.h */,
+				8CF8CD871E66645800A50AE3 /* WordModel.m */,
 			);
-			name = Util;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		8C83CD8F1E84F34D0041FE56 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				8CF084071E8F529500D5092B /* UAProgressView.h */,
-				8CF084081E8F529500D5092B /* UAProgressView.m */,
 				8C7D403B1E6AF26B0024D5FD /* DrawView.h */,
 				8C7D403C1E6AF26B0024D5FD /* DrawView.m */,
 				8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */,
 				8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */,
+				8CF084071E8F529500D5092B /* UAProgressView.h */,
+				8CF084081E8F529500D5092B /* UAProgressView.m */,
 			);
-			name = CustomView;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		8C83CD901E84F3710041FE56 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
-				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
-				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
-				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
 				8C11886E1E8CE3DF0073A194 /* BookCell.h */,
 				8C11886F1E8CE3DF0073A194 /* BookCell.m */,
+				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
+				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
+				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
 			);
-			name = FirstPage;
+			path = FirstPage;
 			sourceTree = "<group>";
 		};
 		8C83CD911E84F39A0041FE56 /* ClassList */ = {
@@ -281,33 +281,33 @@
 				8C0B1ACD1E69D125003DBE7F /* ClassesListViewController.m */,
 				8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */,
 			);
-			name = ClassList;
+			path = ClassList;
 			sourceTree = "<group>";
 		};
 		8C83CD921E84F3AC0041FE56 /* WordBoard */ = {
 			isa = PBXGroup;
 			children = (
-				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
-				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
-				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
 				8CF8CD811E665B7F00A50AE3 /* BoardCell.h */,
 				8CF8CD821E665B7F00A50AE3 /* BoardCell.m */,
 				8CF8CD831E665B7F00A50AE3 /* BoardCell.xib */,
+				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
+				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
+				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
 			);
-			name = WordBoard;
+			path = WordBoard;
 			sourceTree = "<group>";
 		};
 		8C83CD931E84F3BB0041FE56 /* WordList */ = {
 			isa = PBXGroup;
 			children = (
-				8C1F91B31E80C9CF0071209E /* WordsListViewController.h */,
-				8C1F91B41E80C9CF0071209E /* WordsListViewController.m */,
-				8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */,
 				8C1F91B81E80C9ED0071209E /* WordCell.h */,
 				8C1F91B91E80C9ED0071209E /* WordCell.m */,
 				8C1F91BA1E80C9ED0071209E /* WordCell.xib */,
+				8C1F91B31E80C9CF0071209E /* WordsListViewController.h */,
+				8C1F91B41E80C9CF0071209E /* WordsListViewController.m */,
+				8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */,
 			);
-			name = WordList;
+			path = WordList;
 			sourceTree = "<group>";
 		};
 		8CF083EF1E8F380800D5092B /* LaunchPage */ = {
@@ -315,34 +315,34 @@
 			children = (
 				8CF083FA1E8F3D4800D5092B /* Launch Screen.storyboard */,
 			);
-			name = LaunchPage;
+			path = LaunchPage;
 			sourceTree = "<group>";
 		};
 		8CF083FC1E8F43C300D5092B /* SettingPage */ = {
 			isa = PBXGroup;
 			children = (
+				8CF0840A1E8F580600D5092B /* CustomThemeViewController.h */,
+				8CF0840B1E8F580600D5092B /* CustomThemeViewController.m */,
+				8CF0840C1E8F580600D5092B /* CustomThemeViewController.xib */,
 				8CF083FD1E8F43E000D5092B /* SettingViewController.h */,
 				8CF083FE1E8F43E000D5092B /* SettingViewController.m */,
 				8CF083FF1E8F43E000D5092B /* SettingViewController.xib */,
 				8CF084021E8F48DA00D5092B /* ThemeTableViewController.h */,
 				8CF084031E8F48DA00D5092B /* ThemeTableViewController.m */,
 				8CF084041E8F48DA00D5092B /* ThemeTableViewController.xib */,
-				8CF0840A1E8F580600D5092B /* CustomThemeViewController.h */,
-				8CF0840B1E8F580600D5092B /* CustomThemeViewController.m */,
-				8CF0840C1E8F580600D5092B /* CustomThemeViewController.xib */,
 			);
-			name = SettingPage;
+			path = SettingPage;
 			sourceTree = "<group>";
 		};
 		8CF8CD381E66560B00A50AE3 = {
 			isa = PBXGroup;
 			children = (
+				A85BAE0C3E84B1D8D1864512 /* Frameworks */,
+				26973E40690FE1569EB5F0E2 /* Pods */,
+				8CF8CD421E66560B00A50AE3 /* Products */,
 				8CF8CD431E66560B00A50AE3 /* RainbowGet */,
 				8CF8CD5D1E66560B00A50AE3 /* RainbowGetTests */,
 				8CF8CD681E66560B00A50AE3 /* RainbowGetUITests */,
-				8CF8CD421E66560B00A50AE3 /* Products */,
-				26973E40690FE1569EB5F0E2 /* Pods */,
-				A85BAE0C3E84B1D8D1864512 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,20 +359,20 @@
 		8CF8CD431E66560B00A50AE3 /* RainbowGet */ = {
 			isa = PBXGroup;
 			children = (
-				8C83CD651E84F3130041FE56 /* audio */,
-				8C83CD8E1E84F31E0041FE56 /* Util */,
-				8C83CD8F1E84F34D0041FE56 /* CustomView */,
-				8CF8CD471E66560B00A50AE3 /* AppDelegate.h */,
-				8CF8CD481E66560B00A50AE3 /* AppDelegate.m */,
-				8C83CD901E84F3710041FE56 /* FirstPage */,
-				8CF083FC1E8F43C300D5092B /* SettingPage */,
 				8C83CD911E84F39A0041FE56 /* ClassList */,
+				8C83CD8F1E84F34D0041FE56 /* CustomView */,
+				8C83CD901E84F3710041FE56 /* FirstPage */,
+				8CF083EF1E8F380800D5092B /* LaunchPage */,
+				8CF083FC1E8F43C300D5092B /* SettingPage */,
+				8CF8CD441E66560B00A50AE3 /* Supporting Files */,
+				8C83CD8E1E84F31E0041FE56 /* Util */,
 				8C83CD921E84F3AC0041FE56 /* WordBoard */,
 				8C83CD931E84F3BB0041FE56 /* WordList */,
+				8C83CD651E84F3130041FE56 /* audio */,
+				8CF8CD471E66560B00A50AE3 /* AppDelegate.h */,
+				8CF8CD481E66560B00A50AE3 /* AppDelegate.m */,
 				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
-				8CF083EF1E8F380800D5092B /* LaunchPage */,
 				8CF8CD551E66560B00A50AE3 /* Info.plist */,
-				8CF8CD441E66560B00A50AE3 /* Supporting Files */,
 			);
 			path = RainbowGet;
 			sourceTree = "<group>";
@@ -380,18 +380,18 @@
 		8CF8CD441E66560B00A50AE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C84E4B71E7A5E8A000466F8 /* PrefixHeader.pch */,
 				8C1F91C01E80F2580071209E /* introduce.txt */,
 				8CF8CD451E66560B00A50AE3 /* main.m */,
-				8C84E4B71E7A5E8A000466F8 /* PrefixHeader.pch */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8CF8CD5D1E66560B00A50AE3 /* RainbowGetTests */ = {
 			isa = PBXGroup;
 			children = (
-				8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */,
 				8CF8CD601E66560B00A50AE3 /* Info.plist */,
+				8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */,
 			);
 			path = RainbowGetTests;
 			sourceTree = "<group>";
@@ -399,8 +399,8 @@
 		8CF8CD681E66560B00A50AE3 /* RainbowGetUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */,
 				8CF8CD6B1E66560B00A50AE3 /* Info.plist */,
+				8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */,
 			);
 			path = RainbowGetUITests;
 			sourceTree = "<group>";
@@ -696,6 +696,7 @@
 				8CF8CD4E1E66560B00A50AE3 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -797,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 275X96KVEB;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RainbowGet/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RainbowGet/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = RainbowGet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGet;
@@ -812,7 +813,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 275X96KVEB;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RainbowGet/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RainbowGet/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = RainbowGet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.realank.RainbowGet;
