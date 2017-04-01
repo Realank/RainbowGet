@@ -28,6 +28,16 @@
 
 @implementation PopUpBigViewForNotice
 
++ (void)showAppIntroduce{
+    NSString *bundleVersion = [CommTool bundleVersion];
+    PopUpBigViewForNotice *view = [[PopUpBigViewForNotice alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    view.title = [NSString stringWithFormat:@"こんにちは(%@)",bundleVersion];
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"introduce" ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
+    view.content = content;
+    [[UIApplication sharedApplication].keyWindow addSubview:view];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         

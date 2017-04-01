@@ -23,7 +23,7 @@
     self.layer.shadowOffset = CGSizeMake(1, 1);
     self.layer.shadowOpacity = 0.5;
     self.layer.masksToBounds = NO;
-    self.backgroundColor = FORE_COLOR;
+    self.backgroundColor = [ThemeColor currentColor].foreColor;
 }
 
 - (void)setBook:(BookModel *)book{

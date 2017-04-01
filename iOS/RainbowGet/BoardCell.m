@@ -26,7 +26,7 @@
     _backView.layer.cornerRadius = 8;
 //    _backView.layer.borderWidth = 2;
 //    _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _backView.backgroundColor = FORE_COLOR;
+    _backView.backgroundColor = [ThemeColor currentColor].foreColor;
     if (![CommTool isIPAD]) {
         _contentLabel.font = [UIFont systemFontOfSize:21];
         _propertyLabel.font = [UIFont systemFontOfSize:17];
@@ -74,9 +74,9 @@
     _content = content;
     _contentLabel.text = content;
     if (content.length > 0) {
-        _backView.backgroundColor = FORE_COLOR;
+        _backView.backgroundColor = [ThemeColor currentColor].foreColor;
     }else{
-        _backView.backgroundColor = GRAY_COLOR;
+        _backView.backgroundColor = [ThemeColor currentColor].grayColor;
     }
 }
 

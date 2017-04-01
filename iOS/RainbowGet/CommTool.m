@@ -15,4 +15,10 @@
     return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
 }
 
++ (NSString*)bundleVersion{
+    NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    return bundleVersion;
+}
+
+
 @end

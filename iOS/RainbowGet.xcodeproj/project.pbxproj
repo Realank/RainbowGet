@@ -42,12 +42,20 @@
 		8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */; };
 		8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C84E4BC1E7A849C000466F8 /* PersistWords.m */; };
 		8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */; };
+		8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083EA1E8F313B00D5092B /* ThemeColor.m */; };
+		8CF083FB1E8F3D4800D5092B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF083FA1E8F3D4800D5092B /* Launch Screen.storyboard */; };
+		8CF084001E8F43E000D5092B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083FE1E8F43E000D5092B /* SettingViewController.m */; };
+		8CF084011E8F43E000D5092B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF083FF1E8F43E000D5092B /* SettingViewController.xib */; };
+		8CF084051E8F48DA00D5092B /* ThemeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF084031E8F48DA00D5092B /* ThemeTableViewController.m */; };
+		8CF084061E8F48DA00D5092B /* ThemeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF084041E8F48DA00D5092B /* ThemeTableViewController.xib */; };
+		8CF084091E8F529500D5092B /* UAProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF084081E8F529500D5092B /* UAProgressView.m */; };
+		8CF0840D1E8F580600D5092B /* CustomThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0840B1E8F580600D5092B /* CustomThemeViewController.m */; };
+		8CF0840E1E8F580600D5092B /* CustomThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0840C1E8F580600D5092B /* CustomThemeViewController.xib */; };
 		8CF8CD461E66560B00A50AE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD451E66560B00A50AE3 /* main.m */; };
 		8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD481E66560B00A50AE3 /* AppDelegate.m */; };
 		8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD4B1E66560B00A50AE3 /* ViewController.m */; };
 		8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */; };
 		8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD501E66560B00A50AE3 /* Assets.xcassets */; };
-		8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */; };
 		8CF8CD5F1E66560B00A50AE3 /* RainbowGetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */; };
 		8CF8CD6A1E66560B00A50AE3 /* RainbowGetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD691E66560B00A50AE3 /* RainbowGetUITests.m */; };
 		8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */; };
@@ -121,6 +129,20 @@
 		8C84E4BB1E7A849C000466F8 /* PersistWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistWords.h; sourceTree = "<group>"; };
 		8C84E4BC1E7A849C000466F8 /* PersistWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistWords.m; sourceTree = "<group>"; };
 		8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8CF083E91E8F313B00D5092B /* ThemeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
+		8CF083EA1E8F313B00D5092B /* ThemeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeColor.m; sourceTree = "<group>"; };
+		8CF083FA1E8F3D4800D5092B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8CF083FD1E8F43E000D5092B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		8CF083FE1E8F43E000D5092B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		8CF083FF1E8F43E000D5092B /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		8CF084021E8F48DA00D5092B /* ThemeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewController.h; sourceTree = "<group>"; };
+		8CF084031E8F48DA00D5092B /* ThemeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewController.m; sourceTree = "<group>"; };
+		8CF084041E8F48DA00D5092B /* ThemeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeTableViewController.xib; sourceTree = "<group>"; };
+		8CF084071E8F529500D5092B /* UAProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAProgressView.h; sourceTree = "<group>"; };
+		8CF084081E8F529500D5092B /* UAProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAProgressView.m; sourceTree = "<group>"; };
+		8CF0840A1E8F580600D5092B /* CustomThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomThemeViewController.h; sourceTree = "<group>"; };
+		8CF0840B1E8F580600D5092B /* CustomThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomThemeViewController.m; sourceTree = "<group>"; };
+		8CF0840C1E8F580600D5092B /* CustomThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomThemeViewController.xib; sourceTree = "<group>"; };
 		8CF8CD411E66560B00A50AE3 /* RainbowGet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowGet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8CD451E66560B00A50AE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CF8CD471E66560B00A50AE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -129,7 +151,6 @@
 		8CF8CD4B1E66560B00A50AE3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8CF8CD4E1E66560B00A50AE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CF8CD501E66560B00A50AE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8CF8CD531E66560B00A50AE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CF8CD551E66560B00A50AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8CD5A1E66560B00A50AE3 /* RainbowGetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowGetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8CD5E1E66560B00A50AE3 /* RainbowGetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainbowGetTests.m; sourceTree = "<group>"; };
@@ -220,6 +241,8 @@
 				8C84E4BC1E7A849C000466F8 /* PersistWords.m */,
 				8C83CD941E84F42F0041FE56 /* AudioPlaybackTool.h */,
 				8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */,
+				8CF083E91E8F313B00D5092B /* ThemeColor.h */,
+				8CF083EA1E8F313B00D5092B /* ThemeColor.m */,
 				8C1188711E8CF0D20073A194 /* CommTool.h */,
 				8C1188721E8CF0D20073A194 /* CommTool.m */,
 			);
@@ -229,6 +252,8 @@
 		8C83CD8F1E84F34D0041FE56 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				8CF084071E8F529500D5092B /* UAProgressView.h */,
+				8CF084081E8F529500D5092B /* UAProgressView.m */,
 				8C7D403B1E6AF26B0024D5FD /* DrawView.h */,
 				8C7D403C1E6AF26B0024D5FD /* DrawView.m */,
 				8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */,
@@ -285,6 +310,30 @@
 			name = WordList;
 			sourceTree = "<group>";
 		};
+		8CF083EF1E8F380800D5092B /* LaunchPage */ = {
+			isa = PBXGroup;
+			children = (
+				8CF083FA1E8F3D4800D5092B /* Launch Screen.storyboard */,
+			);
+			name = LaunchPage;
+			sourceTree = "<group>";
+		};
+		8CF083FC1E8F43C300D5092B /* SettingPage */ = {
+			isa = PBXGroup;
+			children = (
+				8CF083FD1E8F43E000D5092B /* SettingViewController.h */,
+				8CF083FE1E8F43E000D5092B /* SettingViewController.m */,
+				8CF083FF1E8F43E000D5092B /* SettingViewController.xib */,
+				8CF084021E8F48DA00D5092B /* ThemeTableViewController.h */,
+				8CF084031E8F48DA00D5092B /* ThemeTableViewController.m */,
+				8CF084041E8F48DA00D5092B /* ThemeTableViewController.xib */,
+				8CF0840A1E8F580600D5092B /* CustomThemeViewController.h */,
+				8CF0840B1E8F580600D5092B /* CustomThemeViewController.m */,
+				8CF0840C1E8F580600D5092B /* CustomThemeViewController.xib */,
+			);
+			name = SettingPage;
+			sourceTree = "<group>";
+		};
 		8CF8CD381E66560B00A50AE3 = {
 			isa = PBXGroup;
 			children = (
@@ -316,11 +365,12 @@
 				8CF8CD471E66560B00A50AE3 /* AppDelegate.h */,
 				8CF8CD481E66560B00A50AE3 /* AppDelegate.m */,
 				8C83CD901E84F3710041FE56 /* FirstPage */,
+				8CF083FC1E8F43C300D5092B /* SettingPage */,
 				8C83CD911E84F39A0041FE56 /* ClassList */,
 				8C83CD921E84F3AC0041FE56 /* WordBoard */,
 				8C83CD931E84F3BB0041FE56 /* WordList */,
 				8CF8CD501E66560B00A50AE3 /* Assets.xcassets */,
-				8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */,
+				8CF083EF1E8F380800D5092B /* LaunchPage */,
 				8CF8CD551E66560B00A50AE3 /* Info.plist */,
 				8CF8CD441E66560B00A50AE3 /* Supporting Files */,
 			);
@@ -482,12 +532,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F91C11E80F2580071209E /* introduce.txt in Resources */,
+				8CF084011E8F43E000D5092B /* SettingViewController.xib in Resources */,
 				8C83CD851E84F3130041FE56 /* MW112.mp3 in Resources */,
-				8CF8CD541E66560B00A50AE3 /* LaunchScreen.storyboard in Resources */,
 				8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */,
 				8C83CD801E84F3130041FE56 /* MW107.mp3 in Resources */,
 				8C83CD811E84F3130041FE56 /* MW108.mp3 in Resources */,
 				8C83CD7A1E84F3130041FE56 /* MW101.mp3 in Resources */,
+				8CF084061E8F48DA00D5092B /* ThemeTableViewController.xib in Resources */,
 				8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */,
 				8C83CD821E84F3130041FE56 /* MW109.mp3 in Resources */,
 				8C83CD7E1E84F3130041FE56 /* MW105.mp3 in Resources */,
@@ -500,12 +551,14 @@
 				8C83CD8B1E84F3130041FE56 /* MW118.mp3 in Resources */,
 				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
 				8C83CD861E84F3130041FE56 /* MW113.mp3 in Resources */,
+				8CF083FB1E8F3D4800D5092B /* Launch Screen.storyboard in Resources */,
 				8C83CD7C1E84F3130041FE56 /* MW103.mp3 in Resources */,
 				8C83CD891E84F3130041FE56 /* MW116.mp3 in Resources */,
 				8C83CD8D1E84F3130041FE56 /* MW120.mp3 in Resources */,
 				8CF8CD7B1E66575100A50AE3 /* WordBoardViewController.xib in Resources */,
 				8C83CD8C1E84F3130041FE56 /* MW119.mp3 in Resources */,
 				8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */,
+				8CF0840E1E8F580600D5092B /* CustomThemeViewController.xib in Resources */,
 				8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */,
 				8C83CD7F1E84F3130041FE56 /* MW106.mp3 in Resources */,
 				8C83CD841E84F3130041FE56 /* MW111.mp3 in Resources */,
@@ -582,15 +635,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF084091E8F529500D5092B /* UAProgressView.m in Sources */,
 				8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */,
 				8CF8CD4C1E66560B00A50AE3 /* ViewController.m in Sources */,
+				8CF084001E8F43E000D5092B /* SettingViewController.m in Sources */,
 				8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */,
 				8C1188731E8CF0D20073A194 /* CommTool.m in Sources */,
+				8CF084051E8F48DA00D5092B /* ThemeTableViewController.m in Sources */,
 				8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */,
 				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,
 				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,
 				8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */,
+				8CF0840D1E8F580600D5092B /* CustomThemeViewController.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
+				8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */,
 				8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */,
 				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,
 				8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */,
@@ -638,14 +696,6 @@
 				8CF8CD4E1E66560B00A50AE3 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8CF8CD521E66560B00A50AE3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CF8CD531E66560B00A50AE3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

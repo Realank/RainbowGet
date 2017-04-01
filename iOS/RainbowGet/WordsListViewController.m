@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = _aclass.className;
-    self.tableView.backgroundColor = TINT_COLOR;
+    self.tableView.backgroundColor = [ThemeColor currentColor].tintColor;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

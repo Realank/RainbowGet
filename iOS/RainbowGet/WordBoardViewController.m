@@ -58,7 +58,7 @@
 #pragma mark - setup
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.tintColor = TINT_COLOR;
+    self.view.tintColor = [ThemeColor currentColor].tintColor;
     if (_shouldBeginWithZero) {
         self.wordIndex = 0;
     }else{
@@ -95,8 +95,8 @@
 }
 
 - (void)setupButtons{
-    [_modeButton setImage:[[UIImage imageNamed:@"loop"] imageWithColor:TINT_COLOR] forState:UIControlStateNormal];
-    [_modeButton setImage:[[UIImage imageNamed:@"shuffle"] imageWithColor:TINT_COLOR] forState:UIControlStateSelected];
+    [_modeButton setImage:[[UIImage imageNamed:@"loop"] imageWithColor:[ThemeColor currentColor].tintColor] forState:UIControlStateNormal];
+    [_modeButton setImage:[[UIImage imageNamed:@"shuffle"] imageWithColor:[ThemeColor currentColor].tintColor] forState:UIControlStateSelected];
     BOOL japaneseToChineseMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"japaneseToChineseMode"];
     BOOL dontShowAll = [[NSUserDefaults standardUserDefaults] boolForKey:@"dontShowAll"];
     if (japaneseToChineseMode) {
@@ -119,13 +119,13 @@
 }
 
 - (void)setupDrawView{
-    _drawView.backgroundColor = TINT_COLOR;
-    _drawView.strokeColor = FORE_COLOR;
+    _drawView.backgroundColor = [ThemeColor currentColor].tintColor;
+    _drawView.strokeColor = [ThemeColor currentColor].foreColor;
     _drawView.strokeWidth = 8.0f;
 }
 
 - (void)setupCollectionView{
-    _contentCollectionView.backgroundColor = TINT_COLOR;
+    _contentCollectionView.backgroundColor = [ThemeColor currentColor].tintColor;
     [_contentCollectionView registerNib:[UINib nibWithNibName:[BoardCell identifier] bundle:nil] forCellWithReuseIdentifier:[BoardCell identifier]];
 
     //setup the cell space

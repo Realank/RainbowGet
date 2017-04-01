@@ -12,6 +12,7 @@
 #import "WordModel.h"
 #import "PersistWords.h"
 #import "PopUpBigViewForNotice.h"
+#import "SettingViewController.h"
 #import "BookCell.h"
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -25,13 +26,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.view.tintColor = TINT_COLOR;
-    self.view.backgroundColor = TINT_COLOR;
     [self setupCollectionView];
     // Do any additional setup after loading the view, typically from a nib.
 //    _signLabel.layer.affineTransform = CGAffineTransformMakeRotation(-M_PI/4);
     [self checkFirstUse];
     [self loadBooks];
+}
+
+- (void)refreshTheme{
+    self.navigationController.view.tintColor = [ThemeColor currentColor].tintColor;
+    self.view.backgroundColor = [ThemeColor currentColor].tintColor;
 }
 - (void)setupCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -56,62 +60,30 @@
     [_bookCollectionView reloadData];
 }
 - (IBAction)aboutAction:(id)sender {
-    [self showIntroduce];
+    SettingViewController* vc = [[SettingViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
 - (void) checkFirstUse {
 
-    NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *bundleVersion = [CommTool bundleVersion];
     NSString *key = [NSString stringWithFormat:@"firstUseThisVersion:%@",bundleVersion];
     NSString *firstUseThisVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (!firstUseThisVersion) {
         firstUseThisVersion = @"yes";
         [[NSUserDefaults standardUserDefaults] setObject:firstUseThisVersion forKey:key];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        [self showIntroduce];
+        [PopUpBigViewForNotice showAppIntroduce];
     }
     
-}
-
-- (IBAction)showIntroduce{
-    NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    PopUpBigViewForNotice *view = [[PopUpBigViewForNotice alloc]initWithFrame:self.view.bounds];
-    view.title = [NSString stringWithFormat:@"こんにちは(%@)",bundleVersion];
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"introduce" ofType:@"txt"];
-    NSString *content = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
-    view.content = content;
-    [[UIApplication sharedApplication].keyWindow addSubview:view];
-}
-
-- (void)configRoundButton:(UIButton*)button{
-    [button setTitleColor:TINT_COLOR forState:UIControlStateNormal];
-    button.backgroundColor = FORE_COLOR;
-    button.layer.cornerRadius = button.frame.size.height/2.0;
-    
-    button.layer.shadowColor = [UIColor blackColor].CGColor;
-    button.layer.shadowRadius = 4;
-    button.layer.shadowOffset = CGSizeMake(1, 1);
-    button.layer.shadowOpacity = 0.5;
-    button.layer.masksToBounds = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _someNewWords = [PersistWords allWords];
+    [self refreshTheme];
     [self reloadData];
-}
-
-- (void)showButtonAnimate:(UIButton*)button{
-    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        button.layer.affineTransform = CGAffineTransformMakeScale(6, 6);
-        [button setTitleColor:FORE_COLOR forState:UIControlStateNormal];
-        button.alpha = 0;
-    } completion:^(BOOL finished) {
-        button.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0);
-        [button setTitleColor:TINT_COLOR forState:UIControlStateNormal];
-        button.alpha = 1;
-    }];
 }
 
 - (void)loadBooks {
@@ -128,12 +100,6 @@
     
     
     
-}
-- (IBAction)enterNewWordPage:(UIButton*)sender {
-    [self showButtonAnimate:sender];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self pushToWithWords:_someNewWords];
-    });
 }
 
 - (void)goNextWithClasses:(NSArray*)classes{

@@ -11,5 +11,5 @@
 @interface CommTool : NSObject
 
 + (BOOL)isIPAD;
-
++ (NSString*)bundleVersion;
 @end

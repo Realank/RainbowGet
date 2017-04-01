@@ -19,7 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.tintColor = TINT_COLOR;
+    self.view.tintColor = [ThemeColor currentColor].tintColor;
+    self.view.backgroundColor = [ThemeColor currentColor].tintColor;
+    self.tableView.backgroundColor = [ThemeColor currentColor].tintColor;
     self.title = _classes.firstObject.bookName;
 //    self.tableView.backgroundColor = TINT_COLOR;
 }
@@ -47,16 +49,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuse"];
-    cell.textLabel.textColor = TINT_COLOR;
+    cell.textLabel.textColor = [ThemeColor currentColor].foreColor;
     cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
-    cell.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    cell.backgroundColor = [ThemeColor currentColor].tintColor;
     
 
     ClassModel* aclass = _classes[indexPath.row];
     cell.textLabel.text = aclass.className;
     cell.detailTextLabel.text = aclass.classTitle;
+    cell.detailTextLabel.textColor = [ThemeColor currentColor].grayColor;
+    cell.tintColor = [ThemeColor currentColor].grayColor;
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
-    
+    cell.selectedBackgroundView = [[UIView alloc] init];
+    cell.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
     return cell;
 }
 
@@ -77,7 +82,7 @@
     if ([CommTool isIPAD]) {
         return 65;
     }else{
-        return 45;
+        return 50;
     }
 }
 

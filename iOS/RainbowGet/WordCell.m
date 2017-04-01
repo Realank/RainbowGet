@@ -21,9 +21,15 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.contentView.backgroundColor = TINT_COLOR;
+    self.backgroundColor = [ThemeColor currentColor].tintColor;
     self.selectedBackgroundView = [[UIView alloc] init];
-    self.selectedBackgroundView.backgroundColor = TINT_SELECTED_COLOR;
+    self.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
+    for (id subView in self.contentView.subviews) {
+        if ([subView isKindOfClass:[UILabel class]]) {
+            UILabel* label = subView;
+            label.textColor = [ThemeColor currentColor].foreColor;
+        }
+    }
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{

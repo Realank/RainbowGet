@@ -80,7 +80,6 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1215686275" green="0.40000000000000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IEq-sf-5JT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1K8-Jo-igt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2wM-Cu-v2U" secondAttribute="bottom" constant="-1" id="AQf-0T-dUI"/>
@@ -91,7 +90,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="霓虹单词" id="m8u-ry-4HS">
-                        <barButtonItem key="rightBarButtonItem" title="关于" id="tNR-EF-naZ">
+                        <barButtonItem key="rightBarButtonItem" title="设置" id="tNR-EF-naZ">
                             <connections>
                                 <action selector="aboutAction:" destination="BYZ-38-t0r" id="10C-pR-Joq"/>
                             </connections>
