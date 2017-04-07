@@ -65,7 +65,7 @@
             break;
         case 2:
         {
-            cell.textLabel.text = @"技术支持 / 打赏支付宝账号";
+            cell.textLabel.text = @"技术支持/打赏支付宝";
             cell.detailTextLabel.text = @"realank@126.com";
             cell.accessoryType = UITableViewCellAccessoryNone;
             
@@ -75,7 +75,7 @@
             break;
     }
     
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:19];
     cell.textLabel.textColor = [ThemeColor currentColor].foreColor;
     cell.detailTextLabel.textColor = [ThemeColor currentColor].grayColor;
     cell.backgroundColor = [ThemeColor currentColor].tintColor;

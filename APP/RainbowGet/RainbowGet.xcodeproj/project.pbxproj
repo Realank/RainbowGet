@@ -12,6 +12,9 @@
 		8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C0B1ACE1E69D125003DBE7F /* ClassesListViewController.xib */; };
 		8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C11886F1E8CE3DF0073A194 /* BookCell.m */; };
 		8C1188731E8CF0D20073A194 /* CommTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1188721E8CF0D20073A194 /* CommTool.m */; };
+		8C11ACCB1E9647CB00B98F27 /* RLKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C11ACCA1E9647CB00B98F27 /* RLKNavigationController.m */; };
+		8C11ACCF1E976A1C00B98F27 /* PortraitWordBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C11ACCD1E976A1C00B98F27 /* PortraitWordBoardViewController.m */; };
+		8C11ACD01E976A1C00B98F27 /* PortraitWordBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C11ACCE1E976A1C00B98F27 /* PortraitWordBoardViewController.xib */; };
 		8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91B41E80C9CF0071209E /* WordsListViewController.m */; };
 		8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */; };
 		8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91B91E80C9ED0071209E /* WordCell.m */; };
@@ -98,6 +101,11 @@
 		8C11886F1E8CE3DF0073A194 /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
 		8C1188711E8CF0D20073A194 /* CommTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommTool.h; sourceTree = "<group>"; };
 		8C1188721E8CF0D20073A194 /* CommTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommTool.m; sourceTree = "<group>"; };
+		8C11ACC91E9647CB00B98F27 /* RLKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLKNavigationController.h; sourceTree = "<group>"; };
+		8C11ACCA1E9647CB00B98F27 /* RLKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLKNavigationController.m; sourceTree = "<group>"; };
+		8C11ACCC1E976A1C00B98F27 /* PortraitWordBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitWordBoardViewController.h; sourceTree = "<group>"; };
+		8C11ACCD1E976A1C00B98F27 /* PortraitWordBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitWordBoardViewController.m; sourceTree = "<group>"; };
+		8C11ACCE1E976A1C00B98F27 /* PortraitWordBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitWordBoardViewController.xib; sourceTree = "<group>"; };
 		8C1F91B31E80C9CF0071209E /* WordsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordsListViewController.h; sourceTree = "<group>"; };
 		8C1F91B41E80C9CF0071209E /* WordsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordsListViewController.m; sourceTree = "<group>"; };
 		8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordsListViewController.xib; sourceTree = "<group>"; };
@@ -303,6 +311,8 @@
 				8CF8CD4D1E66560B00A50AE3 /* Main.storyboard */,
 				8CF8CD4A1E66560B00A50AE3 /* ViewController.h */,
 				8CF8CD4B1E66560B00A50AE3 /* ViewController.m */,
+				8C11ACC91E9647CB00B98F27 /* RLKNavigationController.h */,
+				8C11ACCA1E9647CB00B98F27 /* RLKNavigationController.m */,
 			);
 			path = FirstPage;
 			sourceTree = "<group>";
@@ -326,6 +336,9 @@
 				8CF8CD771E66575100A50AE3 /* WordBoardViewController.h */,
 				8CF8CD781E66575100A50AE3 /* WordBoardViewController.m */,
 				8CF8CD791E66575100A50AE3 /* WordBoardViewController.xib */,
+				8C11ACCC1E976A1C00B98F27 /* PortraitWordBoardViewController.h */,
+				8C11ACCD1E976A1C00B98F27 /* PortraitWordBoardViewController.m */,
+				8C11ACCE1E976A1C00B98F27 /* PortraitWordBoardViewController.xib */,
 			);
 			path = WordBoard;
 			sourceTree = "<group>";
@@ -585,6 +598,7 @@
 				8C83CD8A1E84F3130041FE56 /* MW117.mp3 in Resources */,
 				8C83CD871E84F3130041FE56 /* MW114.mp3 in Resources */,
 				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
+				8C11ACD01E976A1C00B98F27 /* PortraitWordBoardViewController.xib in Resources */,
 				8C83CD7D1E84F3130041FE56 /* MW104.mp3 in Resources */,
 				8C83CD8B1E84F3130041FE56 /* MW118.mp3 in Resources */,
 				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
@@ -687,7 +701,9 @@
 				8C1F91BB1E80C9ED0071209E /* WordCell.m in Sources */,
 				8CF0840D1E8F580600D5092B /* CustomThemeViewController.m in Sources */,
 				8C7C0E521E8F7D87008B5D18 /* FCBrightDarkGradView.m in Sources */,
+				8C11ACCF1E976A1C00B98F27 /* PortraitWordBoardViewController.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
+				8C11ACCB1E9647CB00B98F27 /* RLKNavigationController.m in Sources */,
 				8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */,
 				8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */,
 				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,

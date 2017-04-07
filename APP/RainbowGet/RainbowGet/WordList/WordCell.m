@@ -44,7 +44,7 @@
 
 
 + (CGFloat)cellHeight{
-    return 60.0f;
+    return 70.0f;
 }
 
 - (void)setWord:(WordModel *)word{

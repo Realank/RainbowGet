@@ -41,6 +41,19 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _colorPicker.hidden = YES;
+    _gradBarView.hidden = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self setPickerColor:_preloadTheme.tintColor];
+    _colorPicker.hidden = NO;
+    _gradBarView.hidden = NO;
+}
+
 - (void)saveThemeColor{
     [ThemeColor setTheme:_preloadTheme];
     [self.navigationController popViewControllerAnimated:YES];

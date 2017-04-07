@@ -14,6 +14,7 @@
 #import "PopUpBigViewForNotice.h"
 #import "SettingViewController.h"
 #import "BookCell.h"
+#import "PortraitWordBoardViewController.h"
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *signLabel;
@@ -26,11 +27,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCollectionView];
-    // Do any additional setup after loading the view, typically from a nib.
-//    _signLabel.layer.affineTransform = CGAffineTransformMakeRotation(-M_PI/4);
+
     [self checkFirstUse];
     [self loadBooks];
+}
+
+- (void)orientationChange{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+        [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
+    }
+    
 }
 
 - (void)refreshTheme{
@@ -46,9 +53,16 @@
         cellHeight = 240;
     }
     layout.itemSize = CGSizeMake(cellWidth, cellHeight);
-    layout.minimumInteritemSpacing = 15;
+    CGFloat edgeMargin = 10;
+    if ([CommTool isIPAD]) {
+        layout.minimumInteritemSpacing = 15;
+    }else{
+        layout.minimumInteritemSpacing = ([CommTool screenWidth] - 2*cellWidth)/3;
+        edgeMargin = ([CommTool screenWidth] - 2*cellWidth)/3;
+    }
+    
     layout.minimumLineSpacing = 20;
-    layout.sectionInset = UIEdgeInsetsMake(15, 10, 15, 10);
+    layout.sectionInset = UIEdgeInsetsMake(15, edgeMargin, 15, edgeMargin);
     _bookCollectionView.collectionViewLayout = layout;
 
     _bookCollectionView.delegate = self;
@@ -81,7 +95,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    if (![CommTool isIPAD]) {
+        [self orientationChange];
+    }
     _someNewWords = [PersistWords allWords];
+    [self setupCollectionView];
     [self refreshTheme];
     [self reloadData];
 }
@@ -118,11 +136,40 @@
     aclass.words = words;
     aclass.className = @"生词";
     aclass.bookName = @"生词本";
-    WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
-    detailViewController.shouldBeginWithZero = YES;
-    detailViewController.aclass = aclass;
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self pushWordBoardToClass:aclass withFullScreen:YES];
     
+}
+
+- (void)pushWordBoardToClass:(ClassModel*)aclass withFullScreen:(BOOL)fullScreen{
+    [self.navigationController popViewControllerAnimated:NO];
+    if (fullScreen) {
+        [self pushFullScreenWordBoardWithClass:aclass];
+    }else{
+        [self pushPortraitWordBoardWithClass:aclass];
+    }
+}
+
+- (void)pushFullScreenWordBoardWithClass:(ClassModel*)aclass{
+    if (aclass.words.count == 0) {
+        return;
+    }
+    WordBoardViewController *vc = [[WordBoardViewController alloc] init];
+    vc.aclass = aclass;
+    vc.pushWordBoardDeleagte = self;
+    vc.shouldBeginWithZero = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushPortraitWordBoardWithClass:(ClassModel*)aclass{
+    if (aclass.words.count == 0) {
+        return;
+    }
+    PortraitWordBoardViewController* vc = [[PortraitWordBoardViewController alloc] init];
+    vc.aclass = aclass;
+    vc.pushWordBoardDeleagte = self;
+    vc.shouldBeginWithZero = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 #pragma mark - collectionview delegate
@@ -173,6 +220,8 @@
     }
     
 }
+
+
 
 
 @end

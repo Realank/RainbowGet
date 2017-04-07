@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "ClassesListViewController.h"
+@interface ViewController : UIViewController <ClassListVCPushWordBoardDelegate>
 
 
 @end

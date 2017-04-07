@@ -21,22 +21,11 @@
     // Override point for customization after application launch.
     [AVOSCloud setApplicationId:@"kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz" clientKey:@"aGRwOxwVWSaBmrPT0xrsek1O"];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-//    [AVObject fetchAll:nil];
-//    WordModel* word = [[WordModel alloc] init];
-//    word.japanese = @"";
-//    word.kana = @"合う";
-//    word.chinese = @"不知道";
-//    word.type1 = @"动词";
-//    word.type2 = @"xingrongci";
-//    word.tone1 = 1;
-//    word.tone2 = -1;
-//    word.isHiragana = YES;
-//    [PersistWords addWord:word];
-//    [PersistWords delWord:word];
-//    NSArray* words = [PersistWords allWords];
-//    NSLog(@"%@",words);
-//    NSLog(@"%d",[PersistWords worldExist:word]);
+
     [self initSVHUD];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
     return YES;
 }
 
@@ -44,6 +33,44 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setMinimumDismissTimeInterval:5];
+}
+
+- (void)orientationChange:(NSNotification *)noti
+{
+    
+    UIDeviceOrientation  orient = [UIDevice currentDevice].orientation;
+    
+    switch (orient)
+    {
+        case UIDeviceOrientationPortrait:
+        case UIDeviceOrientationPortraitUpsideDown:
+            
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            
+            
+            break;
+        case UIDeviceOrientationFaceUp:
+        case UIDeviceOrientationFaceDown:
+            return;
+            break;
+        default:
+            break;
+    }
+    
+    if (![CommTool isIPAD]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"OritationChanged" object:nil];
+    }
+    
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    if ([CommTool isIPAD]) {
+        return UIInterfaceOrientationMaskLandscape;
+    }else{
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

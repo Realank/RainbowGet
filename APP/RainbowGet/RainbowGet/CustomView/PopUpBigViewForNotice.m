@@ -38,17 +38,27 @@
     [[UIApplication sharedApplication].keyWindow addSubview:view];
 }
 
+- (void)orientationChange{
+    [self cancelBtnClick];
+}
+
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChange) name:@"OritationChanged" object:nil];
     }
     return self;
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setContent:(NSString *)content {
     _content = content;
     [self configView];
 }
+
 - (void)configView {
     
     UIView *blackView = [[UIView alloc]initWithFrame:self.bounds];

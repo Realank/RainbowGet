@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) ClassModel* aclass;
 
+
 @end

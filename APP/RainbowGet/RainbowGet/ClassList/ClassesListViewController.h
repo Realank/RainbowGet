@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class ClassModel;
-@interface ClassesListViewController : UITableViewController
+@protocol ClassListVCPushWordBoardDelegate <NSObject>
+
+- (void)pushWordBoardToClass:(ClassModel*)aclass withFullScreen:(BOOL)fullScreen;
+
+@end
+
+@interface ClassesListViewController : UITableViewController <ClassListVCPushWordBoardDelegate>
 
 @property (nonatomic, strong) NSArray<ClassModel*>* classes;
 

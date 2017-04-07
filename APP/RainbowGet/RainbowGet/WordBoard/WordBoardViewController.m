@@ -14,6 +14,7 @@
 #import "DrawView.h"
 #import "AudioPlaybackTool.h"
 
+
 @implementation UIImage (ChangeColor)
 
 //改变图片颜色
@@ -67,17 +68,34 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    UIBarButtonItem* rewindButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(rewind)];
-    UIBarButtonItem* playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playSound)];
-    _rewindButton = rewindButton;
-    _playButton = playButton;
-    [self.navigationItem setRightBarButtonItems:@[playButton,rewindButton]];
     
     
+    [self setupNavigationBar];
     [self setupButtons];
     [self setupCollectionView];
     [self setupDrawView];
     [self refreshWord];
+}
+
+- (void)setupNavigationBar{
+    UIImage* fullScreenImage = [[UIImage imageNamed:@"quitFullScreen"] imageWithColor:[ThemeColor currentColor].tintColor];
+    UIBarButtonItem* fullScreenButton = [[UIBarButtonItem alloc] initWithImage:fullScreenImage style:UIBarButtonItemStylePlain target:self action:@selector(fullScreen)];
+    UIBarButtonItem* rewindButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(rewind)];
+    UIBarButtonItem* playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playSound)];
+    _rewindButton = rewindButton;
+    _playButton = playButton;
+    if ([CommTool isIPAD]) {
+         [self.navigationItem setRightBarButtonItems:@[playButton,rewindButton]];
+    }else{
+         [self.navigationItem setRightBarButtonItems:@[playButton,rewindButton,fullScreenButton]];
+    }
+
+}
+
+- (void)fullScreen{
+    if (_pushWordBoardDeleagte) {
+        [_pushWordBoardDeleagte pushWordBoardToClass:_aclass withFullScreen:NO];
+    }
 }
 
 - (void)rewind{
@@ -284,6 +302,7 @@
 }
 - (IBAction)clearDraw:(id)sender {
     [_drawView clearDrawing];
+
     
 }
 
@@ -348,6 +367,22 @@
             break;
     }
     return cell;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (![CommTool isIPAD]) {
+        [self orientationChange];
+    }
+}
+
+- (void)orientationChange{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+        [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
+    }
+    
 }
 
 

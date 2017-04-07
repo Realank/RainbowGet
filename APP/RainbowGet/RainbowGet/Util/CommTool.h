@@ -12,4 +12,8 @@
 
 + (BOOL)isIPAD;
 + (NSString*)bundleVersion;
+
++ (BOOL)isOritationHorizonal;
+
++ (double)screenWidth;
 @end

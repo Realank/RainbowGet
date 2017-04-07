@@ -44,18 +44,17 @@
 
 + (CGFloat)width{
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight =[UIScreen mainScreen].bounds.size.height;
+    screenWidth = MAX(screenWidth, screenHeight);
     CGFloat width = (screenWidth - 40)/3;
     if ([CommTool isIPAD]) {
         if (width > 330) {
             width = 330;
         }
     }else{
-        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-        CGFloat width = (screenWidth - 40)/3;
         if (width > 210) {
             width = 210;
         }
-        return width;
     }
     return width;
     

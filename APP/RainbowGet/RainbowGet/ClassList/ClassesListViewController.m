@@ -11,6 +11,7 @@
 #import "WordBoardViewController.h"
 #import "PersistWords.h"
 #import "WordsListViewController.h"
+#import "PortraitWordBoardViewController.h"
 @interface ClassesListViewController ()
 
 @end
@@ -24,6 +25,72 @@
     self.tableView.backgroundColor = [ThemeColor currentColor].tintColor;
     self.title = _classes.firstObject.bookName;
 //    self.tableView.backgroundColor = TINT_COLOR;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (![CommTool isIPAD]) {
+         [self orientationChange];
+    }
+   
+}
+
+- (void)orientationChange{
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+        [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
+    }
+    
+}
+
+- (void)pushWordBoardToClass:(ClassModel*)aclass withFullScreen:(BOOL)fullScreen{
+    [self.navigationController popViewControllerAnimated:NO];
+    if (fullScreen) {
+        [self pushFullScreenWordBoardWithClass:aclass];
+    }else{
+        [self pushPortraitWordBoardWithClass:aclass];
+    }
+}
+
+- (void)pushFullScreenWordBoardWithClass:(ClassModel*)aclass{
+    self.view.userInteractionEnabled = NO;
+    __weak typeof(self) weakSelf = self;
+    [SVProgressHUD show];
+    [aclass loadWordsWithComplete:^{
+        [SVProgressHUD dismiss];
+        if (aclass.words.count == 0) {
+            weakSelf.view.userInteractionEnabled = YES;
+            return;
+        }
+        WordBoardViewController *vc = [[WordBoardViewController alloc] init];
+        vc.aclass = aclass;
+        vc.pushWordBoardDeleagte = self;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.view.userInteractionEnabled = YES;
+        });
+    }];
+}
+
+- (void)pushPortraitWordBoardWithClass:(ClassModel*)aclass{
+    self.view.userInteractionEnabled = NO;
+    __weak typeof(self) weakSelf = self;
+    [SVProgressHUD show];
+    [aclass loadWordsWithComplete:^{
+        [SVProgressHUD dismiss];
+        if (aclass.words.count == 0) {
+            weakSelf.view.userInteractionEnabled = YES;
+            return;
+        }
+        PortraitWordBoardViewController* vc = [[PortraitWordBoardViewController alloc] init];
+        vc.aclass = aclass;
+        vc.pushWordBoardDeleagte = self;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.view.userInteractionEnabled = YES;
+        });
+    }];
 }
 
 #pragma mark - Table view data source
@@ -98,28 +165,7 @@
     
 
     ClassModel* aclass = _classes[indexPath.row];
-    self.view.userInteractionEnabled = NO;
-    __weak typeof(self) weakSelf = self;
-    [SVProgressHUD show];
-    [aclass loadWordsWithComplete:^{
-        [SVProgressHUD dismiss];
-        [weakSelf pushToWordsBoardWithClass:aclass];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.view.userInteractionEnabled = YES;
-        });
-    }];
-    
-
-}
-
-- (void)pushToWordsBoardWithClass:(ClassModel*)aclass{
-    if (aclass.words.count == 0) {
-        return;
-    }
-    WordBoardViewController *detailViewController = [[WordBoardViewController alloc] init];
-    detailViewController.aclass = aclass;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    
+    [self pushFullScreenWordBoardWithClass:aclass];
 }
 
 - (void)pushToWordsListWithClass:(ClassModel*)aclass{

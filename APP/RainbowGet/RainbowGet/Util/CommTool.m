@@ -20,5 +20,15 @@
     return bundleVersion;
 }
 
++ (BOOL)isOritationHorizonal{
+    UIDeviceOrientation  orient = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsPortrait(orient)) {
+        return NO;
+    }
+    return YES;
+}
 
++ (double)screenWidth{
+    return [UIScreen mainScreen].bounds.size.width;
+}
 @end
