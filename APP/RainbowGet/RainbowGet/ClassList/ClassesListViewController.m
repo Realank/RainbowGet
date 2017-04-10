@@ -167,7 +167,7 @@
 
     ClassModel* aclass = _classes[indexPath.row];
     BOOL needFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"FullScreenWordBoard"];
-    if (needFullScreen) {
+    if (needFullScreen || [CommTool isIPAD]) {
         [self pushFullScreenWordBoardWithClass:aclass withAnimate:YES];
     }else{
         [self pushPortraitWordBoardWithClass:aclass withAnimate:YES];

@@ -137,7 +137,7 @@
     aclass.className = @"生词";
     aclass.bookName = @"生词本";
     BOOL needFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"FullScreenWordBoard"];
-    if (needFullScreen) {
+    if (needFullScreen || [CommTool isIPAD]) {
         [self pushFullScreenWordBoardWithClass:aclass  withAnimate:YES];
     }else{
         [self pushPortraitWordBoardWithClass:aclass  withAnimate:YES];

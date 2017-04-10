@@ -65,7 +65,7 @@
             break;
         case 2:
         {
-            cell.textLabel.text = @"技术支持/打赏支付宝";
+            cell.textLabel.text = @"技术支持";
             cell.detailTextLabel.text = @"realank@126.com";
             cell.accessoryType = UITableViewCellAccessoryNone;
             
