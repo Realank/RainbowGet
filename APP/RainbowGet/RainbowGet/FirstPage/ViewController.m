@@ -136,20 +136,26 @@
     aclass.words = words;
     aclass.className = @"生词";
     aclass.bookName = @"生词本";
-    [self pushWordBoardToClass:aclass withFullScreen:YES];
+    BOOL needFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"FullScreenWordBoard"];
+    if (needFullScreen) {
+        [self pushFullScreenWordBoardWithClass:aclass  withAnimate:YES];
+    }else{
+        [self pushPortraitWordBoardWithClass:aclass  withAnimate:YES];
+    }
     
 }
 
 - (void)pushWordBoardToClass:(ClassModel*)aclass withFullScreen:(BOOL)fullScreen{
     [self.navigationController popViewControllerAnimated:NO];
+    [[NSUserDefaults standardUserDefaults] setBool:fullScreen forKey:@"FullScreenWordBoard"];
     if (fullScreen) {
-        [self pushFullScreenWordBoardWithClass:aclass];
+        [self pushFullScreenWordBoardWithClass:aclass withAnimate:NO];
     }else{
-        [self pushPortraitWordBoardWithClass:aclass];
+        [self pushPortraitWordBoardWithClass:aclass withAnimate:NO];
     }
 }
 
-- (void)pushFullScreenWordBoardWithClass:(ClassModel*)aclass{
+- (void)pushFullScreenWordBoardWithClass:(ClassModel*)aclass withAnimate:(BOOL)animate{
     if (aclass.words.count == 0) {
         return;
     }
@@ -157,10 +163,10 @@
     vc.aclass = aclass;
     vc.pushWordBoardDeleagte = self;
     vc.shouldBeginWithZero = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:animate];
 }
 
-- (void)pushPortraitWordBoardWithClass:(ClassModel*)aclass{
+- (void)pushPortraitWordBoardWithClass:(ClassModel*)aclass withAnimate:(BOOL)animate{
     if (aclass.words.count == 0) {
         return;
     }
@@ -168,7 +174,7 @@
     vc.aclass = aclass;
     vc.pushWordBoardDeleagte = self;
     vc.shouldBeginWithZero = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:animate];
 
 }
 

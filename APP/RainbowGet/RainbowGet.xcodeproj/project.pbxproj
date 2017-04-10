@@ -52,6 +52,8 @@
 		8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */; };
 		8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C84E4BC1E7A849C000466F8 /* PersistWords.m */; };
 		8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */; };
+		8CB41E6C1E9B25CE007EB93F /* PortraitBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */; };
+		8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */; };
 		8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083EA1E8F313B00D5092B /* ThemeColor.m */; };
 		8CF083FB1E8F3D4800D5092B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF083FA1E8F3D4800D5092B /* Launch Screen.storyboard */; };
 		8CF084001E8F43E000D5092B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083FE1E8F43E000D5092B /* SettingViewController.m */; };
@@ -156,6 +158,9 @@
 		8C84E4BB1E7A849C000466F8 /* PersistWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistWords.h; sourceTree = "<group>"; };
 		8C84E4BC1E7A849C000466F8 /* PersistWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistWords.m; sourceTree = "<group>"; };
 		8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8CB41E691E9B25CE007EB93F /* PortraitBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitBoardCell.h; sourceTree = "<group>"; };
+		8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitBoardCell.m; sourceTree = "<group>"; };
+		8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitBoardCell.xib; sourceTree = "<group>"; };
 		8CF083E91E8F313B00D5092B /* ThemeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
 		8CF083EA1E8F313B00D5092B /* ThemeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeColor.m; sourceTree = "<group>"; };
 		8CF083FA1E8F3D4800D5092B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -339,6 +344,9 @@
 				8C11ACCC1E976A1C00B98F27 /* PortraitWordBoardViewController.h */,
 				8C11ACCD1E976A1C00B98F27 /* PortraitWordBoardViewController.m */,
 				8C11ACCE1E976A1C00B98F27 /* PortraitWordBoardViewController.xib */,
+				8CB41E691E9B25CE007EB93F /* PortraitBoardCell.h */,
+				8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */,
+				8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */,
 			);
 			path = WordBoard;
 			sourceTree = "<group>";
@@ -603,6 +611,7 @@
 				8C83CD8B1E84F3130041FE56 /* MW118.mp3 in Resources */,
 				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
 				8C83CD861E84F3130041FE56 /* MW113.mp3 in Resources */,
+				8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */,
 				8CF083FB1E8F3D4800D5092B /* Launch Screen.storyboard in Resources */,
 				8C83CD7C1E84F3130041FE56 /* MW103.mp3 in Resources */,
 				8C83CD891E84F3130041FE56 /* MW116.mp3 in Resources */,
@@ -695,6 +704,7 @@
 				8CF084051E8F48DA00D5092B /* ThemeTableViewController.m in Sources */,
 				8CF8CD881E66645800A50AE3 /* WordModel.m in Sources */,
 				8CF8CD491E66560B00A50AE3 /* AppDelegate.m in Sources */,
+				8CB41E6C1E9B25CE007EB93F /* PortraitBoardCell.m in Sources */,
 				8C7C0E4D1E8F5956008B5D18 /* SVRadialGradientLayer.m in Sources */,
 				8CF8CD461E66560B00A50AE3 /* main.m in Sources */,
 				8C7C0E4C1E8F5956008B5D18 /* SVProgressHUD.m in Sources */,

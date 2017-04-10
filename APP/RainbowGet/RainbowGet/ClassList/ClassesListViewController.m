@@ -46,14 +46,15 @@
 
 - (void)pushWordBoardToClass:(ClassModel*)aclass withFullScreen:(BOOL)fullScreen{
     [self.navigationController popViewControllerAnimated:NO];
+    [[NSUserDefaults standardUserDefaults] setBool:fullScreen forKey:@"FullScreenWordBoard"];
     if (fullScreen) {
-        [self pushFullScreenWordBoardWithClass:aclass];
+        [self pushFullScreenWordBoardWithClass:aclass withAnimate:NO];
     }else{
-        [self pushPortraitWordBoardWithClass:aclass];
+        [self pushPortraitWordBoardWithClass:aclass withAnimate:NO];
     }
 }
 
-- (void)pushFullScreenWordBoardWithClass:(ClassModel*)aclass{
+- (void)pushFullScreenWordBoardWithClass:(ClassModel*)aclass withAnimate:(BOOL)animate{
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
     [SVProgressHUD show];
@@ -66,14 +67,14 @@
         WordBoardViewController *vc = [[WordBoardViewController alloc] init];
         vc.aclass = aclass;
         vc.pushWordBoardDeleagte = self;
-        [weakSelf.navigationController pushViewController:vc animated:YES];
+        [weakSelf.navigationController pushViewController:vc animated:animate];
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.view.userInteractionEnabled = YES;
         });
     }];
 }
 
-- (void)pushPortraitWordBoardWithClass:(ClassModel*)aclass{
+- (void)pushPortraitWordBoardWithClass:(ClassModel*)aclass withAnimate:(BOOL)animate{
     self.view.userInteractionEnabled = NO;
     __weak typeof(self) weakSelf = self;
     [SVProgressHUD show];
@@ -86,7 +87,7 @@
         PortraitWordBoardViewController* vc = [[PortraitWordBoardViewController alloc] init];
         vc.aclass = aclass;
         vc.pushWordBoardDeleagte = self;
-        [weakSelf.navigationController pushViewController:vc animated:YES];
+        [weakSelf.navigationController pushViewController:vc animated:animate];
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.view.userInteractionEnabled = YES;
         });
@@ -165,7 +166,12 @@
     
 
     ClassModel* aclass = _classes[indexPath.row];
-    [self pushFullScreenWordBoardWithClass:aclass];
+    BOOL needFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"FullScreenWordBoard"];
+    if (needFullScreen) {
+        [self pushFullScreenWordBoardWithClass:aclass withAnimate:YES];
+    }else{
+        [self pushPortraitWordBoardWithClass:aclass withAnimate:YES];
+    }
 }
 
 - (void)pushToWordsListWithClass:(ClassModel*)aclass{

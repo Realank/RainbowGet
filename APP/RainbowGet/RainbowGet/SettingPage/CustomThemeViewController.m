@@ -115,6 +115,7 @@
     CGPoint brightnessPosition;
     brightnessPosition.y = (1.0-currentBrightness)*_gradView.frame.size.height;
     brightnessPosition.x = _gradView.bounds.size.width/2;
+    _gradBarView.bounds = CGRectMake(0, 0, _gradView.bounds.size.width*1.25, 20);
     _gradBarView.center = brightnessPosition;
 }
 

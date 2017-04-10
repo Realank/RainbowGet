@@ -31,4 +31,5 @@
 + (double)screenWidth{
     return [UIScreen mainScreen].bounds.size.width;
 }
+
 @end

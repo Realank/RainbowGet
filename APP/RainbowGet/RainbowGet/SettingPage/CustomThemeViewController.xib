@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,7 +41,7 @@
                     </connections>
                 </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWY-It-syc" customClass="UIImageView">
-                    <rect key="frame" x="40" y="86" width="456" height="233"/>
+                    <rect key="frame" x="40" y="86" width="459" height="233"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vx-Fk-rkL">
                             <rect key="frame" x="226" y="93" width="40" height="40"/>
@@ -54,7 +55,7 @@
                     <rect key="frame" x="20" y="334" width="696" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你好 こんにちは" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0g-Zf-ukM">
-                            <rect key="frame" x="237.66666666666669" y="12.666666666666686" width="220" height="36"/>
+                            <rect key="frame" x="238" y="12" width="220" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -68,7 +69,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynr-JT-WKf" customClass="FCBrightDarkGradView">
-                    <rect key="frame" x="546" y="86" width="150" height="233"/>
+                    <rect key="frame" x="549" y="86" width="147" height="233"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAB-bg-7f2">
                             <rect key="frame" x="-15" y="8" width="180" height="18"/>
@@ -78,13 +79,14 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="150" id="fts-0g-Kz0"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="130" id="mdn-iR-Sqn"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Ynr-JT-WKf" firstAttribute="top" secondItem="iWY-It-syc" secondAttribute="top" id="27n-ja-NuH"/>
+                <constraint firstItem="Ynr-JT-WKf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.2" id="4Lc-3h-LeD"/>
                 <constraint firstItem="2AJ-ja-lZy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="6Aj-jH-Zj7"/>
                 <constraint firstAttribute="bottom" secondItem="d4S-hK-9nE" secondAttribute="bottom" constant="20" id="8Vw-NX-IeR"/>
                 <constraint firstItem="iWY-It-syc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="9UJ-am-cQ0"/>
