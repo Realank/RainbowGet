@@ -30,10 +30,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     WordModel* word = _aclass.words.firstObject;
-    if (word.audiofile.length > 0) {
+    if ([CommTool hasAudioFile:word.audiofile]) {
         UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(loopPlaySound)];
         _barbutton = barbutton;
         [self.navigationItem setRightBarButtonItem:barbutton];
+        self.tableView.allowsSelection = YES;
+    }else{
+        self.tableView.allowsSelection = NO;
     }
 }
 

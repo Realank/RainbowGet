@@ -31,7 +31,7 @@
 
 + (void)loadBooksWithResult:(void (^)(NSArray<BookModel*>* books))resultBlock{
     
-    AVQuery *query = [AVQuery queryWithClassName:@"BookList"];
+    AVQuery *query = [AVQuery queryWithClassName:@"BookList2_0"];
     [query orderByAscending:@"index"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -124,6 +124,7 @@
                 }
                 if (wordsList.count > 0) {
                     self.words = [wordsList copy];
+                    
                 }
             }
         }
@@ -201,6 +202,7 @@
         word.classname = obj[@"classname"];
         word.wordid = obj[@"wordid"];
         word.audiofile = obj[@"audiofile"];
+        word.audiofile = [word.audiofile stringByReplacingOccurrencesOfString:@"MW" withString:@"WD"];
         word.isHiragana = [obj[@"ishiragana"] boolValue];
         word.starttime = [obj[@"starttime"] doubleValue];
         word.periodtime = [obj[@"periodtime"] doubleValue];

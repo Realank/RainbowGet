@@ -38,6 +38,16 @@
     [[UIApplication sharedApplication].keyWindow addSubview:view];
 }
 
++ (void)showAppHelp{
+    NSString *bundleVersion = [CommTool bundleVersion];
+    PopUpBigViewForNotice *view = [[PopUpBigViewForNotice alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    view.title = [NSString stringWithFormat:@"帮助"];
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"help" ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
+    view.content = content;
+    [[UIApplication sharedApplication].keyWindow addSubview:view];
+}
+
 - (void)orientationChange{
     [self cancelBtnClick];
 }

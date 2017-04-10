@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 
@@ -65,7 +65,15 @@
             break;
         case 2:
         {
-            cell.textLabel.text = @"技术支持";
+            cell.textLabel.text = @"帮助";
+            cell.detailTextLabel.text = @"";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+        }
+            break;
+        case 3:
+        {
+            cell.textLabel.text = @"支付宝打赏";
             cell.detailTextLabel.text = @"realank@126.com";
             cell.accessoryType = UITableViewCellAccessoryNone;
             
@@ -107,6 +115,11 @@
         case 1:
         {
             [PopUpBigViewForNotice showAppIntroduce];
+        }
+            break;
+        case 2:
+        {
+            [PopUpBigViewForNotice showAppHelp];
         }
             break;
         default:

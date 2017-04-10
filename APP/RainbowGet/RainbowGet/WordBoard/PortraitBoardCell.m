@@ -29,6 +29,7 @@
     self.layer.shadowOffset = CGSizeMake(1, 1);
     self.layer.shadowOpacity = 0.5;
     self.layer.masksToBounds = NO;
+    
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{
@@ -53,6 +54,10 @@
 
 + (CGFloat)cellHeight{
     double screenHeight = [UIScreen mainScreen].bounds.size.height;
-    return (screenHeight - 64 - 15*3 - 10)/3;
+    double cellHeight = (screenHeight - 64 - 30*3 - 30)/3;
+    if (cellHeight > 120) {
+        cellHeight = 120;
+    }
+    return cellHeight;
 }
 @end

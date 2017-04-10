@@ -11,18 +11,47 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PortraitWordBoardViewController">
             <connections>
+                <outlet property="aNewWordButton" destination="sFP-zy-WQf" id="gB7-Hy-YxU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wordListView" destination="kd7-58-5xx" id="GHi-KZ-ozn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUl-ap-R0I">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" id="uTX-ad-8WH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sFP-zy-WQf">
+                                <rect key="frame" x="16" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="生词"/>
+                                <connections>
+                                    <action selector="aNewWordAction:" destination="-1" eventType="touchUpInside" id="eHH-TJ-i9A"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kd7-58-5xx">
+                    <rect key="frame" x="16" y="64" width="343" height="559"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <connections>
-                <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
-                <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
-            </connections>
-        </tableView>
+            <constraints>
+                <constraint firstItem="hUl-ap-R0I" firstAttribute="top" secondItem="kd7-58-5xx" secondAttribute="bottom" id="7Cu-Mn-ikP"/>
+                <constraint firstItem="hUl-ap-R0I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bwn-Tk-HfU"/>
+                <constraint firstAttribute="trailing" secondItem="kd7-58-5xx" secondAttribute="trailing" constant="16" id="CBz-dc-ZNQ"/>
+                <constraint firstAttribute="trailing" secondItem="hUl-ap-R0I" secondAttribute="trailing" id="GPo-tt-Xwo"/>
+                <constraint firstItem="kd7-58-5xx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="Qc4-TP-Ati"/>
+                <constraint firstAttribute="bottom" secondItem="hUl-ap-R0I" secondAttribute="bottom" id="nBZ-nr-ts7"/>
+                <constraint firstItem="kd7-58-5xx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ppT-rB-tmx"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
+        </view>
     </objects>
 </document>

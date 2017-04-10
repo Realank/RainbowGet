@@ -16,4 +16,6 @@
 + (BOOL)isOritationHorizonal;
 
 + (double)screenWidth;
+
++ (BOOL)hasAudioFile:(NSString*)fileName;
 @end

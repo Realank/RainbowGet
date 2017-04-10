@@ -28,5 +28,6 @@
 @property (nonatomic, assign) BOOL isNeedCheck; //是否需要左下角框
 
 + (void)showAppIntroduce;
++ (void)showAppHelp;
 
 @end

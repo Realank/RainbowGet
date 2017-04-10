@@ -32,4 +32,16 @@
     return [UIScreen mainScreen].bounds.size.width;
 }
 
++ (BOOL)hasAudioFile:(NSString*)fileName{
+    if (fileName.length == 0) {
+        return NO;
+    }
+    NSString *urlStr=[[NSBundle mainBundle]pathForResource:fileName ofType:@"mp3"];
+    if (urlStr.length == 0) {
+        NSLog(@"not found");
+        return NO;
+    }
+    return YES;
+}
+
 @end

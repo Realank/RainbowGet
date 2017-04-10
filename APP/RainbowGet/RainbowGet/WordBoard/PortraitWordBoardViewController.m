@@ -2,7 +2,7 @@
 //  PortraitWordBoardViewController.m
 //  RainbowGet
 //
-//  Created by Realank on 2017/4/7.
+//  Created by Realank on 2017/4/10.
 //  Copyright © 2017年 Realank. All rights reserved.
 //
 
@@ -33,7 +33,11 @@
 
 @end
 
-@interface PortraitWordBoardViewController ()
+
+@interface PortraitWordBoardViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *wordListView;
+@property (weak, nonatomic) IBOutlet UIButton *aNewWordButton;
+
 @property (assign, nonatomic) NSInteger wordIndex;
 @property (weak, nonatomic) UIBarButtonItem* rewindButton;
 @property (weak, nonatomic) UIBarButtonItem* playButton;
@@ -42,20 +46,25 @@
 
 @implementation PortraitWordBoardViewController
 
+
 #pragma mark - init
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.tintColor = [ThemeColor currentColor].tintColor;
+    self.view.backgroundColor = [ThemeColor currentColor].tintColor;
     if (_shouldBeginWithZero) {
         self.wordIndex = 0;
     }else{
         self.wordIndex = [[NSUserDefaults standardUserDefaults] integerForKey:[_aclass wordBookKey]];
     }
+    
+    [self setAutomaticallyAdjustsScrollViewInsets:YES];
     [self setupNavigationBar];
     
     [self setupTableView];
+    [self refreshWord];
 }
 
 - (void)setupNavigationBar{
@@ -69,21 +78,24 @@
 }
 
 - (void)setupTableView{
-    self.tableView.backgroundColor = [ThemeColor currentColor].tintColor;
+    self.wordListView.delegate = self;
+    self.wordListView.dataSource = self;
+    self.wordListView.backgroundColor = [ThemeColor currentColor].tintColor;
     UISwipeGestureRecognizer* leftSwipeGes = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
     leftSwipeGes.direction = UISwipeGestureRecognizerDirectionLeft;
     //    leftSwipeGes.numberOfTouchesRequired = 2;
-    [self.tableView addGestureRecognizer:leftSwipeGes];
+    [self.wordListView addGestureRecognizer:leftSwipeGes];
     
     UISwipeGestureRecognizer* rightSwipeGes = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];
     rightSwipeGes.direction = UISwipeGestureRecognizerDirectionRight;
     //    rightSwipeGes.numberOfTouchesRequired = 2;
-    [self.tableView addGestureRecognizer:rightSwipeGes];
+    [self.wordListView addGestureRecognizer:rightSwipeGes];
 }
 
 #pragma mark - actions
 
 - (IBAction)aNewWordAction:(UIButton*)sender {
+
     BOOL isAdd = !sender.selected;
     WordModel* word = _aclass.words[_wordIndex];
     if (isAdd) {
@@ -180,7 +192,12 @@
 
 - (void)setWordIndex:(NSInteger)wordIndex{
     _wordIndex = wordIndex;
-    self.title = [NSString stringWithFormat:@"%@(%d/%d)",_aclass.className,wordIndex+1,_aclass.words.count];
+    if ([CommTool screenWidth] <= 321) {
+        self.title = [NSString stringWithFormat:@"%d/%d",wordIndex+1,_aclass.words.count];
+    }else{
+        self.title = [NSString stringWithFormat:@"%@(%d/%d)",_aclass.className,wordIndex+1,_aclass.words.count];
+    }
+    
     
     if (!_shouldBeginWithZero) {
         [[NSUserDefaults standardUserDefaults] setInteger:wordIndex forKey:[_aclass wordBookKey]];
@@ -190,15 +207,15 @@
 
 - (void)refreshWord{
     WordModel* word = _aclass.words[_wordIndex];
-    //    _aNewWordButton.selected = [PersistWords worldExist:word];
+    _aNewWordButton.selected = [PersistWords worldExist:word];
     
-    _playButton.enabled = word.audiofile.length > 0;
+    _playButton.enabled = [CommTool hasAudioFile:word.audiofile];
     _rewindButton.enabled = _wordIndex != 0;
     
     [self reloadData];
 }
 - (void)reloadData{
-    [self.tableView reloadData];
+    [self.wordListView reloadData];
 }
 
 
@@ -218,7 +235,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 15.0;
+    return 30.0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -259,10 +276,10 @@
         default:
             break;
     }
+    
     return cell;
-
+    
 }
-
 
 
 @end

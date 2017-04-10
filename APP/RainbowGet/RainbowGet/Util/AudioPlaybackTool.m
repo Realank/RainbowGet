@@ -52,6 +52,10 @@
     _completeBlock = nil;
     _interruptBlock = nil;
     NSString *urlStr=[[NSBundle mainBundle]pathForResource:filename ofType:@"mp3"];
+    if (urlStr.length == 0) {
+        NSLog(@"not found");
+        return NO;
+    }
     NSURL *url=[NSURL fileURLWithPath:urlStr];
     NSError *error=nil;
     if (!url) {

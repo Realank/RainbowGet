@@ -29,6 +29,7 @@
 @property (nonatomic, strong) NSString* classTitle;
 @property (nonatomic, copy) NSString* wordsTableName;
 @property (nonatomic, copy) NSString* bookName;
+@property (nonatomic, assign) BOOL hasAudio;
 
 @property (nonatomic, strong) NSArray<WordModel*>* words;
 

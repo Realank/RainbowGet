@@ -289,7 +289,7 @@
     WordModel* word = _aclass.words[_wordIndex];
     _aNewWordButton.selected = [PersistWords worldExist:word];
     
-    _playButton.enabled = word.audiofile.length > 0;
+    _playButton.enabled = [CommTool hasAudioFile:word.audiofile];
     _rewindButton.enabled = _wordIndex != 0;
     
     [self resetShowAllState];
