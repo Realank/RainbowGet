@@ -9,7 +9,7 @@
 #import "SettingViewController.h"
 #import "PopUpBigViewForNotice.h"
 #import "ThemeTableViewController.h"
-
+#import "LeanCloudFeedback.h"
 @interface SettingViewController ()
 
 @end
@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 
 
@@ -76,6 +76,14 @@
             cell.textLabel.text = @"支付宝打赏";
             cell.detailTextLabel.text = @"realank@126.com";
             cell.accessoryType = UITableViewCellAccessoryNone;
+            
+        }
+            break;
+        case 4:
+        {
+            cell.textLabel.text = @"意见反馈";
+            cell.detailTextLabel.text = @"";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
         }
             break;
@@ -120,6 +128,16 @@
         case 2:
         {
             [PopUpBigViewForNotice showAppHelp];
+        }
+            break;
+        case 4:
+        {
+            LCUserFeedbackViewController *feedbackViewController = [[LCUserFeedbackViewController alloc] init];
+            feedbackViewController.feedbackTitle = @"意见反馈";
+            feedbackViewController.contact = nil;
+            feedbackViewController.navigationBarStyle = LCUserFeedbackNavigationBarStyleNone;
+            
+            [self.navigationController pushViewController:feedbackViewController animated:YES];
         }
             break;
         default:

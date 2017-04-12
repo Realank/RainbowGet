@@ -50,6 +50,22 @@
 		8C83CD961E84F42F0041FE56 /* AudioPlaybackTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C83CD951E84F42F0041FE56 /* AudioPlaybackTool.m */; };
 		8C84E4BD1E7A849C000466F8 /* PersistWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C84E4BC1E7A849C000466F8 /* PersistWords.m */; };
 		8C84E4BF1E7A8732000466F8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */; };
+		8C98B6A21E9DD9D700B60509 /* LCHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6871E9DD9D700B60509 /* LCHttpClient.m */; };
+		8C98B6A31E9DD9D700B60509 /* LCUserFeedbackAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6891E9DD9D700B60509 /* LCUserFeedbackAgent.m */; };
+		8C98B6A41E9DD9D700B60509 /* LCUserFeedbackImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B68B1E9DD9D700B60509 /* LCUserFeedbackImageViewController.m */; };
+		8C98B6A51E9DD9D700B60509 /* LCUserFeedbackReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B68D1E9DD9D700B60509 /* LCUserFeedbackReply.m */; };
+		8C98B6A61E9DD9D700B60509 /* LCUserFeedbackReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6901E9DD9D700B60509 /* LCUserFeedbackReplyCell.m */; };
+		8C98B6A71E9DD9D700B60509 /* LCUserFeedbackThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6921E9DD9D700B60509 /* LCUserFeedbackThread.m */; };
+		8C98B6A81E9DD9D700B60509 /* LCUserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6951E9DD9D700B60509 /* LCUserFeedbackViewController.m */; };
+		8C98B6A91E9DD9D700B60509 /* LCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6971E9DD9D700B60509 /* LCUtils.m */; };
+		8C98B6AA1E9DD9D700B60509 /* feedback_add_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69A1E9DD9D700B60509 /* feedback_add_image@2x.png */; };
+		8C98B6AB1E9DD9D700B60509 /* feedback_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69B1E9DD9D700B60509 /* feedback_back@2x.png */; };
+		8C98B6AC1E9DD9D700B60509 /* feedback_bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69C1E9DD9D700B60509 /* feedback_bg_1@2x.png */; };
+		8C98B6AD1E9DD9D700B60509 /* feedback_bg_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69D1E9DD9D700B60509 /* feedback_bg_2@2x.png */; };
+		8C98B6AE1E9DD9D700B60509 /* feedback_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69E1E9DD9D700B60509 /* feedback_btn@2x.png */; };
+		8C98B6AF1E9DD9D700B60509 /* feedback_btn_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69F1E9DD9D700B60509 /* feedback_btn_new@2x.png */; };
+		8C98B6B01E9DD9D700B60509 /* feedback_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B6A01E9DD9D700B60509 /* feedback_warning@2x.png */; };
+		8C98B6B11E9DD9D700B60509 /* LeanCloudFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */; };
 		8CB41E6C1E9B25CE007EB93F /* PortraitBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */; };
 		8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */; };
 		8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083EA1E8F313B00D5092B /* ThemeColor.m */; };
@@ -176,6 +192,33 @@
 		8C84E4BB1E7A849C000466F8 /* PersistWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistWords.h; sourceTree = "<group>"; };
 		8C84E4BC1E7A849C000466F8 /* PersistWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistWords.m; sourceTree = "<group>"; };
 		8C84E4BE1E7A8732000466F8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8C98B6861E9DD9D700B60509 /* LCHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHttpClient.h; sourceTree = "<group>"; };
+		8C98B6871E9DD9D700B60509 /* LCHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHttpClient.m; sourceTree = "<group>"; };
+		8C98B6881E9DD9D700B60509 /* LCUserFeedbackAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackAgent.h; sourceTree = "<group>"; };
+		8C98B6891E9DD9D700B60509 /* LCUserFeedbackAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackAgent.m; sourceTree = "<group>"; };
+		8C98B68A1E9DD9D700B60509 /* LCUserFeedbackImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackImageViewController.h; sourceTree = "<group>"; };
+		8C98B68B1E9DD9D700B60509 /* LCUserFeedbackImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackImageViewController.m; sourceTree = "<group>"; };
+		8C98B68C1E9DD9D700B60509 /* LCUserFeedbackReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReply.h; sourceTree = "<group>"; };
+		8C98B68D1E9DD9D700B60509 /* LCUserFeedbackReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackReply.m; sourceTree = "<group>"; };
+		8C98B68E1E9DD9D700B60509 /* LCUserFeedbackReply_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReply_Internal.h; sourceTree = "<group>"; };
+		8C98B68F1E9DD9D700B60509 /* LCUserFeedbackReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReplyCell.h; sourceTree = "<group>"; };
+		8C98B6901E9DD9D700B60509 /* LCUserFeedbackReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackReplyCell.m; sourceTree = "<group>"; };
+		8C98B6911E9DD9D700B60509 /* LCUserFeedbackThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackThread.h; sourceTree = "<group>"; };
+		8C98B6921E9DD9D700B60509 /* LCUserFeedbackThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackThread.m; sourceTree = "<group>"; };
+		8C98B6931E9DD9D700B60509 /* LCUserFeedbackThread_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackThread_Internal.h; sourceTree = "<group>"; };
+		8C98B6941E9DD9D700B60509 /* LCUserFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackViewController.h; sourceTree = "<group>"; };
+		8C98B6951E9DD9D700B60509 /* LCUserFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackViewController.m; sourceTree = "<group>"; };
+		8C98B6961E9DD9D700B60509 /* LCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUtils.h; sourceTree = "<group>"; };
+		8C98B6971E9DD9D700B60509 /* LCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUtils.m; sourceTree = "<group>"; };
+		8C98B6981E9DD9D700B60509 /* LeanCloudFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanCloudFeedback.h; sourceTree = "<group>"; };
+		8C98B69A1E9DD9D700B60509 /* feedback_add_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_add_image@2x.png"; sourceTree = "<group>"; };
+		8C98B69B1E9DD9D700B60509 /* feedback_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_back@2x.png"; sourceTree = "<group>"; };
+		8C98B69C1E9DD9D700B60509 /* feedback_bg_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_bg_1@2x.png"; sourceTree = "<group>"; };
+		8C98B69D1E9DD9D700B60509 /* feedback_bg_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_bg_2@2x.png"; sourceTree = "<group>"; };
+		8C98B69E1E9DD9D700B60509 /* feedback_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_btn@2x.png"; sourceTree = "<group>"; };
+		8C98B69F1E9DD9D700B60509 /* feedback_btn_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_btn_new@2x.png"; sourceTree = "<group>"; };
+		8C98B6A01E9DD9D700B60509 /* feedback_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_warning@2x.png"; sourceTree = "<group>"; };
+		8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LeanCloudFeedback.strings; sourceTree = "<group>"; };
 		8CB41E691E9B25CE007EB93F /* PortraitBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitBoardCell.h; sourceTree = "<group>"; };
 		8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitBoardCell.m; sourceTree = "<group>"; };
 		8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitBoardCell.xib; sourceTree = "<group>"; };
@@ -426,6 +469,48 @@
 			path = WordList;
 			sourceTree = "<group>";
 		};
+		8C98B6851E9DD9D700B60509 /* LeanCloudFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				8C98B6861E9DD9D700B60509 /* LCHttpClient.h */,
+				8C98B6871E9DD9D700B60509 /* LCHttpClient.m */,
+				8C98B6881E9DD9D700B60509 /* LCUserFeedbackAgent.h */,
+				8C98B6891E9DD9D700B60509 /* LCUserFeedbackAgent.m */,
+				8C98B68A1E9DD9D700B60509 /* LCUserFeedbackImageViewController.h */,
+				8C98B68B1E9DD9D700B60509 /* LCUserFeedbackImageViewController.m */,
+				8C98B68C1E9DD9D700B60509 /* LCUserFeedbackReply.h */,
+				8C98B68D1E9DD9D700B60509 /* LCUserFeedbackReply.m */,
+				8C98B68E1E9DD9D700B60509 /* LCUserFeedbackReply_Internal.h */,
+				8C98B68F1E9DD9D700B60509 /* LCUserFeedbackReplyCell.h */,
+				8C98B6901E9DD9D700B60509 /* LCUserFeedbackReplyCell.m */,
+				8C98B6911E9DD9D700B60509 /* LCUserFeedbackThread.h */,
+				8C98B6921E9DD9D700B60509 /* LCUserFeedbackThread.m */,
+				8C98B6931E9DD9D700B60509 /* LCUserFeedbackThread_Internal.h */,
+				8C98B6941E9DD9D700B60509 /* LCUserFeedbackViewController.h */,
+				8C98B6951E9DD9D700B60509 /* LCUserFeedbackViewController.m */,
+				8C98B6961E9DD9D700B60509 /* LCUtils.h */,
+				8C98B6971E9DD9D700B60509 /* LCUtils.m */,
+				8C98B6981E9DD9D700B60509 /* LeanCloudFeedback.h */,
+				8C98B6991E9DD9D700B60509 /* resources */,
+			);
+			path = LeanCloudFeedback;
+			sourceTree = "<group>";
+		};
+		8C98B6991E9DD9D700B60509 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C98B69A1E9DD9D700B60509 /* feedback_add_image@2x.png */,
+				8C98B69B1E9DD9D700B60509 /* feedback_back@2x.png */,
+				8C98B69C1E9DD9D700B60509 /* feedback_bg_1@2x.png */,
+				8C98B69D1E9DD9D700B60509 /* feedback_bg_2@2x.png */,
+				8C98B69E1E9DD9D700B60509 /* feedback_btn@2x.png */,
+				8C98B69F1E9DD9D700B60509 /* feedback_btn_new@2x.png */,
+				8C98B6A01E9DD9D700B60509 /* feedback_warning@2x.png */,
+				8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		8CF083EF1E8F380800D5092B /* LaunchPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				8C83CD651E84F3130041FE56 /* audio */,
+				8C98B6851E9DD9D700B60509 /* LeanCloudFeedback */,
 				8C83CD8F1E84F34D0041FE56 /* CustomView */,
 				8C83CD8E1E84F31E0041FE56 /* Util */,
 				8CF083EF1E8F380800D5092B /* LaunchPage */,
@@ -652,6 +738,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CFF426F1E9BBED6003CC737 /* WD213.mp3 in Resources */,
+				8C98B6B11E9DD9D700B60509 /* LeanCloudFeedback.strings in Resources */,
+				8C98B6AF1E9DD9D700B60509 /* feedback_btn_new@2x.png in Resources */,
 				8CFF42711E9BBED6003CC737 /* WD215.mp3 in Resources */,
 				8CFF42701E9BBED6003CC737 /* WD214.mp3 in Resources */,
 				8CFF42721E9BBED6003CC737 /* WD216.mp3 in Resources */,
@@ -666,6 +754,7 @@
 				8CFF426E1E9BBED6003CC737 /* WD212.mp3 in Resources */,
 				8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */,
 				8C83CD801E84F3130041FE56 /* WD107.mp3 in Resources */,
+				8C98B6AD1E9DD9D700B60509 /* feedback_bg_2@2x.png in Resources */,
 				8CFF426D1E9BBED6003CC737 /* WD211.mp3 in Resources */,
 				8C83CD811E84F3130041FE56 /* WD108.mp3 in Resources */,
 				8CFF42751E9BBED6003CC737 /* WD219.mp3 in Resources */,
@@ -678,6 +767,7 @@
 				8C83CD821E84F3130041FE56 /* WD109.mp3 in Resources */,
 				8CFF426B1E9BBED6003CC737 /* WD209.mp3 in Resources */,
 				8CFF42731E9BBED6003CC737 /* WD217.mp3 in Resources */,
+				8C98B6AA1E9DD9D700B60509 /* feedback_add_image@2x.png in Resources */,
 				8C7C0E4B1E8F5956008B5D18 /* SVProgressHUD.bundle in Resources */,
 				8C83CD7E1E84F3130041FE56 /* WD105.mp3 in Resources */,
 				8C83CD881E84F3130041FE56 /* WD115.mp3 in Resources */,
@@ -685,6 +775,7 @@
 				8CFF427D1E9BC57B003CC737 /* help.txt in Resources */,
 				8C83CD831E84F3130041FE56 /* WD110.mp3 in Resources */,
 				8C83CD8A1E84F3130041FE56 /* WD117.mp3 in Resources */,
+				8C98B6AE1E9DD9D700B60509 /* feedback_btn@2x.png in Resources */,
 				8C83CD871E84F3130041FE56 /* WD114.mp3 in Resources */,
 				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
 				8C83CD7D1E84F3130041FE56 /* WD104.mp3 in Resources */,
@@ -692,6 +783,8 @@
 				8CF8CD851E665B7F00A50AE3 /* BoardCell.xib in Resources */,
 				8CFF42761E9BBED6003CC737 /* WD220.mp3 in Resources */,
 				8C83CD861E84F3130041FE56 /* WD113.mp3 in Resources */,
+				8C98B6AC1E9DD9D700B60509 /* feedback_bg_1@2x.png in Resources */,
+				8C98B6B01E9DD9D700B60509 /* feedback_warning@2x.png in Resources */,
 				8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */,
 				8CF083FB1E8F3D4800D5092B /* Launch Screen.storyboard in Resources */,
 				8C83CD7C1E84F3130041FE56 /* WD103.mp3 in Resources */,
@@ -703,6 +796,7 @@
 				8C83CD8C1E84F3130041FE56 /* WD119.mp3 in Resources */,
 				8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */,
 				8CFF42631E9BBED6003CC737 /* WD201.mp3 in Resources */,
+				8C98B6AB1E9DD9D700B60509 /* feedback_back@2x.png in Resources */,
 				8CF0840E1E8F580600D5092B /* CustomThemeViewController.xib in Resources */,
 				8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */,
 				8C83CD7F1E84F3130041FE56 /* WD106.mp3 in Resources */,
@@ -797,16 +891,24 @@
 				8CF0840D1E8F580600D5092B /* CustomThemeViewController.m in Sources */,
 				8C7C0E521E8F7D87008B5D18 /* FCBrightDarkGradView.m in Sources */,
 				8CF8CD7A1E66575100A50AE3 /* WordBoardViewController.m in Sources */,
+				8C98B6A81E9DD9D700B60509 /* LCUserFeedbackViewController.m in Sources */,
+				8C98B6A91E9DD9D700B60509 /* LCUtils.m in Sources */,
 				8C11ACCB1E9647CB00B98F27 /* RLKNavigationController.m in Sources */,
+				8C98B6A71E9DD9D700B60509 /* LCUserFeedbackThread.m in Sources */,
 				8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */,
+				8C98B6A61E9DD9D700B60509 /* LCUserFeedbackReplyCell.m in Sources */,
+				8C98B6A41E9DD9D700B60509 /* LCUserFeedbackImageViewController.m in Sources */,
 				8C1188701E8CE3DF0073A194 /* BookCell.m in Sources */,
 				8CF8CD841E665B7F00A50AE3 /* BoardCell.m in Sources */,
 				8C7C0E491E8F5956008B5D18 /* SVIndefiniteAnimatedView.m in Sources */,
+				8C98B6A31E9DD9D700B60509 /* LCUserFeedbackAgent.m in Sources */,
 				8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */,
 				8C7C0E4A1E8F5956008B5D18 /* SVProgressAnimatedView.m in Sources */,
 				8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */,
 				8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */,
+				8C98B6A51E9DD9D700B60509 /* LCUserFeedbackReply.m in Sources */,
 				8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */,
+				8C98B6A21E9DD9D700B60509 /* LCHttpClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
