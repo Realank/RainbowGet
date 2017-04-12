@@ -40,7 +40,7 @@
         return UIInterfaceOrientationMaskLandscape;
     }
     if ([self.viewControllers.lastObject isKindOfClass:[WordBoardViewController class]]) {
-        return UIInterfaceOrientationMaskLandscape;
+        return UIInterfaceOrientationMaskLandscapeRight;
     }
     return UIInterfaceOrientationMaskPortrait;
 }

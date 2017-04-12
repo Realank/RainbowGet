@@ -109,6 +109,8 @@
         return;
     }
     AVQuery *query = [AVQuery queryWithClassName:self.wordsTableName];
+    query.cachePolicy = kAVCachePolicyNetworkElseCache;
+//    query.maxCacheAge = -1;
     [query whereKey:@"classname" equalTo:self.classID];
     [query orderByAscending:@"wordid"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
