@@ -33,6 +33,13 @@
     
     AVQuery *query = [AVQuery queryWithClassName:@"BookList2_0"];
     [query orderByAscending:@"index"];
+    NSLog(@"has cache: %d",[query hasCachedResult]);
+    if ([CommTool currentReachabilityType] == ReachableViaWiFi) {
+        query.cachePolicy = kAVCachePolicyNetworkElseCache;
+    }else{
+        query.cachePolicy = kAVCachePolicyCacheElseNetwork;
+    }
+    query.maxCacheAge = 3600 * 24 * 2;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count) {
@@ -65,9 +72,15 @@
         }
         return;
     }
-    AVQuery *queryMain = [AVQuery queryWithClassName:self.classesTableName];
-    [queryMain orderByAscending:@"index"];
-    [queryMain findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    AVQuery *query = [AVQuery queryWithClassName:self.classesTableName];
+    if ([CommTool currentReachabilityType] == ReachableViaWiFi) {
+        query.cachePolicy = kAVCachePolicyNetworkElseCache;
+    }else{
+        query.cachePolicy = kAVCachePolicyCacheElseNetwork;
+    }
+    query.maxCacheAge = 3600 * 24 * 4;
+    [query orderByAscending:@"index"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (objects.count) {
                 NSMutableArray* classList = [NSMutableArray array];
@@ -109,8 +122,13 @@
         return;
     }
     AVQuery *query = [AVQuery queryWithClassName:self.wordsTableName];
-    query.cachePolicy = kAVCachePolicyNetworkElseCache;
-//    query.maxCacheAge = -1;
+    if ([CommTool currentReachabilityType] == ReachableViaWiFi) {
+        query.cachePolicy = kAVCachePolicyNetworkElseCache;
+    }else{
+        query.cachePolicy = kAVCachePolicyCacheElseNetwork;
+    }
+    query.maxCacheAge = 3600 * 24 * 4;
+    query.limit = 200;
     [query whereKey:@"classname" equalTo:self.classID];
     [query orderByAscending:@"wordid"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

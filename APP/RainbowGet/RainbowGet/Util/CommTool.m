@@ -9,6 +9,7 @@
 #import "CommTool.h"
 #import <UIKit/UIKit.h>
 
+
 @implementation CommTool
 
 + (BOOL)isIPAD{
@@ -42,6 +43,11 @@
         return NO;
     }
     return YES;
+}
+
++ (NetworkStatus)currentReachabilityType{
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
+    return reach.currentReachabilityStatus;
 }
 
 @end

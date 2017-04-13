@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reachability.h"
 
 @interface CommTool : NSObject
 
@@ -18,4 +19,6 @@
 + (double)screenWidth;
 
 + (BOOL)hasAudioFile:(NSString*)fileName;
+
++ (NetworkStatus)currentReachabilityType;
 @end

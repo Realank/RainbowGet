@@ -66,6 +66,7 @@
 		8C98B6AF1E9DD9D700B60509 /* feedback_btn_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B69F1E9DD9D700B60509 /* feedback_btn_new@2x.png */; };
 		8C98B6B01E9DD9D700B60509 /* feedback_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B6A01E9DD9D700B60509 /* feedback_warning@2x.png */; };
 		8C98B6B11E9DD9D700B60509 /* LeanCloudFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */; };
+		8C98B6B51E9F0D3400B60509 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6B41E9F0D3400B60509 /* Reachability.m */; };
 		8CB41E6C1E9B25CE007EB93F /* PortraitBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */; };
 		8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */; };
 		8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083EA1E8F313B00D5092B /* ThemeColor.m */; };
@@ -219,6 +220,8 @@
 		8C98B69F1E9DD9D700B60509 /* feedback_btn_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_btn_new@2x.png"; sourceTree = "<group>"; };
 		8C98B6A01E9DD9D700B60509 /* feedback_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_warning@2x.png"; sourceTree = "<group>"; };
 		8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LeanCloudFeedback.strings; sourceTree = "<group>"; };
+		8C98B6B31E9F0D3400B60509 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8C98B6B41E9F0D3400B60509 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8CB41E691E9B25CE007EB93F /* PortraitBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitBoardCell.h; sourceTree = "<group>"; };
 		8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitBoardCell.m; sourceTree = "<group>"; };
 		8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitBoardCell.xib; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				8CF083EA1E8F313B00D5092B /* ThemeColor.m */,
 				8CF8CD861E66645800A50AE3 /* WordModel.h */,
 				8CF8CD871E66645800A50AE3 /* WordModel.m */,
+				8C98B6B31E9F0D3400B60509 /* Reachability.h */,
+				8C98B6B41E9F0D3400B60509 /* Reachability.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */,
 				8C98B6A51E9DD9D700B60509 /* LCUserFeedbackReply.m in Sources */,
 				8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */,
+				8C98B6B51E9F0D3400B60509 /* Reachability.m in Sources */,
 				8C98B6A21E9DD9D700B60509 /* LCHttpClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

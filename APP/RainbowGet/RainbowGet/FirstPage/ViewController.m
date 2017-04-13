@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *bookCollectionView;
 @property (strong, nonatomic) NSArray* someNewWords;
 @property (strong, nonatomic) NSArray* books;
+@property(nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation ViewController
@@ -43,6 +44,7 @@
 - (void)refreshTheme{
     self.navigationController.view.tintColor = [ThemeColor currentColor].tintColor;
     self.view.backgroundColor = [ThemeColor currentColor].tintColor;
+    self.refreshControl.tintColor = [ThemeColor currentColor].foreColor;
 }
 - (void)setupCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -67,7 +69,21 @@
 
     _bookCollectionView.delegate = self;
     _bookCollectionView.dataSource = self;
-    
+    _bookCollectionView.alwaysBounceVertical = YES;
+    [_bookCollectionView addSubview:self.refreshControl];
+}
+
+- (UIRefreshControl *)refreshControl {
+    if (_refreshControl == nil) {
+        _refreshControl = [[UIRefreshControl alloc] init];
+//        _refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+        _refreshControl.tintColor = [ThemeColor currentColor].foreColor;
+        [_refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _refreshControl;
+}
+- (void)handleRefresh:(id)sender {
+    [self loadBooks];
 }
 
 - (void)reloadData{
@@ -109,13 +125,16 @@
     __weak typeof(self) weakSelf = self;
     [SVProgressHUD show];
     [BookModel loadBooksWithResult:^(NSArray<BookModel *> *books) {
+        if ([weakSelf.refreshControl isRefreshing]) {
+            [weakSelf.refreshControl endRefreshing];
+        }
         if (books.count) {
             [SVProgressHUD dismiss];
             weakSelf.books = [books copy];
             [weakSelf reloadData];
 
         }else{
-            [SVProgressHUD showErrorWithStatus:@"网络错误\n如果您第一次打开，请在设置中允许互联网访问，再重启APP"];
+            [SVProgressHUD showErrorWithStatus:@"获取失败，请下拉刷新重试\n如果您第一次使用，请在设置中允许互联网访问，再刷新"];
         }
     }];
     
