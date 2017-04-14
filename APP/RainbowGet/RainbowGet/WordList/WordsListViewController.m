@@ -87,11 +87,15 @@
     if (_autoPlayIndex < _aclass.words.count) {
         WordModel* word = _aclass.words[_autoPlayIndex];
         if (word.audiofile.length > 0) {
-            [[AudioPlaybackTool sharedInstance] playLoadedAudioFileFromTime:word.starttime withDuration:word.periodtime complete:^{
+            BOOL playResult = [[AudioPlaybackTool sharedInstance] playLoadedAudioFileFromTime:word.starttime withDuration:word.periodtime complete:^{
                 [self loopPlay];
             } interrupt:^{
                 self.autoPlaying = NO;
             }];
+            if (!playResult) {
+                self.autoPlaying = NO;
+                return;
+            }
         }else{
             [self loopPlay];
         }
