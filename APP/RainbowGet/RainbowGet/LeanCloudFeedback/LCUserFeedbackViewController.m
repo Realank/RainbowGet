@@ -26,7 +26,7 @@ static CGFloat const kContactHeaderHeight = 48;
 static CGFloat const kAddImageButtonWidth = 0;
 static CGFloat const kSendButtonWidth = 60;
 
-@interface LCUserFeedbackViewController () <UITableViewDelegate, UITableViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, LCUserFeedbackReplyCellDelegate> {
+@interface LCUserFeedbackViewController () <UITableViewDelegate, UITableViewDataSource,UINavigationControllerDelegate, UITextFieldDelegate, LCUserFeedbackReplyCellDelegate> {
     NSMutableArray *_feedbackReplies;
     LCUserFeedbackThread *_userFeedback;
 }
@@ -295,36 +295,36 @@ static CGFloat const kSendButtonWidth = 60;
     return contact.length > 0 ? contact : _contact;
 }
 
-- (void)addImageButtonClicked:(id)sender {
-    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-    pickerController.navigationBar.barStyle = UIBarStyleBlack;
-    pickerController.delegate = self;
-    pickerController.editing = NO;
-    pickerController.allowsEditing = NO;
-    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:pickerController animated:YES completion:nil];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *originImage = info[UIImagePickerControllerOriginalImage];
-    [self prepareFeedbackWithBlock:^(BOOL succeeded, NSError *error) {
-        if ([self filterError:error]) {
-            AVFile *attachment = [AVFile fileWithName:@"feedback.png" data:UIImageJPEGRepresentation(originImage, 0.6)];
-            [attachment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if ([self filterError:error]) {
-                    LCUserFeedbackReply *feedbackReply = [LCUserFeedbackReply feedbackReplyWithAttachment:attachment.url type:LCReplyTypeUser];
-                    feedbackReply.attachmentImage = originImage;
-                    [self saveFeedbackReply:feedbackReply AtFeedback:_userFeedback];
-                }
-            }];
-        }
-    }];
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)addImageButtonClicked:(id)sender {
+//    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+//    pickerController.navigationBar.barStyle = UIBarStyleBlack;
+//    pickerController.delegate = self;
+//    pickerController.editing = NO;
+//    pickerController.allowsEditing = NO;
+//    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    [self presentViewController:pickerController animated:YES completion:nil];
+//}
+//
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//    UIImage *originImage = info[UIImagePickerControllerOriginalImage];
+//    [self prepareFeedbackWithBlock:^(BOOL succeeded, NSError *error) {
+//        if ([self filterError:error]) {
+//            AVFile *attachment = [AVFile fileWithName:@"feedback.png" data:UIImageJPEGRepresentation(originImage, 0.6)];
+//            [attachment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if ([self filterError:error]) {
+//                    LCUserFeedbackReply *feedbackReply = [LCUserFeedbackReply feedbackReplyWithAttachment:attachment.url type:LCReplyTypeUser];
+//                    feedbackReply.attachmentImage = originImage;
+//                    [self saveFeedbackReply:feedbackReply AtFeedback:_userFeedback];
+//                }
+//            }];
+//        }
+//    }];
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+//}
+//
+//- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+//}
 
 - (void)prepareFeedbackWithBlock:(AVBooleanResultBlock)block {
     NSString *contact = [self currentContact];

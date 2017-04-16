@@ -65,9 +65,11 @@
 - (void)setAutoPlaying:(BOOL)autoPlaying{
     _autoPlaying = autoPlaying;
     if (autoPlaying) {
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
         UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(loopPlaySound)];
         [self.navigationItem setRightBarButtonItem:barbutton];
     }else{
+        [UIApplication sharedApplication].idleTimerDisabled = NO;
         UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(loopPlaySound)];
         [self.navigationItem setRightBarButtonItem:barbutton];
         [[AudioPlaybackTool sharedInstance] stopAndCloseFile];

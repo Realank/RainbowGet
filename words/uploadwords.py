@@ -110,7 +110,7 @@ if originalFilePath.rfind(".csv") > 0:
 	i = 0
 	classIndex = os.path.basename(originalFilePath)[:-4]
 	for word in words:
-		postWord("BOOK2_NEW2",word)
+		postWord("BOOK2_NEW",word)
 
 	print "Process Finished"
 else:
