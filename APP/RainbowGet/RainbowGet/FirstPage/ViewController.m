@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setupCollectionView];
     [self checkFirstUse];
     [self loadBooks];
 }
@@ -115,7 +115,7 @@
         [self orientationChange];
     }
     _someNewWords = [PersistWords allWords];
-    [self setupCollectionView];
+    
     [self refreshTheme];
     [self reloadData];
 }
