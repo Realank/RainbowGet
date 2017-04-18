@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudCrashReporting.h>
 #import "PersistWords.h"
 #import "WordModel.h"
 @interface AppDelegate ()
@@ -19,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [AVOSCloudCrashReporting enable];
     [AVOSCloud setApplicationId:@"kE5PXhVRVrRoKoDNMkdVE4c7-gzGzoHsz" clientKey:@"aGRwOxwVWSaBmrPT0xrsek1O"];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 

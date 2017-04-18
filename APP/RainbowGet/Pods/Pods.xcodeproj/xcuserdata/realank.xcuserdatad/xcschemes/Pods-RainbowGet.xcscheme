@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2BC57DEA22D330DD0C100EABB0FD6627'
+               BlueprintIdentifier = 'B26E4476E81BE0A5C4F104A2F56A729B'
                BlueprintName = 'Pods-RainbowGet'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-RainbowGet.a'>
