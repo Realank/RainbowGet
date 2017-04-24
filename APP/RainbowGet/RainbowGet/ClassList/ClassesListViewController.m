@@ -36,7 +36,7 @@
 }
 
 - (void)orientationChange{
-    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+//    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
         [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];

@@ -8,7 +8,7 @@
 
 #import "DrawView.h"
 
-@interface DrawView () {
+@interface DrawView ()<CAAnimationDelegate> {
     NSMutableArray *paths;
     UIBezierPath *bezierPath;
     CAShapeLayer *animateLayer;

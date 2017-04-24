@@ -193,9 +193,9 @@
 - (void)setWordIndex:(NSInteger)wordIndex{
     _wordIndex = wordIndex;
     if ([CommTool screenWidth] <= 321) {
-        self.title = [NSString stringWithFormat:@"%d/%d",wordIndex+1,_aclass.words.count];
+        self.title = [NSString stringWithFormat:@"%ld/%lu",(long)wordIndex+1,(unsigned long)_aclass.words.count];
     }else{
-        self.title = [NSString stringWithFormat:@"%@(%d/%d)",_aclass.className,wordIndex+1,_aclass.words.count];
+        self.title = [NSString stringWithFormat:@"%@(%d/%lu)",_aclass.className,(int)wordIndex+1,(unsigned long)_aclass.words.count];
     }
     
     

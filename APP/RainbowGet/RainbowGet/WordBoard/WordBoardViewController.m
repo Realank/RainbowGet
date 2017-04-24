@@ -128,7 +128,7 @@
 
 - (void)setWordIndex:(NSInteger)wordIndex{
     _wordIndex = wordIndex;
-    self.title = [NSString stringWithFormat:@"%@(%d/%d)",_aclass.className,wordIndex+1,_aclass.words.count];
+    self.title = [NSString stringWithFormat:@"%@(%d/%lu)",_aclass.className,(int)wordIndex+1,_aclass.words.count];
     
     if (!_shouldBeginWithZero) {
         [[NSUserDefaults standardUserDefaults] setInteger:wordIndex forKey:[_aclass wordBookKey]];

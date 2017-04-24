@@ -39,7 +39,7 @@
 }
 
 + (void)showAppHelp{
-    NSString *bundleVersion = [CommTool bundleVersion];
+//    NSString *bundleVersion = [CommTool bundleVersion];
     PopUpBigViewForNotice *view = [[PopUpBigViewForNotice alloc]initWithFrame:[UIScreen mainScreen].bounds];
     view.title = [NSString stringWithFormat:@"帮助"];
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"help" ofType:@"txt"];
