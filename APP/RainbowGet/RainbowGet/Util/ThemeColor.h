@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#define DefaultGrayColor RGBColor(216,216,216,1)
 @interface ThemeColor : NSObject
 
 @property (nonatomic, strong) NSString* themeName;
 @property (nonatomic, strong) UIColor* foreColor;
 @property (nonatomic, strong) UIColor* tintColor;
-@property (nonatomic, strong) UIColor* selectedTintColor;
-@property (nonatomic, strong) UIColor* grayColor;
-
+@property (nonatomic, strong, readonly) UIColor* selectedTintColor;
+@property (nonatomic, strong, readonly) UIColor* darkerTintColor;
 + (void)setTheme:(ThemeColor*)newTheme;
 + (instancetype) currentColor;
 + (NSArray<ThemeColor*>*)allThemeColor;

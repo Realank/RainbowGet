@@ -125,8 +125,8 @@
     ClassModel* aclass = _classes[indexPath.row];
     cell.textLabel.text = aclass.className;
     cell.detailTextLabel.text = aclass.classTitle;
-    cell.detailTextLabel.textColor = [ThemeColor currentColor].grayColor;
-    cell.tintColor = [ThemeColor currentColor].grayColor;
+    cell.detailTextLabel.textColor = DefaultGrayColor;
+    cell.tintColor = DefaultGrayColor;
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
     cell.selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
@@ -148,11 +148,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([CommTool isIPAD]) {
-        return 65;
-    }else{
-        return 50;
-    }
+    return [CommTool commCellHeight];
 }
 
 

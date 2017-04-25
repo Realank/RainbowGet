@@ -12,6 +12,7 @@
 @interface CommTool : NSObject
 
 + (BOOL)isIPAD;
++ (double)commCellHeight;
 + (NSString*)bundleVersion;
 
 + (BOOL)isOritationHorizonal;

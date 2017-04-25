@@ -19,6 +19,8 @@
 		8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91BA1E80C9ED0071209E /* WordCell.xib */; };
 		8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */; };
 		8C1F91C11E80F2580071209E /* introduce.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91C01E80F2580071209E /* introduce.txt */; };
+		8C62AB081EAF1E0C00469F23 /* NarrowWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C62AB061EAF1E0C00469F23 /* NarrowWordCell.m */; };
+		8C62AB091EAF1E0C00469F23 /* NarrowWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62AB071EAF1E0C00469F23 /* NarrowWordCell.xib */; };
 		8C7C0E491E8F5956008B5D18 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E401E8F5956008B5D18 /* SVIndefiniteAnimatedView.m */; };
 		8C7C0E4A1E8F5956008B5D18 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E421E8F5956008B5D18 /* SVProgressAnimatedView.m */; };
 		8C7C0E4B1E8F5956008B5D18 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8C7C0E441E8F5956008B5D18 /* SVProgressHUD.bundle */; };
@@ -152,6 +154,9 @@
 		8C1F91BD1E80F1F00071209E /* PopUpBigViewForNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpBigViewForNotice.h; sourceTree = "<group>"; };
 		8C1F91BE1E80F1F00071209E /* PopUpBigViewForNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpBigViewForNotice.m; sourceTree = "<group>"; };
 		8C1F91C01E80F2580071209E /* introduce.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = introduce.txt; sourceTree = "<group>"; };
+		8C62AB051EAF1E0C00469F23 /* NarrowWordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NarrowWordCell.h; sourceTree = "<group>"; };
+		8C62AB061EAF1E0C00469F23 /* NarrowWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NarrowWordCell.m; sourceTree = "<group>"; };
+		8C62AB071EAF1E0C00469F23 /* NarrowWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NarrowWordCell.xib; sourceTree = "<group>"; };
 		8C7C0E3F1E8F5956008B5D18 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		8C7C0E401E8F5956008B5D18 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		8C7C0E411E8F5956008B5D18 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
@@ -470,6 +475,9 @@
 				8C1F91B31E80C9CF0071209E /* WordsListViewController.h */,
 				8C1F91B41E80C9CF0071209E /* WordsListViewController.m */,
 				8C1F91B51E80C9CF0071209E /* WordsListViewController.xib */,
+				8C62AB051EAF1E0C00469F23 /* NarrowWordCell.h */,
+				8C62AB061EAF1E0C00469F23 /* NarrowWordCell.m */,
+				8C62AB071EAF1E0C00469F23 /* NarrowWordCell.xib */,
 			);
 			path = WordList;
 			sourceTree = "<group>";
@@ -746,6 +754,7 @@
 				8C98B6B11E9DD9D700B60509 /* LeanCloudFeedback.strings in Resources */,
 				8C98B6AF1E9DD9D700B60509 /* feedback_btn_new@2x.png in Resources */,
 				8CFF42711E9BBED6003CC737 /* WD215.mp3 in Resources */,
+				8C62AB091EAF1E0C00469F23 /* NarrowWordCell.xib in Resources */,
 				8CFF42701E9BBED6003CC737 /* WD214.mp3 in Resources */,
 				8CFF42721E9BBED6003CC737 /* WD216.mp3 in Resources */,
 				8CFF427B1E9BC211003CC737 /* PortraitWordBoardViewController.xib in Resources */,
@@ -911,6 +920,7 @@
 				8C7C0E4A1E8F5956008B5D18 /* SVProgressAnimatedView.m in Sources */,
 				8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */,
 				8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */,
+				8C62AB081EAF1E0C00469F23 /* NarrowWordCell.m in Sources */,
 				8C98B6A51E9DD9D700B60509 /* LCUserFeedbackReply.m in Sources */,
 				8C0B1ACF1E69D125003DBE7F /* ClassesListViewController.m in Sources */,
 				8C98B6B51E9F0D3400B60509 /* Reachability.m in Sources */,

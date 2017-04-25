@@ -66,7 +66,7 @@
     cell.backgroundColor = theme.tintColor;
     cell.selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView.backgroundColor = theme.selectedTintColor;
-    cell.tintColor = [ThemeColor currentColor].grayColor;
+    cell.tintColor = DefaultGrayColor;
     if ([theme.themeName isEqualToString: [ThemeColor currentColor].themeName]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
@@ -76,7 +76,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 65;
+    return [CommTool commCellHeight];
 }
 
 

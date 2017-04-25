@@ -7,7 +7,7 @@
 //
 
 #import "ThemeColor.h"
-#define DefaultGrayColor RGBColor(216,216,216,1)
+
 
 @interface UIColor (Dictionary)
 
@@ -61,7 +61,6 @@
             @"foreColor":[self.foreColor toDict],
             @"tintColor":[self.tintColor toDict],
             @"selectedTintColor":[self.selectedTintColor toDict],
-            @"grayColor":[self.grayColor toDict],
             };
 }
 
@@ -73,8 +72,6 @@
     theme.themeName = dict[@"themeName"];
     theme.foreColor = [UIColor colorWithDict:dict[@"foreColor"]];
     theme.tintColor = [UIColor colorWithDict:dict[@"tintColor"]];
-    theme.selectedTintColor = [UIColor colorWithDict:dict[@"selectedTintColor"]];
-    theme.grayColor = [UIColor colorWithDict:dict[@"grayColor"]];
     return theme;
 }
 
@@ -94,8 +91,6 @@
         }
         self.foreColor = newTheme.foreColor;
         self.tintColor = newTheme.tintColor;
-        self.selectedTintColor = newTheme.selectedTintColor;
-        self.grayColor = newTheme.grayColor;
         self.themeName = newTheme.themeName;
     }
     return self;
@@ -105,8 +100,6 @@
     ThemeColor* instanceTheme = [self currentColor];
     instanceTheme.foreColor = newTheme.foreColor;
     instanceTheme.tintColor = newTheme.tintColor;
-    instanceTheme.selectedTintColor = newTheme.selectedTintColor;
-    instanceTheme.grayColor = newTheme.grayColor;
     instanceTheme.themeName = newTheme.themeName;
     if ([newTheme.themeName isEqualToString:@"自定义"]) {
         NSDictionary* customThemeDict = [newTheme toDict];
@@ -135,15 +128,13 @@
     blueTheme.themeName = @"低调蓝";
     blueTheme.foreColor = RGBColor(249,237,198,1);
     blueTheme.tintColor = RGBColor(43,103,123,1);
-    blueTheme.selectedTintColor = RGBColor(33,93,113,1);
-    blueTheme.grayColor = DefaultGrayColor;
+//    blueTheme.selectedTintColor = RGBColor(33,93,113,1);
     
     ThemeColor* greenTheme = [[ThemeColor alloc] init];
     greenTheme.themeName = @"黑板绿";
     greenTheme.foreColor = RGBColor(250,219,167,1);
     greenTheme.tintColor = RGBColor(31,102,86,1);
-    greenTheme.selectedTintColor = RGBColor(21,92,76,1);
-    greenTheme.grayColor = DefaultGrayColor;
+//    greenTheme.selectedTintColor = RGBColor(21,92,76,1);
     
     ThemeColor* customTheme = [self themeWithDict:[[NSUserDefaults standardUserDefaults]objectForKey:@"ThemeColorCustomColor"]];
     if (!customTheme || ![customTheme.themeName isEqualToString:@"自定义"]) {
@@ -151,8 +142,7 @@
         customTheme.themeName = @"自定义";
         customTheme.foreColor = RGBColor(249,237,198,1);
         customTheme.tintColor = RGBColor(38,116,142,1);
-        customTheme.selectedTintColor = RGBColor(28,106,132,1);
-        customTheme.grayColor = DefaultGrayColor;
+//        customTheme.selectedTintColor = RGBColor(28,106,132,1);
         NSDictionary* customThemeDict = [customTheme toDict];
         if (customThemeDict) {
             [[NSUserDefaults standardUserDefaults] setObject:customThemeDict forKey:@"ThemeColorCustomColor"];
@@ -163,5 +153,20 @@
     return @[blueTheme,greenTheme,customTheme];
 }
 
+- (UIColor *)darkerTintColor{
+    CGFloat hue = 0;
+    CGFloat sat = 0;
+    CGFloat bri = 0;
+    [_tintColor getHue:&hue saturation:&sat brightness:&bri alpha:NULL];
+    return [UIColor colorWithHue:hue saturation:sat brightness:bri - 0.04 alpha:1];
+}
+
+- (UIColor *)selectedTintColor{
+    CGFloat hue = 0;
+    CGFloat sat = 0;
+    CGFloat bri = 0;
+    [_tintColor getHue:&hue saturation:&sat brightness:&bri alpha:NULL];
+    return [UIColor colorWithHue:hue saturation:sat brightness:bri - 0.1 alpha:1];
+}
 
 @end

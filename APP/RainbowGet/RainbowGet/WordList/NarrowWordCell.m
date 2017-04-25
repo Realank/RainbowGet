@@ -1,14 +1,14 @@
 //
-//  WordCell.m
+//  NarrowWordCell.m
 //  RainbowGet
 //
-//  Created by Realank on 2017/3/21.
+//  Created by Realank on 2017/4/25.
 //  Copyright © 2017年 Realank. All rights reserved.
 //
 
-#import "WordCell.h"
+#import "NarrowWordCell.h"
 
-@interface WordCell ()
+@interface NarrowWordCell ()
 @property (weak, nonatomic) IBOutlet UILabel *japaneseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nakaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *chineseLabel;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation WordCell
+@implementation NarrowWordCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -24,17 +24,15 @@
     self.backgroundColor = [ThemeColor currentColor].tintColor;
     self.selectedBackgroundView = [[UIView alloc] init];
     self.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
-    for (id subView in self.contentView.subviews) {
-        if ([subView isKindOfClass:[UILabel class]]) {
-            UILabel* label = subView;
-            label.textColor = [ThemeColor currentColor].foreColor;
-        }
-    }
+    _japaneseLabel.textColor = [ThemeColor currentColor].foreColor;
+    _nakaLabel.textColor = [ThemeColor currentColor].foreColor;
+    _chineseLabel.textColor = [ThemeColor currentColor].foreColor;
+    _typeLabel.textColor = DefaultGrayColor;
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{
     NSString* kCellIdentifier = [[self class] description];
-    WordCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    NarrowWordCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
     if (cell == nil) {
         [tableView registerNib:[UINib nibWithNibName:kCellIdentifier bundle:nil] forCellReuseIdentifier:kCellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
@@ -44,7 +42,7 @@
 
 
 + (CGFloat)cellHeight{
-    return 80.0f;
+    return 121.0f;
 }
 
 - (void)setWord:(WordModel *)word{
@@ -58,13 +56,13 @@
     }
     _chineseLabel.text = word.chinese;
     
-    if ([word typeString].length > 6) {
-        _typeLabel.text = [NSString stringWithFormat:@"%@ %@",[word typeString],[word toneString]];
+    _typeLabel.text = [NSString stringWithFormat:@"%@ %@",[word typeString],[word toneString]];
+    
+    if (_indexPath.row%2 == 0) {
+        self.backgroundColor = [ThemeColor currentColor].tintColor;
     }else{
-        _typeLabel.text = [NSString stringWithFormat:@"%@\n%@",[word typeString],[word toneString]];
+        self.backgroundColor = [ThemeColor currentColor].darkerTintColor;
     }
-    
-    
     
 }
 

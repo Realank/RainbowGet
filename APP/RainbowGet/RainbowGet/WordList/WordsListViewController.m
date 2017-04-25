@@ -8,6 +8,7 @@
 
 #import "WordsListViewController.h"
 #import "WordCell.h"
+#import "NarrowWordCell.h"
 #import "WordModel.h"
 #import "AudioPlaybackTool.h"
 
@@ -122,15 +123,29 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [WordCell cellHeight];
+    if ([CommTool isIPAD]) {
+        return [WordCell cellHeight];
+    }else{
+        return [NarrowWordCell cellHeight];
+    }
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     WordCell *cell = [WordCell cellWithTableView:tableView];
-    WordModel* word = _aclass.words[indexPath.row];
-    cell.word = word;
-    return cell;
+    if ([CommTool isIPAD]){
+        WordCell *cell = [WordCell cellWithTableView:tableView];
+        WordModel* word = _aclass.words[indexPath.row];
+        cell.word = word;
+        return cell;
+    }else{
+        NarrowWordCell *cell = [NarrowWordCell cellWithTableView:tableView];
+        cell.indexPath = indexPath;
+        WordModel* word = _aclass.words[indexPath.row];
+        cell.word = word;
+        return cell;
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

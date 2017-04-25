@@ -93,16 +93,16 @@
     
     cell.textLabel.font = [UIFont boldSystemFontOfSize:19];
     cell.textLabel.textColor = [ThemeColor currentColor].foreColor;
-    cell.detailTextLabel.textColor = [ThemeColor currentColor].grayColor;
+    cell.detailTextLabel.textColor = DefaultGrayColor;
     cell.backgroundColor = [ThemeColor currentColor].tintColor;
     cell.selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
-    cell.tintColor = [ThemeColor currentColor].grayColor;
+    cell.tintColor = DefaultGrayColor;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 65;
+    return [CommTool commCellHeight];
 }
 
 

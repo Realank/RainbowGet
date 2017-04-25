@@ -63,7 +63,6 @@
     if (_colorTypeSegmentView.selectedSegmentIndex == 0) {
         //tint
         _preloadTheme.tintColor = [UIColor colorWithHue:currentHue saturation:currentSaturation brightness:currentBrightness alpha:1];
-        _preloadTheme.selectedTintColor = [UIColor colorWithHue:currentHue saturation:currentSaturation brightness:currentBrightness > 0.1 ? currentBrightness - 0.06 : 0.04 alpha:1];
         self.navigationController.view.tintColor = _preloadTheme.tintColor;
     }else{
         _preloadTheme.foreColor = [UIColor colorWithHue:currentHue saturation:currentSaturation brightness:currentBrightness alpha:1];

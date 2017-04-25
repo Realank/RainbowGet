@@ -16,6 +16,14 @@
     return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
 }
 
++ (double)commCellHeight{
+    if ([self isIPAD]) {
+        return 80;
+    }else{
+        return 70;
+    }
+}
+
 + (NSString*)bundleVersion{
     NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     return bundleVersion;

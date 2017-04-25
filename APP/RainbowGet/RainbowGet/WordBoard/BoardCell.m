@@ -75,7 +75,7 @@
     if (content.length > 0) {
         _backView.backgroundColor = [ThemeColor currentColor].foreColor;
     }else{
-        _backView.backgroundColor = [ThemeColor currentColor].grayColor;
+        _backView.backgroundColor = DefaultGrayColor;
     }
 }
 
