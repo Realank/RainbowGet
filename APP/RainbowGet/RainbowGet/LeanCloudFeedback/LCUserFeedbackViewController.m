@@ -154,7 +154,7 @@ static CGFloat const kSendButtonWidth = 60;
         _sendButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _sendButton.frame = CGRectMake(CGRectGetWidth(self.view.frame) - kSendButtonWidth, CGRectGetHeight(self.view.frame) - kInputViewHeight, kSendButtonWidth, kInputViewHeight);
         [_sendButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
-        [_sendButton setTitleColor:[UIColor colorWithRed:137.0f/255 green:137.0f/255 blue:137.0f/255 alpha:1] forState:UIControlStateNormal];
+        [_sendButton setTitleColor:[UIColor colorWithRed:37.0f/255 green:37.0f/255 blue:37.0f/255 alpha:1] forState:UIControlStateNormal];
         [_sendButton setTitle:LCLocalizedString(@"Send") forState:UIControlStateNormal];
         [_sendButton setBackgroundColor: kInputViewColor];
         [_sendButton addTarget:self action:@selector(sendButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -398,9 +398,9 @@ static CGFloat const kSendButtonWidth = 60;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-    if ([self.tableViewHeader isFirstResponder]) {
-        return;
-    }
+//    if ([self.tableViewHeader isFirstResponder]) {
+//        return;
+//    }
     
     float animationDuration = [[[notification userInfo] valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     CGFloat keyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
