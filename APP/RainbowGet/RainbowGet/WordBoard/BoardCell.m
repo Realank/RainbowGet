@@ -27,10 +27,13 @@
 //    _backView.layer.borderWidth = 2;
 //    _backView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _backView.backgroundColor = [ThemeColor currentColor].foreColor;
-    if (![CommTool isIPAD]) {
-        _contentLabel.font = [UIFont systemFontOfSize:21];
-        _propertyLabel.font = [UIFont systemFontOfSize:17];
-    }
+//    if (![CommTool isIPAD]) {
+//        _contentLabel.font = [UIFont systemFontOfSize:21];
+//        _propertyLabel.font = [UIFont systemFontOfSize:17];
+//    }else{
+//        _contentLabel.font = [UIFont systemFontOfSize:30];
+//        _propertyLabel.font = [UIFont systemFontOfSize:19];
+//    }
     self.layer.shadowColor = [UIColor blackColor].CGColor;
     self.layer.shadowRadius = 4;
     self.layer.shadowOffset = CGSizeMake(1, 1);
@@ -66,6 +69,23 @@
         return 220;
     }else{
         return 120;
+    }
+}
+
+- (void)setUseJapsnFont:(BOOL)useJapsnFont{
+    _useJapsnFont = useJapsnFont;
+    CGFloat bigSize = 30;
+    CGFloat smallSize = 19;
+    if (![CommTool isIPAD]) {
+        bigSize = 22;
+        smallSize = 18;
+    }
+    if (useJapsnFont) {
+        _contentLabel.font = [UIFont fontWithName:@"HiraMinProN-W6" size:bigSize];
+        _propertyLabel.font = [UIFont systemFontOfSize:smallSize];
+    }else{
+        _contentLabel.font = [UIFont systemFontOfSize:bigSize];
+        _propertyLabel.font = [UIFont systemFontOfSize:smallSize];
     }
 }
 

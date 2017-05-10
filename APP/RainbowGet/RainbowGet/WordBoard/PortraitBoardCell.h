@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PortraitBoardCell : UITableViewCell
-
+@property (nonatomic, assign) BOOL useJapsnFont;
 @property (nonatomic, copy) NSString* content;
 @property (nonatomic, copy) NSString* property;
 

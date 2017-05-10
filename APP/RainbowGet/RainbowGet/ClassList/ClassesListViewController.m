@@ -162,6 +162,7 @@
     
 
     ClassModel* aclass = _classes[indexPath.row];
+    [AVAnalytics event:aclass.bookName label:aclass.className];
     BOOL needFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"FullScreenWordBoard"];
     if (needFullScreen || [CommTool isIPAD]) {
         [self pushFullScreenWordBoardWithClass:aclass withAnimate:YES];

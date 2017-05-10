@@ -59,6 +59,7 @@
 #pragma mark - setup
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.tintColor = [ThemeColor currentColor].tintColor;
     if (_shouldBeginWithZero) {
         self.wordIndex = 0;
@@ -346,12 +347,14 @@
             }
             cell.content = show ? content : @"";
             cell.property = @"";
+            cell.useJapsnFont = YES;
         }
             break;
         case 1:
         {
             cell.content = show ? word.kana : @"";
             cell.property = show ? [word toneString] : @"";
+            cell.useJapsnFont = YES;
         }
             break;
         case 2:
@@ -361,6 +364,7 @@
             }
             cell.content = show ? word.chinese : @"";
             cell.property = show ? [word typeString] : @"";
+            cell.useJapsnFont = NO;
         }
             break;
         default:

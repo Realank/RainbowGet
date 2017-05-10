@@ -27,7 +27,14 @@
     [self initSVHUD];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
-    
+    NSArray* _fontFamilyArray = [UIFont familyNames];
+    NSMutableArray* _fontArray = [NSMutableArray array];
+    for (NSString* familyName in _fontFamilyArray) {
+        NSArray *fontArray = [UIFont fontNamesForFamilyName:familyName];
+        for (NSString* fontName in fontArray) {
+            NSLog(@"%@",fontName);
+        }
+    }
     return YES;
 }
 

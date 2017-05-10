@@ -155,6 +155,7 @@
     aclass.words = words;
     aclass.className = @"生词";
     aclass.bookName = @"生词本";
+    [AVAnalytics event:aclass.bookName label:aclass.className];
     BOOL needFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"FullScreenWordBoard"];
     if (needFullScreen || [CommTool isIPAD]) {
         [self pushFullScreenWordBoardWithClass:aclass  withAnimate:YES];

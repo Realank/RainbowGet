@@ -13,7 +13,7 @@
 + (NSString*)identifier;
 + (CGFloat)width;
 + (CGFloat)height;
-
+@property (nonatomic, assign) BOOL useJapsnFont;
 @property (nonatomic, copy) NSString* content;
 @property (nonatomic, copy) NSString* property;
 @end

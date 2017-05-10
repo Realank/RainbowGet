@@ -259,18 +259,21 @@
             }
             cell.content = content;
             cell.property = @"";
+            cell.useJapsnFont = YES;
         }
             break;
         case 1:
         {
             cell.content = word.kana;
             cell.property = [word toneString];
+            cell.useJapsnFont = YES;
         }
             break;
         case 2:
         {
             cell.content = word.chinese;
             cell.property = [word typeString];
+            cell.useJapsnFont = NO;
         }
             break;
         default:

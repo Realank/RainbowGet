@@ -52,6 +52,23 @@
     _propertyLabel.text = property;
 }
 
+- (void)setUseJapsnFont:(BOOL)useJapsnFont{
+    _useJapsnFont = useJapsnFont;
+    CGFloat bigSize = 30;
+    CGFloat smallSize = 19;
+    if (![CommTool isIPAD]) {
+        bigSize = 22;
+        smallSize = 18;
+    }
+    if (useJapsnFont) {
+        _contentLabel.font = [UIFont fontWithName:@"HiraMinProN-W6" size:bigSize];
+        _propertyLabel.font = [UIFont systemFontOfSize:smallSize];
+    }else{
+        _contentLabel.font = [UIFont systemFontOfSize:bigSize];
+        _propertyLabel.font = [UIFont systemFontOfSize:smallSize];
+    }
+}
+
 + (CGFloat)cellHeight{
     double screenHeight = [UIScreen mainScreen].bounds.size.height;
     double cellHeight = (screenHeight - 64 - 30*3 - 30)/3;
