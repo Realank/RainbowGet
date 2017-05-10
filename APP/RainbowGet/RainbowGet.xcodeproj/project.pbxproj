@@ -69,6 +69,24 @@
 		8C98B6B01E9DD9D700B60509 /* feedback_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B6A01E9DD9D700B60509 /* feedback_warning@2x.png */; };
 		8C98B6B11E9DD9D700B60509 /* LeanCloudFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */; };
 		8C98B6B51E9F0D3400B60509 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C98B6B41E9F0D3400B60509 /* Reachability.m */; };
+		8CA094591EC2E0A20086F709 /* WD318.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094471EC2E0A20086F709 /* WD318.mp3 */; };
+		8CA0945A1EC2E0A20086F709 /* WD317.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094481EC2E0A20086F709 /* WD317.mp3 */; };
+		8CA0945B1EC2E0A20086F709 /* WD316.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094491EC2E0A20086F709 /* WD316.mp3 */; };
+		8CA0945C1EC2E0A20086F709 /* WD315.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0944A1EC2E0A20086F709 /* WD315.mp3 */; };
+		8CA0945D1EC2E0A20086F709 /* WD314.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0944B1EC2E0A20086F709 /* WD314.mp3 */; };
+		8CA0945E1EC2E0A20086F709 /* WD313.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0944C1EC2E0A20086F709 /* WD313.mp3 */; };
+		8CA0945F1EC2E0A20086F709 /* WD312.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0944D1EC2E0A20086F709 /* WD312.mp3 */; };
+		8CA094601EC2E0A20086F709 /* WD311.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0944E1EC2E0A20086F709 /* WD311.mp3 */; };
+		8CA094611EC2E0A20086F709 /* WD310.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA0944F1EC2E0A20086F709 /* WD310.mp3 */; };
+		8CA094621EC2E0A20086F709 /* WD309.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094501EC2E0A20086F709 /* WD309.mp3 */; };
+		8CA094631EC2E0A20086F709 /* WD308.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094511EC2E0A20086F709 /* WD308.mp3 */; };
+		8CA094641EC2E0A20086F709 /* WD307.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094521EC2E0A20086F709 /* WD307.mp3 */; };
+		8CA094651EC2E0A20086F709 /* WD306.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094531EC2E0A20086F709 /* WD306.mp3 */; };
+		8CA094661EC2E0A20086F709 /* WD305.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094541EC2E0A20086F709 /* WD305.mp3 */; };
+		8CA094671EC2E0A20086F709 /* WD304.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094551EC2E0A20086F709 /* WD304.mp3 */; };
+		8CA094681EC2E0A20086F709 /* WD303.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094561EC2E0A20086F709 /* WD303.mp3 */; };
+		8CA094691EC2E0A20086F709 /* WD302.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094571EC2E0A20086F709 /* WD302.mp3 */; };
+		8CA0946A1EC2E0A20086F709 /* WD301.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CA094581EC2E0A20086F709 /* WD301.mp3 */; };
 		8CB41E6C1E9B25CE007EB93F /* PortraitBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */; };
 		8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */; };
 		8CF083EB1E8F313B00D5092B /* ThemeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF083EA1E8F313B00D5092B /* ThemeColor.m */; };
@@ -227,6 +245,24 @@
 		8C98B6A11E9DD9D700B60509 /* LeanCloudFeedback.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LeanCloudFeedback.strings; sourceTree = "<group>"; };
 		8C98B6B31E9F0D3400B60509 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8C98B6B41E9F0D3400B60509 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8CA094471EC2E0A20086F709 /* WD318.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD318.mp3; sourceTree = "<group>"; };
+		8CA094481EC2E0A20086F709 /* WD317.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD317.mp3; sourceTree = "<group>"; };
+		8CA094491EC2E0A20086F709 /* WD316.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD316.mp3; sourceTree = "<group>"; };
+		8CA0944A1EC2E0A20086F709 /* WD315.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD315.mp3; sourceTree = "<group>"; };
+		8CA0944B1EC2E0A20086F709 /* WD314.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD314.mp3; sourceTree = "<group>"; };
+		8CA0944C1EC2E0A20086F709 /* WD313.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD313.mp3; sourceTree = "<group>"; };
+		8CA0944D1EC2E0A20086F709 /* WD312.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD312.mp3; sourceTree = "<group>"; };
+		8CA0944E1EC2E0A20086F709 /* WD311.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD311.mp3; sourceTree = "<group>"; };
+		8CA0944F1EC2E0A20086F709 /* WD310.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD310.mp3; sourceTree = "<group>"; };
+		8CA094501EC2E0A20086F709 /* WD309.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD309.mp3; sourceTree = "<group>"; };
+		8CA094511EC2E0A20086F709 /* WD308.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD308.mp3; sourceTree = "<group>"; };
+		8CA094521EC2E0A20086F709 /* WD307.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD307.mp3; sourceTree = "<group>"; };
+		8CA094531EC2E0A20086F709 /* WD306.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD306.mp3; sourceTree = "<group>"; };
+		8CA094541EC2E0A20086F709 /* WD305.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD305.mp3; sourceTree = "<group>"; };
+		8CA094551EC2E0A20086F709 /* WD304.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD304.mp3; sourceTree = "<group>"; };
+		8CA094561EC2E0A20086F709 /* WD303.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD303.mp3; sourceTree = "<group>"; };
+		8CA094571EC2E0A20086F709 /* WD302.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD302.mp3; sourceTree = "<group>"; };
+		8CA094581EC2E0A20086F709 /* WD301.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WD301.mp3; sourceTree = "<group>"; };
 		8CB41E691E9B25CE007EB93F /* PortraitBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitBoardCell.h; sourceTree = "<group>"; };
 		8CB41E6A1E9B25CE007EB93F /* PortraitBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitBoardCell.m; sourceTree = "<group>"; };
 		8CB41E6B1E9B25CE007EB93F /* PortraitBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitBoardCell.xib; sourceTree = "<group>"; };
@@ -388,6 +424,24 @@
 				8CFF42601E9BBED6003CC737 /* WD218.mp3 */,
 				8CFF42611E9BBED6003CC737 /* WD219.mp3 */,
 				8CFF42621E9BBED6003CC737 /* WD220.mp3 */,
+				8CA094471EC2E0A20086F709 /* WD318.mp3 */,
+				8CA094481EC2E0A20086F709 /* WD317.mp3 */,
+				8CA094491EC2E0A20086F709 /* WD316.mp3 */,
+				8CA0944A1EC2E0A20086F709 /* WD315.mp3 */,
+				8CA0944B1EC2E0A20086F709 /* WD314.mp3 */,
+				8CA0944C1EC2E0A20086F709 /* WD313.mp3 */,
+				8CA0944D1EC2E0A20086F709 /* WD312.mp3 */,
+				8CA0944E1EC2E0A20086F709 /* WD311.mp3 */,
+				8CA0944F1EC2E0A20086F709 /* WD310.mp3 */,
+				8CA094501EC2E0A20086F709 /* WD309.mp3 */,
+				8CA094511EC2E0A20086F709 /* WD308.mp3 */,
+				8CA094521EC2E0A20086F709 /* WD307.mp3 */,
+				8CA094531EC2E0A20086F709 /* WD306.mp3 */,
+				8CA094541EC2E0A20086F709 /* WD305.mp3 */,
+				8CA094551EC2E0A20086F709 /* WD304.mp3 */,
+				8CA094561EC2E0A20086F709 /* WD303.mp3 */,
+				8CA094571EC2E0A20086F709 /* WD302.mp3 */,
+				8CA094581EC2E0A20086F709 /* WD301.mp3 */,
 			);
 			path = audio;
 			sourceTree = "<group>";
@@ -750,22 +804,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA0945F1EC2E0A20086F709 /* WD312.mp3 in Resources */,
 				8CFF426F1E9BBED6003CC737 /* WD213.mp3 in Resources */,
 				8C98B6B11E9DD9D700B60509 /* LeanCloudFeedback.strings in Resources */,
 				8C98B6AF1E9DD9D700B60509 /* feedback_btn_new@2x.png in Resources */,
 				8CFF42711E9BBED6003CC737 /* WD215.mp3 in Resources */,
 				8C62AB091EAF1E0C00469F23 /* NarrowWordCell.xib in Resources */,
+				8CA0945A1EC2E0A20086F709 /* WD317.mp3 in Resources */,
 				8CFF42701E9BBED6003CC737 /* WD214.mp3 in Resources */,
 				8CFF42721E9BBED6003CC737 /* WD216.mp3 in Resources */,
 				8CFF427B1E9BC211003CC737 /* PortraitWordBoardViewController.xib in Resources */,
+				8CA0946A1EC2E0A20086F709 /* WD301.mp3 in Resources */,
+				8CA094631EC2E0A20086F709 /* WD308.mp3 in Resources */,
 				8CFF42641E9BBED6003CC737 /* WD202.mp3 in Resources */,
 				8C7C0E4F1E8F7C45008B5D18 /* colormap.png in Resources */,
 				8C1F91C11E80F2580071209E /* introduce.txt in Resources */,
 				8CF084011E8F43E000D5092B /* SettingViewController.xib in Resources */,
 				8CFF42681E9BBED6003CC737 /* WD206.mp3 in Resources */,
+				8CA094601EC2E0A20086F709 /* WD311.mp3 in Resources */,
 				8CFF42691E9BBED6003CC737 /* WD207.mp3 in Resources */,
 				8C83CD851E84F3130041FE56 /* WD112.mp3 in Resources */,
 				8CFF426E1E9BBED6003CC737 /* WD212.mp3 in Resources */,
+				8CA094681EC2E0A20086F709 /* WD303.mp3 in Resources */,
 				8C1F91BC1E80C9ED0071209E /* WordCell.xib in Resources */,
 				8C83CD801E84F3130041FE56 /* WD107.mp3 in Resources */,
 				8C98B6AD1E9DD9D700B60509 /* feedback_bg_2@2x.png in Resources */,
@@ -774,23 +834,30 @@
 				8CFF42751E9BBED6003CC737 /* WD219.mp3 in Resources */,
 				8C83CD7A1E84F3130041FE56 /* WD101.mp3 in Resources */,
 				8CFF426C1E9BBED6003CC737 /* WD210.mp3 in Resources */,
+				8CA0945E1EC2E0A20086F709 /* WD313.mp3 in Resources */,
 				8CF084061E8F48DA00D5092B /* ThemeTableViewController.xib in Resources */,
 				8CFF426A1E9BBED6003CC737 /* WD208.mp3 in Resources */,
 				8CFF42651E9BBED6003CC737 /* WD203.mp3 in Resources */,
 				8CF8CD511E66560B00A50AE3 /* Assets.xcassets in Resources */,
+				8CA094691EC2E0A20086F709 /* WD302.mp3 in Resources */,
 				8C83CD821E84F3130041FE56 /* WD109.mp3 in Resources */,
 				8CFF426B1E9BBED6003CC737 /* WD209.mp3 in Resources */,
+				8CA094611EC2E0A20086F709 /* WD310.mp3 in Resources */,
 				8CFF42731E9BBED6003CC737 /* WD217.mp3 in Resources */,
 				8C98B6AA1E9DD9D700B60509 /* feedback_add_image@2x.png in Resources */,
 				8C7C0E4B1E8F5956008B5D18 /* SVProgressHUD.bundle in Resources */,
+				8CA094621EC2E0A20086F709 /* WD309.mp3 in Resources */,
+				8CA0945D1EC2E0A20086F709 /* WD314.mp3 in Resources */,
 				8C83CD7E1E84F3130041FE56 /* WD105.mp3 in Resources */,
 				8C83CD881E84F3130041FE56 /* WD115.mp3 in Resources */,
+				8CA094671EC2E0A20086F709 /* WD304.mp3 in Resources */,
 				8CFF42661E9BBED6003CC737 /* WD204.mp3 in Resources */,
 				8CFF427D1E9BC57B003CC737 /* help.txt in Resources */,
 				8C83CD831E84F3130041FE56 /* WD110.mp3 in Resources */,
 				8C83CD8A1E84F3130041FE56 /* WD117.mp3 in Resources */,
 				8C98B6AE1E9DD9D700B60509 /* feedback_btn@2x.png in Resources */,
 				8C83CD871E84F3130041FE56 /* WD114.mp3 in Resources */,
+				8CA094651EC2E0A20086F709 /* WD306.mp3 in Resources */,
 				8CF8CD4F1E66560B00A50AE3 /* Main.storyboard in Resources */,
 				8C83CD7D1E84F3130041FE56 /* WD104.mp3 in Resources */,
 				8C83CD8B1E84F3130041FE56 /* WD118.mp3 in Resources */,
@@ -798,24 +865,29 @@
 				8CFF42761E9BBED6003CC737 /* WD220.mp3 in Resources */,
 				8C83CD861E84F3130041FE56 /* WD113.mp3 in Resources */,
 				8C98B6AC1E9DD9D700B60509 /* feedback_bg_1@2x.png in Resources */,
+				8CA0945B1EC2E0A20086F709 /* WD316.mp3 in Resources */,
 				8C98B6B01E9DD9D700B60509 /* feedback_warning@2x.png in Resources */,
 				8CB41E6D1E9B25CE007EB93F /* PortraitBoardCell.xib in Resources */,
 				8CF083FB1E8F3D4800D5092B /* Launch Screen.storyboard in Resources */,
 				8C83CD7C1E84F3130041FE56 /* WD103.mp3 in Resources */,
 				8C83CD891E84F3130041FE56 /* WD116.mp3 in Resources */,
 				8C83CD8D1E84F3130041FE56 /* WD120.mp3 in Resources */,
+				8CA094591EC2E0A20086F709 /* WD318.mp3 in Resources */,
 				8CFF42741E9BBED6003CC737 /* WD218.mp3 in Resources */,
 				8CF8CD7B1E66575100A50AE3 /* WordBoardViewController.xib in Resources */,
 				8CFF42671E9BBED6003CC737 /* WD205.mp3 in Resources */,
 				8C83CD8C1E84F3130041FE56 /* WD119.mp3 in Resources */,
 				8C1F91B71E80C9CF0071209E /* WordsListViewController.xib in Resources */,
 				8CFF42631E9BBED6003CC737 /* WD201.mp3 in Resources */,
+				8CA094641EC2E0A20086F709 /* WD307.mp3 in Resources */,
 				8C98B6AB1E9DD9D700B60509 /* feedback_back@2x.png in Resources */,
 				8CF0840E1E8F580600D5092B /* CustomThemeViewController.xib in Resources */,
+				8CA094661EC2E0A20086F709 /* WD305.mp3 in Resources */,
 				8C0B1AD01E69D125003DBE7F /* ClassesListViewController.xib in Resources */,
 				8C83CD7F1E84F3130041FE56 /* WD106.mp3 in Resources */,
 				8C83CD841E84F3130041FE56 /* WD111.mp3 in Resources */,
 				8C83CD7B1E84F3130041FE56 /* WD102.mp3 in Resources */,
+				8CA0945C1EC2E0A20086F709 /* WD315.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
