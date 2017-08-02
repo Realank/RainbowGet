@@ -9,8 +9,8 @@
 #import "WordCell.h"
 
 @interface WordCell ()
-@property (weak, nonatomic) IBOutlet UILabel *japaneseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nakaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 @property (weak, nonatomic) IBOutlet UILabel *chineseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
@@ -49,13 +49,8 @@
 
 - (void)setWord:(WordModel *)word{
     _word = word;
-    if (word.japanese.length > 0) {
-        _japaneseLabel.text = word.japanese;
-        _nakaLabel.text = word.kana;
-    }else{
-        _japaneseLabel.text = word.kana;
-        _nakaLabel.text = @"";
-    }
+    _secondLabel.text = word.japanese;
+    _firstLabel.text = word.kana;
     _chineseLabel.text = word.chinese;
     
     if ([word typeString].length > 6) {

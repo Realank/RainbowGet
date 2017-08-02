@@ -99,7 +99,7 @@
     BOOL isAdd = !sender.selected;
     WordModel* word = _aclass.words[_wordIndex];
     if (isAdd) {
-        if (![PersistWords worldExist:word]) {
+        if (![PersistWords wordExist:word]) {
             [PersistWords addWord:word];
         }
     }else{
@@ -167,7 +167,7 @@
 - (void)playSound{
     WordModel* word = _aclass.words[_wordIndex];
     if (word.audiofile.length > 0) {
-        [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime];
+        [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime complete:nil interrupt:nil];
     }
     
 }
@@ -207,7 +207,7 @@
 
 - (void)refreshWord{
     WordModel* word = _aclass.words[_wordIndex];
-    _aNewWordButton.selected = [PersistWords worldExist:word];
+    _aNewWordButton.selected = [PersistWords wordExist:word];
     
     _playButton.enabled = [CommTool hasAudioFile:word.audiofile];
     _rewindButton.enabled = _wordIndex != 0;

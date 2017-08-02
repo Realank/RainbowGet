@@ -9,8 +9,9 @@
 #import "NarrowWordCell.h"
 
 @interface NarrowWordCell ()
-@property (weak, nonatomic) IBOutlet UILabel *japaneseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nakaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstlineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondLineLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *chineseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
@@ -24,8 +25,8 @@
     self.backgroundColor = [ThemeColor currentColor].tintColor;
     self.selectedBackgroundView = [[UIView alloc] init];
     self.selectedBackgroundView.backgroundColor = [ThemeColor currentColor].selectedTintColor;
-    _japaneseLabel.textColor = [ThemeColor currentColor].foreColor;
-    _nakaLabel.textColor = [ThemeColor currentColor].foreColor;
+    _firstlineLabel.textColor = [ThemeColor currentColor].foreColor;
+    _secondLineLabel.textColor = [ThemeColor currentColor].foreColor;
     _chineseLabel.textColor = [ThemeColor currentColor].foreColor;
     _typeLabel.textColor = DefaultGrayColor;
 }
@@ -47,13 +48,8 @@
 
 - (void)setWord:(WordModel *)word{
     _word = word;
-    if (word.japanese.length > 0) {
-        _japaneseLabel.text = word.japanese;
-        _nakaLabel.text = word.kana;
-    }else{
-        _japaneseLabel.text = word.kana;
-        _nakaLabel.text = @"";
-    }
+    _secondLineLabel.text = word.japanese;
+    _firstlineLabel.text = word.kana;
     _chineseLabel.text = word.chinese;
     
     _typeLabel.text = [NSString stringWithFormat:@"%@ %@",[word typeString],[word toneString]];

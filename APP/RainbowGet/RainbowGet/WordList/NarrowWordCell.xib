@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,7 @@
                             <constraint firstAttribute="width" constant="1" id="UMw-kL-F0D"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naka" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mix-Hc-b4P">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secondLineLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mix-Hc-b4P">
                         <rect key="frame" x="0.0" y="69" width="180" height="18"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="18"/>
                         <color key="textColor" red="0.98394996759999998" green="0.9073435514" blue="0.76342652990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,7 +38,7 @@
                         <color key="textColor" red="0.98394996759999998" green="0.9073435514" blue="0.76342652990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Japanese" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnL-Ts-yaa">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="firstLineLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnL-Ts-yaa">
                         <rect key="frame" x="0.0" y="34" width="180" height="18"/>
                         <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="18"/>
                         <color key="textColor" red="0.98394996759999998" green="0.9073435514" blue="0.76342652990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,8 +82,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="chineseLabel" destination="yW9-cW-TjR" id="vSN-qS-DQ6"/>
-                <outlet property="japaneseLabel" destination="wnL-Ts-yaa" id="igO-PL-eQX"/>
-                <outlet property="nakaLabel" destination="mix-Hc-b4P" id="BqD-q2-4Cj"/>
+                <outlet property="firstlineLabel" destination="wnL-Ts-yaa" id="zr8-g0-HL5"/>
+                <outlet property="secondLineLabel" destination="mix-Hc-b4P" id="1qo-vb-KVL"/>
                 <outlet property="typeLabel" destination="ZqC-MH-9Qs" id="tMe-DO-xVD"/>
             </connections>
             <point key="canvasLocation" x="-28" y="-6.5"/>

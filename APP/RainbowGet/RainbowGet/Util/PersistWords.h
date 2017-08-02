@@ -14,6 +14,6 @@
 +(NSArray<WordModel*>*)allWords;
 +(void)addWord:(WordModel*)word;
 +(void)delWord:(WordModel*)word;
-+(BOOL)worldExist:(WordModel*)word;
++(BOOL)wordExist:(WordModel*)word;
 
 @end

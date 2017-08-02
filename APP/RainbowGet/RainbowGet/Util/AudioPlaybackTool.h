@@ -17,6 +17,6 @@
 - (void)stopAndCloseFile;
 
 
-- (BOOL)playbackAudioFile:(NSString*)filename fromTime:(NSTimeInterval)from withDuration:(NSTimeInterval)duration;
+- (BOOL)playbackAudioFile:(NSString*)filename fromTime:(NSTimeInterval)from withDuration:(NSTimeInterval)duration complete:(void(^)())completeBlock interrupt:(void(^)())interruptBlock;
 
 @end

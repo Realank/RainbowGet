@@ -290,7 +290,7 @@
         NSLog(@"删除失败");
     }
 }
-+(BOOL)worldExist:(WordModel*)word{
++(BOOL)wordExist:(WordModel*)word{
     if (![self dbFileExist]) {
         return NO;
     }

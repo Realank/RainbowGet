@@ -11,12 +11,13 @@
 #import "NarrowWordCell.h"
 #import "WordModel.h"
 #import "AudioPlaybackTool.h"
-
+#import "RLKTTS.h"
 @interface WordsListViewController ()
 
 @property (nonatomic, assign) BOOL autoPlaying;
 @property (nonatomic, assign) NSInteger autoPlayIndex;
 @property (weak, nonatomic) UIBarButtonItem* barbutton;
+@property (weak, nonatomic) UIButton* readChinesebutton;
 @end
 
 @implementation WordsListViewController
@@ -32,13 +33,36 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     WordModel* word = _aclass.words.firstObject;
     if ([CommTool hasAudioFile:word.audiofile]) {
+        UIButton* readChineseBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 65, 30)];
+        [readChineseBtn setTitle:@"读中文" forState:UIControlStateNormal];
+        [readChineseBtn setTitleColor:[ThemeColor currentColor].tintColor forState:UIControlStateNormal];
+        [readChineseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [readChineseBtn addTarget:self action:@selector(readChineseAction) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem* readChineseBarBtn = [[UIBarButtonItem alloc] initWithCustomView:readChineseBtn];
         UIBarButtonItem* barbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(loopPlaySound)];
         _barbutton = barbutton;
-        [self.navigationItem setRightBarButtonItem:barbutton];
+        _readChinesebutton = readChineseBtn;
+        [self.navigationItem setRightBarButtonItems:@[barbutton,readChineseBarBtn]];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"should_read_chinese"]) {
+            [self readChineseAction];
+        }
         self.tableView.allowsSelection = YES;
     }else{
         self.tableView.allowsSelection = NO;
     }
+    
+    
+}
+
+- (BOOL)shouldReadChinese{
+    return _readChinesebutton.selected;
+}
+
+- (void)readChineseAction{
+    _readChinesebutton.selected = ![self shouldReadChinese];
+    _readChinesebutton.backgroundColor = [self shouldReadChinese] ? [ThemeColor currentColor].tintColor : [UIColor clearColor];
+    _readChinesebutton.layer.cornerRadius = 5;
+    [[NSUserDefaults standardUserDefaults] setBool:[self shouldReadChinese] forKey:@"should_read_chinese"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -49,6 +73,7 @@
 - (void)loopPlaySound{
     if (_autoPlaying) {
         self.autoPlaying = NO;
+        [RLKTTS stop];
         [[AudioPlaybackTool sharedInstance] stopAndCloseFile];
     }else{
         self.autoPlaying = YES;
@@ -91,7 +116,13 @@
         WordModel* word = _aclass.words[_autoPlayIndex];
         if (word.audiofile.length > 0) {
             BOOL playResult = [[AudioPlaybackTool sharedInstance] playLoadedAudioFileFromTime:word.starttime withDuration:word.periodtime complete:^{
-                [self loopPlay];
+                if ([self shouldReadChinese]) {
+                    [RLKTTS speekChinese:word.chinese complete:^{
+                        [self loopPlay];
+                    }];
+                }else{
+                   [self loopPlay];
+                }
             } interrupt:^{
                 self.autoPlaying = NO;
             }];
@@ -158,7 +189,16 @@
     }
     WordModel* word = _aclass.words[indexPath.row];
     if (word.audiofile.length > 0) {
-        [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime];
+        [[AudioPlaybackTool sharedInstance] playbackAudioFile:word.audiofile fromTime:word.starttime withDuration:word.periodtime complete:^{
+            if ([self shouldReadChinese]) {
+                [RLKTTS speekChinese:word.chinese complete:^{
+                    
+                }];
+            }
+            
+        } interrupt:^{
+            
+        }];
     }
 }
 

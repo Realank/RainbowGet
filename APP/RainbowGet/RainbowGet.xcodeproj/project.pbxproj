@@ -21,6 +21,7 @@
 		8C1F91C11E80F2580071209E /* introduce.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F91C01E80F2580071209E /* introduce.txt */; };
 		8C62AB081EAF1E0C00469F23 /* NarrowWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C62AB061EAF1E0C00469F23 /* NarrowWordCell.m */; };
 		8C62AB091EAF1E0C00469F23 /* NarrowWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62AB071EAF1E0C00469F23 /* NarrowWordCell.xib */; };
+		8C69A0131F31703900A83E07 /* RLKTTS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C69A0121F31703900A83E07 /* RLKTTS.m */; };
 		8C7C0E491E8F5956008B5D18 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E401E8F5956008B5D18 /* SVIndefiniteAnimatedView.m */; };
 		8C7C0E4A1E8F5956008B5D18 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C0E421E8F5956008B5D18 /* SVProgressAnimatedView.m */; };
 		8C7C0E4B1E8F5956008B5D18 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8C7C0E441E8F5956008B5D18 /* SVProgressHUD.bundle */; };
@@ -175,6 +176,8 @@
 		8C62AB051EAF1E0C00469F23 /* NarrowWordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NarrowWordCell.h; sourceTree = "<group>"; };
 		8C62AB061EAF1E0C00469F23 /* NarrowWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NarrowWordCell.m; sourceTree = "<group>"; };
 		8C62AB071EAF1E0C00469F23 /* NarrowWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NarrowWordCell.xib; sourceTree = "<group>"; };
+		8C69A0111F31703900A83E07 /* RLKTTS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLKTTS.h; sourceTree = "<group>"; };
+		8C69A0121F31703900A83E07 /* RLKTTS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLKTTS.m; sourceTree = "<group>"; };
 		8C7C0E3F1E8F5956008B5D18 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		8C7C0E401E8F5956008B5D18 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		8C7C0E411E8F5956008B5D18 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 				8CF8CD871E66645800A50AE3 /* WordModel.m */,
 				8C98B6B31E9F0D3400B60509 /* Reachability.h */,
 				8C98B6B41E9F0D3400B60509 /* Reachability.m */,
+				8C69A0111F31703900A83E07 /* RLKTTS.h */,
+				8C69A0121F31703900A83E07 /* RLKTTS.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -989,6 +994,7 @@
 				8C7C0E491E8F5956008B5D18 /* SVIndefiniteAnimatedView.m in Sources */,
 				8C98B6A31E9DD9D700B60509 /* LCUserFeedbackAgent.m in Sources */,
 				8C1F91BF1E80F1F00071209E /* PopUpBigViewForNotice.m in Sources */,
+				8C69A0131F31703900A83E07 /* RLKTTS.m in Sources */,
 				8C7C0E4A1E8F5956008B5D18 /* SVProgressAnimatedView.m in Sources */,
 				8C7D403D1E6AF26B0024D5FD /* DrawView.m in Sources */,
 				8C1F91B61E80C9CF0071209E /* WordsListViewController.m in Sources */,

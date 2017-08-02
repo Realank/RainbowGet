@@ -49,8 +49,8 @@
     AVAudioSession *audioSession=[AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
     [audioSession setActive:YES error:nil];
-    _completeBlock = nil;
-    _interruptBlock = nil;
+//    _completeBlock = nil;
+//    _interruptBlock = nil;
     NSString *urlStr=[[NSBundle mainBundle]pathForResource:filename ofType:@"mp3"];
     if (urlStr.length == 0) {
         NSLog(@"not found");
@@ -101,15 +101,21 @@
         [_audioTimer invalidate];
         _audioTimer = nil;
     }
+    
+    
+    
     if (_shouldKeepReadyWhenPause) {
         [_audioPlayer pause];
+        if (_completeBlock) {
+            _completeBlock();
+        }
     }else{
+        if (_completeBlock) {
+            _completeBlock();
+        }
         [self stopAndCloseFile];
     }
-    if (_completeBlock) {
-        _completeBlock();
-        
-    }
+    
 }
 
 - (void)stopAndCloseFile{
@@ -123,14 +129,22 @@
     [audioSession setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
 }
 
-- (BOOL)playbackAudioFile:(NSString*)filename fromTime:(NSTimeInterval)from withDuration:(NSTimeInterval)duration{
+- (BOOL)playbackAudioFile:(NSString*)filename fromTime:(NSTimeInterval)from withDuration:(NSTimeInterval)duration complete:(void(^)())completeBlock interrupt:(void(^)())interruptBlock{
     
     BOOL success = [self loadAudioFile:filename];
     if (!success) {
         return NO;
     }
     
-    success = [self playLoadedAudioFileFromTime:from withDuration:duration complete:nil interrupt:nil];
+    success = [self playLoadedAudioFileFromTime:from withDuration:duration complete:^{
+        if (completeBlock) {
+            completeBlock();
+        }
+    } interrupt:^{
+        if (interruptBlock) {
+            interruptBlock();
+        }
+    }];
     
     _shouldKeepReadyWhenPause = NO;
     return success;

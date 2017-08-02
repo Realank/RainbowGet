@@ -110,10 +110,22 @@
 @end
 @implementation ClassModel
 
+
+/**
+ Generate a key for this class, you can use this key to record some configs for this class
+
+ @return a book-class string
+ */
 - (NSString*)wordBookKey{
     return [NSString stringWithFormat:@"%@-%@",self.bookName,self.className];
 }
 
+
+/**
+ Load words of this class
+
+ @param completeBlock load complete classback
+ */
 - (void)loadWordsWithComplete:(void (^)())completeBlock{
     if (self.words.count) {
         if (completeBlock) {
