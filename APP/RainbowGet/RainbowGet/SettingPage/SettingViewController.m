@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 4;
 }
 
 
@@ -71,15 +71,15 @@
             
         }
             break;
+//        case 3:
+//        {
+//            cell.textLabel.text = @"支付宝打赏";
+//            cell.detailTextLabel.text = @"realank@126.com";
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//            
+//        }
+//            break;
         case 3:
-        {
-            cell.textLabel.text = @"支付宝打赏";
-            cell.detailTextLabel.text = @"realank@126.com";
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            
-        }
-            break;
-        case 4:
         {
             cell.textLabel.text = @"意见反馈";
             cell.detailTextLabel.text = @"";
@@ -130,7 +130,7 @@
             [PopUpBigViewForNotice showAppHelp];
         }
             break;
-        case 4:
+        case 3:
         {
             LCUserFeedbackViewController *feedbackViewController = [[LCUserFeedbackViewController alloc] init];
             feedbackViewController.feedbackTitle = @"意见反馈";
